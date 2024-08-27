@@ -1,0 +1,15 @@
+@keyframes backgroundFade {
+  from {
+    background-color: #1a064f;
+    
+  }
+
+  to {
+    background-color: #270B79;
+    
+  }
+}
+
+.background {
+  /*animation: backgroundFade 5s infinite;*/
+}

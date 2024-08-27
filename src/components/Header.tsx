@@ -34,7 +34,7 @@ export default function Header() {
                 {link.label}
               </div>
               {link.dropdown && (
-                <div className="absolute left-0 w-[150px] hidden group-hover:block bg-white text-gray-800 rounded-lg p-5 shadow-lg">
+                <div className="absolute left-0 w-[200px] hidden group-hover:block bg-white text-gray-800 rounded-lg p-5 shadow-lg">
                   {link.dropdown.map((item, idx) => (
                     <a
                       key={idx}
