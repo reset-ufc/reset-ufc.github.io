@@ -1,22 +1,33 @@
-import Collection from "../../components/Collection"
-export default function Home() {
+import Collection from "../../components/Collection";
+import CarouselSection from "../../components/CarouselSection";
 
+export default function Home() {
   const handleScroll = () => {
     const nextSection = document.getElementById("next-section");
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: "smooth" });
     }
   };
-  
+
   return (
-    <div className="pt-28">
+    <div className="pt-28 relative w-full h-screen">
       <Collection />
-      <div className="scroll-icon" onClick={handleScroll}>
-        <span></span>
+      
+      <div className="animate-fade-right animate-once animate-alternate">
+        <h1 className="text-white flex justify-center text-4xl font-bold">Artigos</h1>
+        <CarouselSection />
       </div>
-      <div id="next-section" className="next-section">
-        {/* Conteúdo da próxima seção */}
+      <div
+        className="absolute bottom-[100px] left-1/2 transform animate-bounce -translate-x-1/2 cursor-pointer"
+        onClick={handleScroll}
+      >
+        <span className="block w-6 h-6 border-2 border-white rounded-full"></span>
+      </div>
+
+      {/* Próxima seção */}
+      <div id="next-section" className="flex items-center justify-center">
+        {/* Adicione o conteúdo da próxima seção aqui */}
       </div>
     </div>
-  )
+  );
 }

@@ -5,7 +5,7 @@ import "./index.css";
 export default function Collection() {
 
   return (
-    <div className="flex justify-center items-center ">
+    <div className="flex justify-center items-center animate-fade animate-once animate-alternate">
       <div className="flex justify-evenly w-full h-[400px] items-center">
         <div className="flex flex-col justify-center text-white">
           <h1 className="text-6xl font-bold">RESETLAB</h1>

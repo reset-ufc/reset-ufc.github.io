@@ -39,9 +39,8 @@ export default function Header() {
                     <a
                       key={idx}
                       href="#"
-                      className="relative bg-white block py-1 text-gray-500 hover:text-gray-500 transition-all"
+                      className="relative bg-white block py-1 text-gray-500 hover:text-black transition"
                     >
-                      <span className="absolute left-0 top-1/2 transform -translate-y-1/2 w-0 h-0.5 bg-[#ec642a] transition-all duration-300 ease-out group-hover:w-4"></span>
                       <span className="pl-5 bg-white">{item}</span>
                     </a>
                   ))}

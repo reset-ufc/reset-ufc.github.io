@@ -1,32 +1,30 @@
+
+
 .scroll-icon {
-    position: absolute;
-    bottom: 27%;
-    left: 50%;
-    transform: translateX(-50%);
-    cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.scroll-icon span {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border: 2px solid white;
+  border-radius: 50%;
+  animation: scroll 2s infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
   }
-  
-  .scroll-icon span {
-    display: block;
-    width: 24px;
-    height: 24px;
-    border: 2px solid white;
-    border-radius: 50%;
-    animation: scroll 2s infinite;
+  50% {
+    transform: translateY(10px);
   }
-  
-  @keyframes scroll {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(10px);
-    }
-    100% {
-      transform: translateY(0);
-    }
+  100% {
+    transform: translateY(0);
   }
-  
-  .next-section {
-    background-color: #270B79; 
-  }
+}
