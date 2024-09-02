@@ -18,26 +18,18 @@ export default function CarouselSection() {
     {
       title:
         "Execuções Fiscais – Cartas e Mandados de Citação Tribunal de Justiça do Ceará",
-      color: "bg-gray-300",
-      hover: "bg-[#ec642a]"
     },
     {
       title:
         "Jornada de Inovação – Direito e Linguagem no Setor Público – Edição INMETRO",
-      color: "bg-[#ec642a]",
-      hover: "bg-gray-300"
     },
     {
       title:
         "Jornada De Inovação – Direito E Linguagem No Setor Público – Edição Sobral",
-      color: "bg-gray-300",
-      hover: "bg-[#ec642a]"
     },
     {
       title:
         "(Re)design de Serviço Público – Filas de Cirurgias Eletivas do Estado do Ceará",
-      color: "bg-[#ec642a]",
-      hover: "bg-gray-300"
     }
   ];
 
@@ -49,7 +41,7 @@ export default function CarouselSection() {
             key={index}
             className="p-4 cursor-pointer "
           >
-            <div className={`${item.color} transition p-8 hover:${item.hover}  text-black font-bold  h-32`}>
+            <div className={`bg-gray-300 rounded-md  hover:bg-[#ec642a] hover:text-white transition p-8  text-black font-bold  h-32`}>
               <p className={`bg-inherit transition-transform  ease-in-out hover:-translate-y-1 hover:scale-70`}>{item.title}</p>
             </div>
           </div>
