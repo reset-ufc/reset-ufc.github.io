@@ -52,21 +52,21 @@ export default function Home() {
 
       <div id="next-section" className="">
         <div className="animate-fade-right animate-once animate-alternate">
-          <h1 className="text-white flex justify-center text-4xl font-bold">
+          <h1 className="text-white flex justify-center text-4xl font-Lufga-ExtraBold">
             Artigos
           </h1>
           <CarouselSection />
         </div>
         <div className="animate-fade-right animate-once animate-alternate py-8">
-          <h1 className="text-white flex justify-center text-4xl font-bold">
+          <h1 className="text-white flex justify-center text-4xl font-Lufga-ExtraBold">
             Portifólio
           </h1>
-          <h2 className="text-white flex justify-center text-lg font-semibold">
+          <h2 className="text-white flex justify-center text-lg font-Lufga-Regular">
             Dê uma olhada em alguns dos nossos projetos
           </h2>
           <Portifolio />
         </div>
-        
+
         <div
           className="absolute bottom-[50px] left-1/2 transform animate-bounce -translate-x-1/2 cursor-pointer"
           onClick={handleScrollBottom}

@@ -40,7 +40,7 @@ export default function CarouselSection() {
             key={index}
             className="p-4 cursor-pointer "
           >
-            <div className={`bg-gray-300 rounded-md  hover:bg-[#ec642a] hover:text-white transition p-8  text-black font-bold  h-32`}>
+            <div className={`bg-gray-300 rounded-md  hover:bg-[#ec642a] hover:text-white transition p-8  text-black font-Lufga-ExtraBold  h-32`}>
               <p className={`bg-inherit transition-transform  ease-in-out hover:-translate-y-1 hover:scale-70`}>{item.title}</p>
             </div>
           </div>

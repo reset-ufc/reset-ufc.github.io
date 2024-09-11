@@ -37,7 +37,7 @@ export default function Header() {
             <div key={index} className="relative group h-full">
               <a
                 onClick={() => navigate("/" + link.path)} 
-                className="transition h-full flex items-center cursor-pointer font-bold hover:text-[#ec642a]"
+                className="transition h-full flex items-center cursor-pointer font-Lufga-ExtraBold hover:text-[#ec642a]"
               >
                 {link.label}
               </a>
@@ -47,7 +47,7 @@ export default function Header() {
                     <a
                       key={idx}
                       href={item.path} 
-                      className="relative bg-white block py-1 text-gray-500 hover:text-black transition"
+                      className="relative bg-white block font-Lufga-Regular hover:font-Lufga-ExtraBold py-1 text-gray-500 hover:text-black transition"
                     >
                       <span className="pl-5 bg-white cursor-pointer">{item}</span>
                     </a>

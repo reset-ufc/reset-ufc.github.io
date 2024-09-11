@@ -1,43 +1,67 @@
-import { animate } from "../constants/animate";
-import { Avatar, AvatarImage } from "./ui/avatar";
-import { Card, CardContent } from "./ui/card";
-import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Navigation, Pagination } from 'swiper/modules';
 
-export default function Portifolio() {
-  const members = [
+export default function Portfolio() {
+  const projects = [
     {
-      name: "Freire Assistant",
-      role: "Assistente Virtual sobre Editais da UFC",
-      image: "/public/freire_icon.png",
+      name: "Project 1",
+      description: "Description of Project 1",
+      image: "https://i.pinimg.com/736x/2b/74/7b/2b747b71b782a8833f2b3ad9b0e37cd1.jpg",
+      link: "https://example1.com",
     },
+    {
+      name: "Project 2",
+      description: "Description of Project 2",
+      image: "https://i.pinimg.com/564x/3c/c2/6c/3cc26c0140c2f0dc70d8aa48416c41dc.jpg",
+      link: "https://example2.com",
+    },
+    {
+      name: "Project 3",
+      description: "Description of Project 3",
+      image: "https://i.pinimg.com/564x/fa/4f/cf/fa4fcfd2db636f98eb0f2b5aecce0c28.jpg",
+      link: "https://example3.com",
+    },
+    // Adicione mais projetos conforme necessário
   ];
 
   return (
-    <section id="about-us" className="py-10">
-      <div className="container flex justify-center cursor-pointer mx-auto px-4">
-        <div className="flex gap-8">
-          {members.map((member, index) => (
-            <motion.div
-              key={index}
-              {...animate}
-              transition={{ duration: 0.15, delay: index * 0.2 }}
-            >
-              <Card className="group text-center shadow-lg rounded-md ease-in-out hover:bg-gray-300 hover:-translate-y-1 hover:scale-105 duration-300 p-6 border-[3px] hover:border-primary transition-all">
-                <CardContent className="flex bg-inherit flex-col items-center text-white text-center">
-                  <Avatar>
-                    <AvatarImage src={member.image} alt={member.name} />
-                  </Avatar>
-                  <h3 className="text-xl font-semibold mb-2 bg-inherit group-hover:text-black">
-                    {member.name}
-                  </h3>
-                  <p className="text-muted-foreground bg-inherit mb-2 group-hover:text-black ">
-                    {member.role}
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
+    <section className="py-10" style={{ backgroundColor: '#270B79' }}>
+      <div className="container mx-auto px-4">
+        <Swiper
+          modules={[Navigation, Pagination]}
+          spaceBetween={30}
+          slidesPerView={3} 
+          navigation
+          pagination={{ clickable: true }}
+        >
+          {projects.map((project, index) => (
+            <SwiperSlide key={index}>
+              <div
+                className="relative border-8 border-black shadow-xl bg-cover bg-center"
+                style={{
+                  backgroundImage: `url(${project.image})`,
+                  height: '300px',
+                }}
+              >
+                <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-8 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                  <h1 className="text-white text-xl uppercase group-hover:text-orange-500">
+                    {project.name}
+                  </h1>
+                  <p className="text-white opacity-80">{project.description}</p>
+                  <a
+                    href={project.link}
+                    className="mt-4 inline-block bg-orange-500 text-white px-4 py-2 rounded-full"
+                  >
+                    Conhecer Projeto
+                  </a>
+                </div>
+              </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </section>
   );
