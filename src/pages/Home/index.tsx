@@ -4,9 +4,12 @@ import Portifolio from "../../components/portifolio";
 import { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { TeamMember } from "../../components/TeamCollection";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const [showButton, setShowButton] = useState(false);
+  const navigate = useNavigate();
 
   const handleScrollBottom = () => {
     const nextSection = document.getElementById("next-section");
@@ -34,6 +37,10 @@ export default function Home() {
     });
   };
 
+  const handleSeeAllMembers = () => {
+    navigate("/members");
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", handleScrollTop);
     return () => window.removeEventListener("scroll", handleScrollTop);
@@ -59,6 +66,7 @@ export default function Home() {
           </h2>
           <Portifolio />
         </div>
+        
         <div
           className="absolute bottom-[50px] left-1/2 transform animate-bounce -translate-x-1/2 cursor-pointer"
           onClick={handleScrollBottom}
@@ -76,7 +84,10 @@ export default function Home() {
           exit={{ opacity: 0, scale: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <FaArrowUp size={20} className="bg-inherit transition ease-in-out hover:-translate-y-2 duration-300" />
+          <FaArrowUp
+            size={20}
+            className="bg-inherit transition ease-in-out hover:-translate-y-2 duration-300"
+          />
         </motion.button>
       )}
     </div>

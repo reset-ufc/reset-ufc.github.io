@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import TeamInterface from "./components/TeamCollection";
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <Routes>
       <Route path="*" element={<Home/>} />
       <Route path="/" element={<Home/>} />
+      <Route path="/members" element={<TeamInterface/>}/>
     </Routes>
   )
 }
