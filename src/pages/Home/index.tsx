@@ -4,12 +4,11 @@ import Portifolio from "../../components/portifolio";
 import { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { TeamMember } from "../../components/TeamCollection";
+import ResearchArea from "../../components/ResearchArea";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const [showButton, setShowButton] = useState(false);
-  const navigate = useNavigate();
 
   const handleScrollBottom = () => {
     const nextSection = document.getElementById("next-section");
@@ -37,10 +36,6 @@ export default function Home() {
     });
   };
 
-  const handleSeeAllMembers = () => {
-    navigate("/members");
-  };
-
   useEffect(() => {
     window.addEventListener("scroll", handleScrollTop);
     return () => window.removeEventListener("scroll", handleScrollTop);
@@ -50,7 +45,12 @@ export default function Home() {
     <div className="pt-20 relative w-full h-screen">
       <Collection />
 
-      <div id="next-section" className="">
+      <div id="next-section" className="h-24" />
+      <div  className="bg-white">
+        <ResearchArea />
+      </div>
+
+      <div className="">
         <div className="animate-fade-right animate-once animate-alternate">
           <h1 className="text-white flex justify-center text-4xl font-Lufga-ExtraBold">
             Artigos
