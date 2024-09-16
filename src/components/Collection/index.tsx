@@ -12,7 +12,6 @@ export default function Collection() {
 
   return (
     <div className="relative flex justify-center items-center animate-fade animate-once animate-alternate bg-[#270B79]">
-      {/* Background Animation */}
       <div className="area">
         <ul className="circles">
           <li></li>
