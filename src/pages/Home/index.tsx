@@ -4,12 +4,11 @@ import Portifolio from "../../components/portifolio";
 import { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { TeamMember } from "../../components/TeamCollection";
+import ResearchArea from "../../components/ResearchArea";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const [showButton, setShowButton] = useState(false);
-  const navigate = useNavigate();
 
   const handleScrollBottom = () => {
     const nextSection = document.getElementById("next-section");
@@ -37,22 +36,21 @@ export default function Home() {
     });
   };
 
-  const handleSeeAllMembers = () => {
-    navigate("/members");
-  };
-
   useEffect(() => {
     window.addEventListener("scroll", handleScrollTop);
     return () => window.removeEventListener("scroll", handleScrollTop);
   }, []);
 
   return (
-    <div className="pt-20 relative w-full h-screen">
+    <div className=" relative w-full">
       <Collection />
 
       <div id="next-section" className="">
+        <div  className="bg-white py-16">
+          <ResearchArea />
+        </div>
         <div className="animate-fade-right animate-once animate-alternate">
-          <h1 className="text-white flex justify-center text-4xl font-Lufga-ExtraBold">
+          <h1 className="text-white flex justify-center text-4xl pt-6 font-Lufga-ExtraBold">
             Artigos
           </h1>
           <CarouselSection />
@@ -68,10 +66,10 @@ export default function Home() {
         </div>
 
         <div
-          className="absolute bottom-[50px] left-1/2 transform animate-bounce -translate-x-1/2 cursor-pointer"
+          className="absolute top-[860px] bg-transparent left-1/2 transform animate-bounce -translate-x-1/2 cursor-pointer"
           onClick={handleScrollBottom}
         >
-          <span className="block w-6 h-6 border-2 border-white rounded-full"></span>
+          <span className="block w-6 h-6 border-2 bg-inherit border-white rounded-full"></span>
         </div>
       </div>
 
