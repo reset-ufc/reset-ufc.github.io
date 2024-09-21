@@ -1,11 +1,11 @@
 import Collection from "../../components/Collection";
 import CarouselSection from "../../components/CarouselSection";
 import Portifolio from "../../components/portifolio";
+import StatsSection from "../../components/StatsSection";
 import { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import { motion } from "framer-motion";
 import ResearchArea from "../../components/ResearchArea";
-import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const [showButton, setShowButton] = useState(false);
@@ -42,14 +42,14 @@ export default function Home() {
   }, []);
 
   return (
-    <div className=" relative w-full">
+    <div className="relative w-full">
       <Collection />
 
       <div id="next-section" className="">
         <div  className="bg-white py-16">
           <ResearchArea />
         </div>
-        <div className="animate-fade-right animate-once animate-alternate">
+        <div className="animate-fade-right animate-once animate-alternate bg-[#270B79]">
           <h1 className="text-white flex justify-center text-4xl pt-6 font-Lufga-ExtraBold">
             Artigos
           </h1>
@@ -63,6 +63,7 @@ export default function Home() {
             Dê uma olhada em alguns dos nossos projetos
           </h2>
           <Portifolio />
+          <StatsSection />
         </div>
 
         <div
