@@ -1,32 +1,48 @@
 import { useNavigate } from "react-router-dom";
+import reset_image from '/public/logo.png'
 
 const links = [
   {
     label: "Início",
-    dropdown: ["Sobre", "Time"]
+    path: "",
+    dropdown: [
+      { label: "Sobre", path: "about" },
+      { label: "Time", path: "team" }
+    ]
   },
   {
     label: "Membros",
-    path: "members"
+    path: "members",
+    dropdown: []
   },
   {
     label: "Services",
-    dropdown: ["Web Development", "App Development"]
+    path: "",
+    dropdown: [
+      { label: "Web Development", path: "web-development" },
+      { label: "App Development", path: "app-development" }
+    ]
   },
   {
-    label: "Contact"
+    label: "Contact",
+    path: "",
+    dropdown: [
+      { label: "Email", path: "contact/email" },
+      { label: "Phone", path: "contact/phone" }
+    ]
   }
 ];
+
 
 export default function Header() {
   const navigate = useNavigate();
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50 shadow-lg bg-[#270B79]">
+    <div className="fixed top-0 left-0 w-full z-50 shadow-xl bg-[#270B79]">
       <header className="flex px-16 justify-between items-center p-4">
         <div >
           <img
-            src="public/logo.png"
+            src={reset_image}
             alt=""
             onClick={() => navigate("/")}
             className="w-[240px] cursor-pointer"
@@ -46,10 +62,10 @@ export default function Header() {
                   {link.dropdown.map((item, idx) => (
                     <a
                       key={idx}
-                      href={item.path} 
+                      onClick={() => navigate("/" + item.path)}
                       className="relative bg-white block font-Lufga-Regular hover:font-Lufga-ExtraBold py-1 text-gray-500 hover:text-black transition"
                     >
-                      <span className="pl-5 bg-white cursor-pointer">{item}</span>
+                      <span className="pl-5 bg-white cursor-pointer">{item.label}</span>
                     </a>
                   ))}
                 </div>
