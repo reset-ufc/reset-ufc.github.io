@@ -1,8 +1,19 @@
+import { useState, useEffect } from "react";
 import CustomButton from "../CustomButton";
 import "./index.css";
-import foto from "../../assets/logo.png";
+import vectorLeft from "/public/vetor branco.png";
+import vectorRight from "/public/Vetor Laranja.png";
 
 export default function Collection() {
+  const [animationFinished, setAnimationFinished] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAnimationFinished(true); 
+    }, 3000); 
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleScroll = () => {
     const nextSection = document.getElementById("next-section");
     if (nextSection) {
@@ -27,24 +38,35 @@ export default function Collection() {
         </ul>
       </div>
 
-        <div className="bg-transparent flex justify-evenly w-full h-[890px] items-center z-10">
-          <div className="bg-inherit flex flex-col justify-center text-white">
-            <h1 className="bg-inherit flex text-8xl font-Lufga-ExtraBold">
-              Reset
-              <h1 className="bg-inherit font-Lufga-Regular">Lab</h1>
-            </h1>
-            <p className="bg-inherit text-4xl w-[350px] font-semibold my-7">
-              Inovando na Conexão entre Software e Dados.
-            </p>
-            <CustomButton
-              children="Venha nos Conhecer"
-              onClick={handleScroll}
+      <div className="bg-transparent flex justify-evenly w-full h-[890px] items-center z-10">
+        <div className="bg-inherit flex flex-col justify-center text-white">
+          <h1 className="bg-inherit flex text-8xl font-Lufga-ExtraBold">
+            Reset
+            <h1 className="bg-inherit font-Lufga-Regular">Lab</h1>
+          </h1>
+          <p className="bg-inherit text-4xl w-[350px] font-semibold my-7">
+            Inovando na Conexão entre Software e Dados.
+          </p>
+          <CustomButton children="Venha nos Conhecer" onClick={handleScroll} />
+        </div>
+
+        <div className="bg-inherit relative">
+          <div className={`logo-container ${animationFinished ? "merged" : ""}`}>
+            {/* Vetor da esquerda */}
+            <img
+              src={vectorLeft}
+              className="logo-part left-part"
+              alt="Left Vector"
             />
-          </div>
-          <div className="bg-inherit">
-            <img src={foto} width={700} className="bg-inherit" alt="Logo ResetLab" />
+            {/* Vetor da direita */}
+            <img
+              src={vectorRight}
+              className="logo-part right-part"
+              alt="Right Vector"
+            />
           </div>
         </div>
       </div>
+    </div>
   );
 }

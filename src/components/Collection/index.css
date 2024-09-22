@@ -157,6 +157,59 @@
 	animation-duration: 11s;
 }
 
+.logo-container {
+	position: relative;
+	width: 700px;
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+  
+  .logo-part {
+	position: absolute;
+	width: 50%;
+	height: auto;
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out;
+  }
+  
+  .left-part {
+	left: 35%; /* Inicialmente fora da tela à esquerda */
+	animation: slideLeft 3s ease forwards;
+  }
+  
+  .right-part {
+	right: 15%; /* Inicialmente fora da tela à direita */
+	animation: slideRight 3s ease forwards;
+  }
+  
+  .merged .logo-part {
+	opacity: 1; /* Aparecer após a animação de união */
+  }
+  
+  @keyframes slideLeft {
+	0% {
+	  transform: translateX(-100%);
+	  opacity: 0;
+	}
+	100% {
+	  transform: translateX(0);
+	  opacity: 1;
+	}
+  }
+  
+  @keyframes slideRight {
+	0% {
+	  transform: translateX(100%);
+	  opacity: 0;
+	}
+	100% {
+	  transform: translateX(0);
+	  opacity: 1;
+	}
+  }
+
 @keyframes animate {
 	0% {
 		transform: translateY(0) rotate(0deg);

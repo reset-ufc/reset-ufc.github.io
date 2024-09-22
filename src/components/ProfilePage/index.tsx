@@ -1,4 +1,3 @@
-import React from "react";
 import { Search, Github, Mail } from "lucide-react";
 import teamMembers from "../TeamCollection/data";
 

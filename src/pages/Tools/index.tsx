@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import tools from "./data";
 import { ToolProps } from "../../types";
 
 const ToolsSection = () => {
-  const [selectedImage, setSelectedImage] = useState("");
   const [selectedTool, setSelectedTool] = useState<ToolProps>({
     id: 1,
     name: 'JNose Test',
