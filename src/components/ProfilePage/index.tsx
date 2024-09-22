@@ -11,8 +11,8 @@ export default function ProfilePage() {
   if (!member) return <div>Member not found!</div>;
 
   return (
-    <div className="bg-gray-100 pt-10">
-      <div className="relative bg-[#270B79] text-white py-16">
+    <div className="bg-gray-100 pt-20">
+      <div className="relative bg-[#270B79] text-white py-12">
         <div className="container mx-auto flex justify-center">
           <div className="flex flex-col items-center text-center">
             <img

@@ -10,3 +10,11 @@ export interface TeamMemberProps {
   github: string;
   img?: string;
 }
+
+export interface ToolProps {
+  id: number;
+  name: string;
+  description: string;
+  image: string;
+  highlight?: boolean;
+}

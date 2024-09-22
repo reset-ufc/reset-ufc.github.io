@@ -4,23 +4,17 @@ import reset_image from '/public/logo.png'
 const links = [
   {
     label: "Início",
-    path: "",
-    dropdown: [
-      { label: "Sobre", path: "about" },
-      { label: "Time", path: "team" }
-    ]
+    path: ""
   },
   {
     label: "Membros",
-    path: "members",
-    dropdown: []
+    path: "members"
   },
   {
     label: "Services",
     path: "",
     dropdown: [
-      { label: "Web Development", path: "web-development" },
-      { label: "App Development", path: "app-development" }
+      { label: "Tools", path: "tools" },
     ]
   },
   {

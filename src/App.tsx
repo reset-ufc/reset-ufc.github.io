@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import TeamInterface from "./components/TeamCollection";
 import ProfilePage from "./components/ProfilePage";
+import ToolsSection from "./pages/Tools";
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
       <Route path="/" element={<Home/>} />
       <Route path="/members" element={<TeamInterface/>}/>
       <Route path="/members/:name" element={<ProfilePage />} />
+      <Route path="/tools" element={<ToolsSection />}/>
     </Routes>
   )
 }

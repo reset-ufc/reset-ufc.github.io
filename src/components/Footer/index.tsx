@@ -5,7 +5,7 @@ const Footer = () => {
   const navigate = useNavigate();
 
   return (
-    <footer className="bg-white text-black p-5 flex flex-col justify-between w-full">
+    <footer className="bg-white text-black p-5 flex pt-14 flex-col justify-between w-full">
       {/* Parte de cima do footer (footerInfo) */}
       <div className="flex bg-inherit justify-around pb-5">
         <div className="flex-1 px-4 bg-inherit">
