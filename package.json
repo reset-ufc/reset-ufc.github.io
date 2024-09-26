@@ -1,7 +1,8 @@
 {
-  "homepage": "https://reset-ufc.github.io/site-reset",
+  "homepage": "https://reset-ufc.github.io",
   "name": "site-reset",
   "version": "0.0.0",
+  "private": false,
   "type": "module",
   "scripts": {
     "dev": "tailwindcss -i ./src/input.css -o ./src/output.css && vite",
