@@ -1,7 +1,6 @@
 {
-  "homepage": "https://reset-ufc.github.io/",
+  "homepage": "https://reset-ufc.github.io/site-reset",
   "name": "site-reset",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
