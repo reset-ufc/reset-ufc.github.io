@@ -1,5 +1,5 @@
 import { Search, Github, Mail } from "lucide-react";
-import teamMembers from "../TeamCollection/data";
+import teamMembers from "../../pages/TeamCollection/data";
 
 import { useParams } from "react-router-dom";
 

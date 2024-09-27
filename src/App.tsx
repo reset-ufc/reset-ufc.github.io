@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import TeamInterface from "./components/TeamCollection";
+import TeamInterface from "./pages/TeamCollection";
 import ProfilePage from "./components/ProfilePage";
 import ToolsSection from "./pages/Tools";
 

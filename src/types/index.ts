@@ -18,3 +18,10 @@ export interface ToolProps {
   image: string;
   highlight?: boolean;
 }
+
+export interface NewsCardProps {
+  category: string;
+  title: string;
+  date: string;
+  imageUrl: string;
+}

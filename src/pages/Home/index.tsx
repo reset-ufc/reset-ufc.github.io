@@ -5,6 +5,7 @@ import StatsSection from "../../components/StatsSection";
 import { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import { motion } from "framer-motion";
+import NewsSection from "../../components/NewsSection";
 import ResearchArea from "../../components/ResearchArea";
 
 export default function Home() {
@@ -55,6 +56,7 @@ export default function Home() {
           </h1>
           <CarouselSection />
         </div>
+        <NewsSection />
         <div className="animate-fade-right animate-once animate-alternate py-8">
           <h1 className="text-white flex justify-center text-4xl font-Lufga-ExtraBold">
             Portifólio
