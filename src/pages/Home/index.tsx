@@ -5,7 +5,6 @@ import StatsSection from "../../components/StatsSection";
 import { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import { motion } from "framer-motion";
-import NewsSection from "../../components/NewsSection";
 import ResearchArea from "../../components/ResearchArea";
 
 export default function Home() {

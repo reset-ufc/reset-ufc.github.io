@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
 import { newsItems } from "../NewsSection/data";
+
 const NewsDetail = () => {
     const { title } = useParams();
-    const newsItem = newsItems.find(item => item.title === decodeURIComponent(title));
+    const newsItem = newsItems.find(item => item.title === decodeURIComponent(title || ""));
   
     if (!newsItem) {
       return <div>Notícia não encontrada.</div>;
