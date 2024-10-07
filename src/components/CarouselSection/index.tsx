@@ -33,7 +33,7 @@ export default function CarouselSection() {
   ];
 
   return (
-    <div className="bg-[#270B79] h-[200px] p-8 mx-28 ">
+    <div className="bg-[#270B79] h-[200px] p-8 mx-28 animate-fade-left animate-once animate-alternate">
       <Slider {...settings}>
         {data.map((item, index) => (
           <div

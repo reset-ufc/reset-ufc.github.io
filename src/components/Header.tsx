@@ -11,6 +11,10 @@ const links = [
     path: "members"
   },
   {
+    label: "Notícias",
+    path: "news"
+  },
+  {
     label: "Services",
     path: "",
     dropdown: [

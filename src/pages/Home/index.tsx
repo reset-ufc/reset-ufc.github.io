@@ -50,13 +50,12 @@ export default function Home() {
         <div  className="bg-white py-16">
           <ResearchArea />
         </div>
-        <div className="animate-fade-right animate-once animate-alternate bg-[#270B79]">
-          <h1 className="text-white flex justify-center text-4xl pt-6 font-Lufga-ExtraBold">
+        <div className="bg-[#270B79]">
+          <h1 className="text-white animate-fade-up animate-once animate-alternate flex justify-center text-4xl pt-6 font-Lufga-ExtraBold">
             Artigos
           </h1>
           <CarouselSection />
         </div>
-        <NewsSection />
         <div className="animate-fade-right animate-once animate-alternate py-8">
           <h1 className="text-white flex justify-center text-4xl font-Lufga-ExtraBold">
             Portifólio
