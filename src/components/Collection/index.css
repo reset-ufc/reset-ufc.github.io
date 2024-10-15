@@ -50,10 +50,9 @@
 }
 
 .area {
-  background: #270B79;
   background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
   width: 100%;
-  height: 100vh; /* Certifica-se de que ocupa toda a altura da tela */
+  height: 100vh;
   position: absolute; /* Mude para fixed para garantir que fique sempre visível */
   top: 0;
   left: 0;

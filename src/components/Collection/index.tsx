@@ -19,10 +19,10 @@ export default function Collection() {
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: "smooth" });
     }
-  };
+};
 
   return (
-    <div className="relative flex justify-center items-center animate-fade animate-once animate-alternate bg-[#270B79]">
+    <div className="relative flex justify-center h-screen items-center animate-fade animate-once animate-alternate bg-[#270B79] ">
       <div className="area">
         <ul className="circles">
           <li></li>
@@ -38,7 +38,7 @@ export default function Collection() {
         </ul>
       </div>
 
-      <div className="bg-transparent flex justify-evenly w-full h-[890px] items-center z-10">
+      <div className="bg-transparent flex justify-evenly w-full h-full items-center z-10">
         <div className="bg-inherit flex flex-col justify-center text-white">
           <h1 className="bg-inherit flex text-8xl font-Lufga-ExtraBold">
             Reset

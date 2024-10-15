@@ -15,7 +15,7 @@ export default function Portfolio() {
   ];
 
   return (
-    <section className="py-10" style={{ backgroundColor: '#270B79' }}>
+    <section className='py-10' style={{ backgroundColor: '#270B79' }}>
       <div className="container mx-auto px-4">
         <Swiper
           modules={[Navigation, Pagination]}
@@ -27,13 +27,13 @@ export default function Portfolio() {
           {projects.map((project, index) => (
             <SwiperSlide key={index} className='bg-inherit'>
               <div
-                className="relative border-8 rounded-xl border-black shadow-xl bg-cover bg-center"
+                className="relative rounded-xl shadow-xl bg-cover bg-center"
                 style={{
                   backgroundImage: `url(${project.image})`,
                   height: '300px',
                 }}
               >
-                <div className="absolute inset-0  bg-black bg-opacity-50 flex flex-col justify-end p-8 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0  bg-black bg-opacity-50 rounded-xl flex flex-col justify-end p-8 opacity-0 hover:opacity-100 transition-opacity duration-300">
                   <h1 className="text-white text-xl uppercase group-hover:text-orange-500">
                     {project.name}
                   </h1>
