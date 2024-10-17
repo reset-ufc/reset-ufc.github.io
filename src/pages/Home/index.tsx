@@ -76,7 +76,7 @@ export default function Home() {
           <CarouselSection />
         </div>
         <div className="animate-fade-right animate-once animate-alternate">
-          <div>
+          <div className="bg-[#270B79]">
             <h1 className="text-white flex justify-center text-4xl font-Lufga-ExtraBold">
               Portfólio
             </h1>
