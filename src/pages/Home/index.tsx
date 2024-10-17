@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import { motion } from "framer-motion";
 import ResearchArea from "../../components/ResearchArea";
+import { Helmet } from "react-helmet-async";
 
 export default function Home() {
   const [showButton, setShowButton] = useState(false);
@@ -43,6 +44,7 @@ export default function Home() {
 
   return (
     <>
+    <Helmet title="home" />
       <Collection />
       <div id="next-section">
         <div className="flex flex-col bg-white">

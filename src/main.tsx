@@ -5,10 +5,13 @@ import Header from './components/Header.tsx'
 import App from './App.tsx'
 import "./index.css";
 import Footer from './components/Footer/index.tsx'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
+    <HelmetProvider>
+      <Helmet titleTemplate='Reset | %s' />
       <div className="pageContainer">
         <Header />
         <main className="content">
@@ -16,6 +19,7 @@ createRoot(document.getElementById('root')!).render(
         </main>
         <Footer />
       </div>
+      </HelmetProvider>
     </BrowserRouter>
   </React.StrictMode>,
 )

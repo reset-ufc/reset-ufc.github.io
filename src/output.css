@@ -660,8 +660,8 @@ video {
   top: 0.625rem;
 }
 
-.top-\[860px\] {
-  top: 860px;
+.top-\[560px\] {
+  top: 560px;
 }
 
 .z-10 {
@@ -828,16 +828,16 @@ video {
   height: 60px;
 }
 
-.h-\[990px\] {
-  height: 990px;
-}
-
 .h-auto {
   height: auto;
 }
 
 .h-full {
   height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .min-h-screen {
@@ -1775,5 +1775,11 @@ video {
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:top-\[860px\] {
+    top: 860px;
   }
 }

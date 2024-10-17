@@ -4,13 +4,14 @@ import { GoPerson } from "react-icons/go";
 import { Link } from "react-router-dom";
 import { TeamMemberProps } from "../../types";
 import teamMembers from "./data";
+import { Helmet } from "react-helmet-async";
 
 export function TeamMember({
   name,
   role,
   email,
   github,
-  img
+  img,
 }: TeamMemberProps) {
   return (
     <div className="bg-gray-300 rounded-lg p-4 flex flex-col items-center shadow-xl">
@@ -23,10 +24,11 @@ export function TeamMember({
       </div>
       <h3 className="text-lg bg-gray-300 text-black font-semibold">{name}</h3>
       <p className="text-sm text-gray-600 bg-gray-300 mb-2">{role}</p>
-      <Link to={`/members/${name}`} className="bg-[#ec642a] hover:bg-[#d45a26] transition-colors text-white px-4 py-2 rounded-full text-sm mb-4">
-        <button className="">
-          VIEW MORE
-        </button>
+      <Link
+        to={`/members/${name}`}
+        className="bg-[#ec642a] hover:bg-[#d45a26] transition-colors text-white px-4 py-2 rounded-full text-sm mb-4"
+      >
+        <button className="">VIEW MORE</button>
       </Link>
       <div className="flex items-center space-x-2 bg-inherit text-black">
         <Github size={20} className="bg-inherit" color="black" />
@@ -47,12 +49,11 @@ export function TeamMember({
 export function TeamInterface() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedRole, setSelectedRole] = useState("");
-  
 
   const handleSearch = () => {
     const lowercasedSearch = searchTerm.toLowerCase();
     return teamMembers.filter(
-      member =>
+      (member) =>
         member.name.toLowerCase().includes(lowercasedSearch) ||
         member.email.toLowerCase().includes(lowercasedSearch)
     );
@@ -60,20 +61,23 @@ export function TeamInterface() {
 
   const handleFilterByRole = () => {
     if (!selectedRole) return handleSearch();
-    return handleSearch().filter(member => member.role.includes(selectedRole));
+    return handleSearch().filter((member) =>
+      member.role.includes(selectedRole)
+    );
   };
 
-  const professors = handleFilterByRole().filter(
-    member => member.role.toLowerCase().includes("professor")
+  const professors = handleFilterByRole().filter((member) =>
+    member.role.toLowerCase().includes("professor")
   );
 
   const teamWithoutProfessors = handleFilterByRole().filter(
-    member => !member.role.toLowerCase().includes("professor")
+    (member) => !member.role.toLowerCase().includes("professor")
   );
 
   return (
     <div className="min-h-screen pt-32 pb-28 bg-[#270B79]">
-      {/* Professors Section */}
+      <Helmet title="membros" />
+
       <div>
         <h1 className="text-3xl font-Lufga-ExtraBold mb-8 text-white text-center">
           PROFESSORS
@@ -81,26 +85,30 @@ export function TeamInterface() {
         <div className="flex justify-center gap-8">
           {professors.length > 0 ? (
             professors.map((professor, index) => (
-              <Link to={`/members/${professor.name}`} key={index} className="rounded-lg flex flex-col items-center shadow-xl">
-                <div
+              <Link
+                to={`/members/${professor.name}`}
                 key={index}
-                className="relative w-48 h-64 rounded-lg overflow-hidden shadow-lg cursor-pointer"
+                className="rounded-lg flex flex-col items-center shadow-xl"
               >
-                <img
-                  src={professor.img}
-                  alt={professor.name}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-30"></div>
-                <div className="absolute bottom-3 bg-transparent left-3 text-white">
-                  <p className="text-lg font-medium bg-inherit">
-                    {professor.name}
-                  </p>
-                  <p className="text-xl font-semibold bg-inherit">
-                    {professor.lastName}
-                  </p>
+                <div
+                  key={index}
+                  className="relative w-48 h-64 rounded-lg overflow-hidden shadow-lg cursor-pointer"
+                >
+                  <img
+                    src={professor.img}
+                    alt={professor.name}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-30"></div>
+                  <div className="absolute bottom-3 bg-transparent left-3 text-white">
+                    <p className="text-lg font-medium bg-inherit">
+                      {professor.name}
+                    </p>
+                    <p className="text-xl font-semibold bg-inherit">
+                      {professor.lastName}
+                    </p>
+                  </div>
                 </div>
-              </div>
               </Link>
             ))
           ) : (
@@ -118,7 +126,7 @@ export function TeamInterface() {
             <input
               type="text"
               value={searchTerm}
-              onChange={e => setSearchTerm(e.target.value)}
+              onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search by name or email..."
               className="w-2/4 py-2 px-4 pr-10 rounded-full bg-white text-black shadow-md focus:outline-none focus:ring-2 focus:ring-[#ec642a]"
             />
@@ -139,8 +147,8 @@ export function TeamInterface() {
                 "Visitor",
                 "PhD Student",
                 "Post-doc",
-                "Alumni"
-              ].map(role => (
+                "Alumni",
+              ].map((role) => (
                 <button
                   key={role}
                   onClick={() => setSelectedRole(role === "All" ? "" : role)}
