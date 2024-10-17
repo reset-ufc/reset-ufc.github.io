@@ -11,6 +11,12 @@ export default function Portfolio() {
       description: "Assistente Virtual sobre Editais da UFC.",
       image: "freire_web_page.png",
       link: "https://example1.com",
+    },
+    {
+      name: "Freire Assistant",
+      description: "Assistente Virtual sobre Editais da UFC.",
+      image: "freire_web_page.png",
+      link: "https://example1.com",
     }
   ];
 

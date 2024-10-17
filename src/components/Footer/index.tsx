@@ -5,70 +5,70 @@ const Footer = () => {
   const navigate = useNavigate();
 
   return (
-    <footer className="bg-neutral-800 text-white p-5 flex pt-14 flex-col justify-between w-full">
-      {/* Parte de cima do footer (footerInfo) */}
-      <div className="flex bg-inherit justify-around pb-5">
-        <div className="flex-1 px-4 bg-inherit">
-          <h3 className="mb-2 font-bold bg-inherit">Vamos inovar?</h3>
-          <p className="bg-inherit">resetlabufc@gmail.com</p>
-        </div>
-        <div className="flex-1 px-4 bg-inherit">
-          <h3 className="mb-2 font-bold bg-inherit">Endereço</h3>
-          <p className="bg-inherit">Palácio da Abolição</p>
-          <p className="bg-inherit">Rua Silva Paulet, 400 – 2º andar</p>
-          <p className="bg-inherit">Meireles, Fortaleza – CE</p>
-          <p className="bg-inherit">CEP: 60120-020</p>
-        </div>
-        <div className="flex-1 px-4 bg-inherit">
-          <h3 className="mb-2 font-bold bg-inherit">Mapa do site</h3>
-          <ul className="bg-inherit">
-            <li className="bg-inherit cursor-pointer">Sobre</li>
-            <li
-              className="bg-inherit cursor-pointer"
-              onClick={() => navigate("/members")}
-            >
-              Time
-            </li>
-            <li className="bg-inherit cursor-pointer">Produtos e Projetos</li>
-            <li className="bg-inherit cursor-pointer">Programas</li>
-            <li className="bg-inherit cursor-pointer">Publicações</li>
-          </ul>
-        </div>
-        <div className="flex-1 px-4 bg-inherit">
-          <h3 className="mb-2 font-bold bg-inherit">Transparência</h3>
-          <ul className="bg-inherit">
-            <li className="bg-inherit cursor-pointer">Ouvidoria</li>
-            <li className="bg-inherit cursor-pointer">Central 155</li>
-          </ul>
-        </div>
+    <footer className="bg-neutral-800 text-white p-4 sm:p-5 flex flex-col justify-between w-full">
+    {/* Parte de cima do footer (footerInfo) */}
+    <div className="flex flex-col sm:flex-row bg-inherit justify-around pb-5 space-y-6 sm:space-y-0">
+      <div className="flex-1 px-2 sm:px-4 bg-inherit">
+        <h3 className="mb-2 font-bold bg-inherit text-lg">Vamos inovar?</h3>
+        <p className="bg-inherit">resetlabufc@gmail.com</p>
       </div>
+      <div className="flex-1 px-2 sm:px-4 bg-inherit">
+        <h3 className="mb-2 font-bold bg-inherit text-lg">Endereço</h3>
+        <p className="bg-inherit">Palácio da Abolição</p>
+        <p className="bg-inherit">Rua Silva Paulet, 400 – 2º andar</p>
+        <p className="bg-inherit">Meireles, Fortaleza – CE</p>
+        <p className="bg-inherit">CEP: 60120-020</p>
+      </div>
+      <div className="flex-1 px-2 sm:px-4 bg-inherit">
+        <h3 className="mb-2 font-bold bg-inherit text-lg">Mapa do site</h3>
+        <ul className="bg-inherit space-y-1">
+          <li className="bg-inherit cursor-pointer hover:text-gray-300">Sobre</li>
+          <li
+            className="bg-inherit cursor-pointer hover:text-gray-300"
+            onClick={() => navigate("/members")}
+          >
+            Time
+          </li>
+          <li className="bg-inherit cursor-pointer hover:text-gray-300">Produtos e Projetos</li>
+          <li className="bg-inherit cursor-pointer hover:text-gray-300">Programas</li>
+          <li className="bg-inherit cursor-pointer hover:text-gray-300">Publicações</li>
+        </ul>
+      </div>
+      <div className="flex-1 px-2 sm:px-4 bg-inherit">
+        <h3 className="mb-2 font-bold bg-inherit text-lg">Transparência</h3>
+        <ul className="bg-inherit space-y-1">
+          <li className="bg-inherit cursor-pointer hover:text-gray-300">Ouvidoria</li>
+          <li className="bg-inherit cursor-pointer hover:text-gray-300">Central 155</li>
+        </ul>
+      </div>
+    </div>
 
-      {/* Parte de baixo do footer (footerSocial) */}
-      <div className="flex flex-col items-center">
-        <p className="text-sm bg-inherit flex mt-3">
-          Todos os direitos reservados{" "}
-          <div className="flex bg-inherit ">
-            <FaInstagram
-              className=" bg-inherit hover:text-gray-400 transition-colors cursor-pointer ml-1"
-              onClick={() => {
-                window.open(
-                  "https://www.instagram.com/resetlab.ufc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
-                  "_blank"
-                );
-              }}
-            />
-            <FaLinkedinIn className=" bg-inherit hover:text-gray-400 cursor-pointer transition-colors mx-1" />
-            <FaGithub
-              className=" bg-inherit hover:text-gray-400 cursor-pointer mr-1"
-              onClick={() =>
-                window.open("https://github.com/reset-ufc", "_blank")
-              }
-            />{" "}
-          </div>{" "}
-          © 2024 ResetLab
-        </p>
+    {/* Parte de baixo do footer (footerSocial) */}
+    <div className="flex flex-col items-center mt-6 sm:mt-3">
+      <div className="flex items-center justify-center flex-wrap text-sm bg-inherit">
+        <p className="bg-inherit mr-2">Todos os direitos reservados</p>
+        <div className="flex bg-inherit space-x-2">
+          <FaInstagram
+            className="bg-inherit hover:text-gray-400 transition-colors cursor-pointer text-xl"
+            onClick={() => {
+              window.open(
+                "https://www.instagram.com/resetlab.ufc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+                "_blank"
+              );
+            }}
+          />
+          <FaLinkedinIn className="bg-inherit hover:text-gray-400 cursor-pointer transition-colors text-xl" />
+          <FaGithub
+            className="bg-inherit hover:text-gray-400 cursor-pointer text-xl"
+            onClick={() =>
+              window.open("https://github.com/reset-ufc", "_blank")
+            }
+          />
+        </div>
+        <p className="bg-inherit ml-2">© 2024 ResetLab</p>
       </div>
-    </footer>
+    </div>
+  </footer>
   );
 };
 

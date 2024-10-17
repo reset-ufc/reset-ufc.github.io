@@ -44,23 +44,28 @@ export default function Home() {
 
   return (
     <>
-    <Helmet title="home" />
+      <Helmet title="home" />
       <Collection />
       <div id="next-section">
         <div className="flex flex-col bg-white">
-        <div className="flex justify-center gap-10 text-center items-center px-5 py-16 bg-slate-100">
-           <div className="flex flex-col justify-center items-center">
-           <h2 className="text-4xl font-Lufga-ExtraBold bg-inherit text-[#270B79] pb-3">
-            Somos um grupo de pesquisa <span className="text-[#ed6327]">colaborativa</span>
-            </h2>
-            <p className="font-medium text-zinc-500 w-[426px]">
-            O ARIES LAB é uma equipe de pesquisa do Instituto de Computação da Universidade Federal da Bahia (UFBA), em conjunto com a Universidade Federal de Lavras (UFLA) e a Universidade Estadual da Bahia (UNEB).
-            </p>
-           </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center">
+          <div className="flex flex-col lg:flex-row justify-center gap-6 lg:gap-10 text-center items-center px-4 lg:px-5 py-10 lg:py-16 bg-slate-100">
+            <div className="flex flex-col justify-center items-center max-w-2xl lg:max-w-lg">
+              <h2 className="text-3xl lg:text-4xl font-Lufga-ExtraBold bg-inherit text-[#270B79] pb-3">
+                Somos um grupo de pesquisa{" "}
+                <span className="text-[#ed6327]">colaborativa</span>
+              </h2>
+              <p className="font-medium text-zinc-500 text-sm lg:text-base">
+                O ARIES LAB é uma equipe de pesquisa do Instituto de Computação
+                da Universidade Federal da Bahia (UFBA), em conjunto com a
+                Universidade Federal de Lavras (UFLA) e a Universidade Estadual
+                da Bahia (UNEB).
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center mt-6 lg:mt-0">
               {Array.from({ length: 3 }).map((_, index) => (
                 <div
                   key={index}
+                  className="bg-white py-10 px-6 rounded-lg shadow-md flex items-center justify-center "
                 >
                   IMAGENS DAS INSTITUIÇÕES AQUI
                 </div>
@@ -69,36 +74,38 @@ export default function Home() {
           </div>
           <ResearchArea />
         </div>
-        <div className="bg-[#270B79] py-24">
-          <h1 className="text-white animate-fade-up animate-once animate-alternate flex justify-center text-4xl pt-6 font-Lufga-ExtraBold">
+        <div className="bg-[#270B79] py-12 sm:py-16 md:py-20 lg:py-24">
+          <h1 className="text-white animate-fade-up animate-once animate-alternate flex justify-center text-3xl lg:text-4xl pt-4 sm:pt-6 font-Lufga-ExtraBold px-4 text-center">
             Artigos
           </h1>
-          <CarouselSection />
+          <div className="mt-8 sm:mt-12">
+            <CarouselSection />
+          </div>
         </div>
         <div className="animate-fade-right animate-once animate-alternate">
-          <div className="bg-[#270B79]">
-            <h1 className="text-white flex justify-center text-4xl font-Lufga-ExtraBold">
+          <div className="bg-[#270B79] py-8 sm:py-12 md:py-16">
+            <h1 className="text-white text-center text-3xl sm:text-4xl font-Lufga-ExtraBold px-4">
               Portfólio
             </h1>
-            <h2 className="text-white flex justify-center text-lg font-Lufga-Regular">
+            <h2 className="text-white text-center text-base sm:text-lg font-Lufga-Regular mt-2 px-4">
               Dê uma olhada em alguns dos nossos projetos
             </h2>
           </div>
           <Portfolio />
           <StatsSection />
-          <div className="flex flex-col text-center px-5 py-24">
-            <h2 className="text-4xl font-Lufga-ExtraBold bg-inherit text-[#270B79] pb-3">
+          <div className="flex flex-col text-center px-4 sm:px-5 py-12 sm:py-16 md:py-24">
+            <h2 className="text-3xl sm:text-4xl font-Lufga-ExtraBold bg-inherit text-[#270B79] pb-3">
               Nossos Patrocínios
             </h2>
-            <p className="font-medium text-zinc-500">
+            <p className="font-medium text-zinc-500 max-w-2xl mx-auto">
               Os membros do RESET LAB recebem financiamento da CAPES, FAPESP,
               CNPQ e Tomorrow.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-center items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8 justify-center items-center">
               {Array.from({ length: 4 }).map((_, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-center px-16 py-10 bg-white shadow-lg rounded-lg"
+                  className="flex items-center justify-center px-8 sm:px-16 py-6 sm:py-10 bg-white shadow-lg rounded-lg"
                 >
                   IMAGENS DOS PATROCINADORES AQUI
                 </div>
@@ -107,10 +114,10 @@ export default function Home() {
           </div>
         </div>
         <div
-          className="absolute 2xl:top-[860px] top-[560px] bg-transparent left-1/2 transform animate-bounce -translate-x-1/2 cursor-pointer"
+          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 cursor-pointer z-10"
           onClick={handleScrollBottom}
         >
-          <span className="block w-6 h-6 border-2 bg-inherit border-white rounded-full"></span>
+          <span className="block w-6 h-6 border-2 bg-inherit border-white rounded-full animate-bounce"></span>
         </div>
       </div>
 

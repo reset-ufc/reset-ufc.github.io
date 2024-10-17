@@ -32,7 +32,7 @@ export default function ResearchArea() {
 
   return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 bg-inherit">
-          <h2 className="flex justify-center text-4xl font-Lufga-ExtraBold bg-inherit text-[#270B79] pb-5">Explore nossas áreas de pesquisa</h2>
+          <h2 className="flex justify-center text-3xl lg:text-4xl text-center font-Lufga-ExtraBold bg-inherit text-[#270B79] pb-5">Explore nossas áreas de pesquisa</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 bg-inherit lg:grid-cols-3 gap-6">
               {researchAreas.map((area, index) => (
                   <ResearchCard key={index} title={area.title} description={area.description} />

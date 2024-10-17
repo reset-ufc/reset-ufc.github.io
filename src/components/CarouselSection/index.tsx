@@ -10,7 +10,7 @@ export default function CarouselSection() {
     slidesToShow: 3,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
   };
 
   const data = [
@@ -29,24 +29,27 @@ export default function CarouselSection() {
     {
       title:
         "(Re)design de Serviço Público – Filas de Cirurgias Eletivas do Estado do Ceará",
-    }
+    },
   ];
 
   return (
-    <div className="bg-[#270B79] h-[200px] p-8 mx-28 animate-fade-left animate-once animate-alternate">
-      <Slider {...settings}>
-        {data.map((item, index) => (
+    <div className="bg-[#270B79] p-4 sm:p-6 md:p-8 mx-4 sm:mx-8 md:mx-16 lg:mx-28 animate-fade-left animate-once animate-alternate">
+    <Slider {...settings}>
+      {data.map((item, index) => (
+        <div key={index} className="p-2 sm:p-4 cursor-pointer">
           <div
-            key={index}
-            className="p-4 cursor-pointer "
+            className={`bg-gray-200 rounded-md hover:bg-[#ec642a] hover:text-white transition p-4 sm:p-6 md:p-8 text-black font-Lufga-ExtraBold h-24 sm:h-28 md:h-32 flex items-center justify-center`}
           >
-            <div className={`bg-gray-200 rounded-md  hover:bg-[#ec642a] hover:text-white transition p-8  text-black font-Lufga-ExtraBold  h-32`}>
-              <p className={`bg-inherit transition-transform  ease-in-out hover:-translate-y-1 hover:scale-70`}>{item.title}</p>
-            </div>
+            <p
+              className={` transition-transform ease-in-out hover:-translate-y-1 hover:scale-105 text-center text-sm sm:text-base md:text-lg max-h-full flex-wrap break-words overflow-hidden text-ellipsis`}
+            >
+              {item.title}
+            </p>
           </div>
-        ))}
-      </Slider>
-    </div>
+        </div>
+      ))}
+    </Slider>
+  </div>
   );
 }
 
