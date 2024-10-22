@@ -7,10 +7,19 @@ export default function CarouselSection() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 3, // Default value for larger screens
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 768, 
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   const data = [
@@ -34,22 +43,22 @@ export default function CarouselSection() {
 
   return (
     <div className="bg-[#270B79] p-4 sm:p-6 md:p-8 mx-4 sm:mx-8 md:mx-16 lg:mx-28 animate-fade-left animate-once animate-alternate">
-    <Slider {...settings}>
-      {data.map((item, index) => (
-        <div key={index} className="p-2 sm:p-4 cursor-pointer">
-          <div
-            className={`bg-gray-200 rounded-md hover:bg-[#ec642a] hover:text-white transition p-4 sm:p-6 md:p-8 text-black font-Lufga-ExtraBold h-24 sm:h-28 md:h-32 flex items-center justify-center`}
-          >
-            <p
-              className={` transition-transform ease-in-out hover:-translate-y-1 hover:scale-105 text-center text-sm sm:text-base md:text-lg max-h-full flex-wrap break-words overflow-hidden text-ellipsis`}
+      <Slider {...settings}>
+        {data.map((item, index) => (
+          <div key={index} className="p-2 sm:p-4 cursor-pointer">
+            <div
+              className={`bg-gray-200 rounded-md hover:bg-[#ec642a] hover:text-white transition p-6 sm:p-8 md:p-10 lg:p-12 text-black font-Lufga-ExtraBold h-36 sm:h-44 md:h-52 lg:h-60 flex items-center justify-center`}
             >
-              {item.title}
-            </p>
+              <p
+                className={`transition-transform ease-in-out hover:-translate-y-1 hover:scale-105 text-center text-sm sm:text-base md:text-lg lg:text-xl max-h-full flex-wrap break-words overflow-hidden text-ellipsis`}
+              >
+                {item.title}
+              </p>
+            </div>
           </div>
-        </div>
-      ))}
-    </Slider>
-  </div>
+        ))}
+      </Slider>
+    </div>
   );
 }
 

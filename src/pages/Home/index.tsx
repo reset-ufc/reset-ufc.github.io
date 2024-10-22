@@ -74,11 +74,11 @@ export default function Home() {
           </div>
           <ResearchArea />
         </div>
-        <div className="bg-[#270B79] py-12 sm:py-16 md:py-20 lg:py-24">
+        <div className="bg-[#270B79] py-6 sm:py-16 md:py-20 lg:py-24">
           <h1 className="text-white animate-fade-up animate-once animate-alternate flex justify-center text-3xl lg:text-4xl pt-4 sm:pt-6 font-Lufga-ExtraBold px-4 text-center">
             Artigos
           </h1>
-          <div className="mt-8 sm:mt-12">
+          <div className="mt-4 sm:mt-12">
             <CarouselSection />
           </div>
         </div>
