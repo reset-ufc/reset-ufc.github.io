@@ -26,9 +26,17 @@ export default function Portfolio() {
         <Swiper
           modules={[Navigation, Pagination]}
           spaceBetween={30}
-          slidesPerView={3} 
+          slidesPerView={3}  
           navigation
           pagination={{ clickable: true }}
+          breakpoints={{
+            0: {
+              slidesPerView: 1, 
+            },
+            768: {
+              slidesPerView: 3, 
+            },
+          }}
         >
           {projects.map((project, index) => (
             <SwiperSlide key={index} className='bg-inherit'>
@@ -39,7 +47,7 @@ export default function Portfolio() {
                   height: '300px',
                 }}
               >
-                <div className="absolute inset-0  bg-black bg-opacity-50 rounded-xl flex flex-col justify-end p-8 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 bg-black bg-opacity-50 rounded-xl flex flex-col justify-end p-8 opacity-0 hover:opacity-100 transition-opacity duration-300">
                   <h1 className="text-white text-xl uppercase group-hover:text-orange-500">
                     {project.name}
                   </h1>
