@@ -1,7 +1,7 @@
-import { useNavigate } from "react-router-dom";
-import reset_image from '/public/logo.png'
 import { useState } from "react";
-import { Menu } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Menu, X, ChevronDown, ChevronUp } from "lucide-react"; // Ícones de menu, fechar e setas
+import reset_image from '/public/logo.png';
 
 const links = [
   {
@@ -17,14 +17,14 @@ const links = [
     path: "news"
   },
   {
-    label: "Serviços",
+    label: "Services",
     path: "",
     dropdown: [
       { label: "Tools", path: "tools" },
     ]
   },
   {
-    label: "Contato",
+    label: "Contact",
     path: "",
     dropdown: [
       { label: "Email", path: "contact/email" },
@@ -33,48 +33,58 @@ const links = [
   }
 ];
 
-
 export default function Header() {
   const navigate = useNavigate();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [openDropdowns, setOpenDropdowns] = useState<number[]>([]);
+
+  // Função para abrir/fechar o menu
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  // Função para abrir/fechar dropdowns no menu lateral
+  const toggleDropdown = (index: number) => {
+    if (openDropdowns.includes(index)) {
+      setOpenDropdowns(openDropdowns.filter(i => i !== index)); // Fechar
+    } else {
+      setOpenDropdowns([...openDropdowns, index]); // Abrir
+    }
+  };
+
   return (
     <div className="fixed top-0 left-0 w-full z-50 shadow-xl bg-[#270B79]">
-      <header className="flex flex-wrap px-4 lg:px-16 justify-between items-center p-4">
-        <div className="flex items-center">
+      <header className="flex justify-between items-center px-4 md:px-16 py-4">
+        <div>
           <img
             src={reset_image}
-            alt="Logo Reset Lab"
+            alt=""
             onClick={() => navigate("/")}
-            className="w-[180px] lg:w-[240px] cursor-pointer"
+            className="w-[180px] md:w-[240px] cursor-pointer"
           />
         </div>
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden text-white focus:outline-none"
-        >
-         <Menu />
+
+        {/* Ícone de sanduíche para telas menores */}
+        <button onClick={toggleMenu} className="pr-6 md:hidden">
+          {isOpen ? <X size={24} color="white" /> : <Menu size={24} color="white" />}
         </button>
-        <nav className={`${isMenuOpen ? 'block' : 'hidden'} lg:flex w-full lg:w-auto mt-4 lg:mt-0 lg:space-x-8 text-white`}>
+
+        {/* Navbar para telas grandes */}
+        <nav className="hidden md:flex h-[60px] space-x-8 text-white">
           {links.map((link, index) => (
-            <div key={index} className="relative group mb-2 lg:mb-0">
+            <div key={index} className="relative group h-full">
               <a
-                onClick={() => {
-                  navigate(`${link.path}`);
-                  setIsMenuOpen(false);
-                }}
-                className="transition flex items-center cursor-pointer font-Lufga-ExtraBold hover:text-[#ec642a] py-2 lg:py-0"
+                onClick={() => navigate("/" + link.path)}
+                className="transition h-full flex items-center cursor-pointer font-Lufga-ExtraBold hover:text-[#ec642a]"
               >
                 {link.label}
               </a>
               {link.dropdown && (
-                <div className="lg:absolute left-0 w-full lg:w-[200px] hidden group-hover:block bg-white text-gray-800 rounded-lg p-2 lg:p-5 shadow-lg">
-                  {link.dropdown.map((item, index) => (
+                <div className="absolute left-0 w-[200px] hidden group-hover:block bg-white text-gray-800 rounded-lg p-5 shadow-lg">
+                  {link.dropdown.map((item, idx) => (
                     <a
-                      key={index}
-                      onClick={() => {
-                        navigate(`${item.path}`);
-                        setIsMenuOpen(false);
-                      }}
+                      key={idx}
+                      onClick={() => navigate("/" + item.path)}
                       className="relative bg-white block font-Lufga-Regular hover:font-Lufga-ExtraBold py-1 text-gray-500 hover:text-black transition"
                     >
                       <span className="pl-5 bg-white cursor-pointer">{item.label}</span>
@@ -86,6 +96,56 @@ export default function Header() {
           ))}
         </nav>
       </header>
+
+      {/* Menu lateral responsivo para telas menores */}
+      {isOpen && (
+        <div className="absolute top-0 left-0 w-full h-screen bg-[#270B79] text-white z-50 md:hidden flex flex-col">
+          <button onClick={toggleMenu} className="self-end p-4">
+            <X size={24} color="white" />
+          </button>
+
+          <ul className="flex flex-col items-center space-y-6 px-4 py-8">
+            {links.map((link, index) => (
+              <div key={index} className="w-full border-b border-white">
+                <div
+                  onClick={() => {
+                    link.dropdown ? toggleDropdown(index) : navigate("/" + link.path);
+                  }}
+                  className="flex justify-between items-center w-full cursor-pointer py-2 text-lg font-bold"
+                >
+                  {link.label}
+                  {link.dropdown && (
+                    openDropdowns.includes(index) ? (
+                      <ChevronUp size={20} color="white" />
+                    ) : (
+                      <ChevronDown size={20} color="white" />
+                    )
+                  )}
+                </div>
+
+                {/* Dropdown do menu lateral */}
+                {link.dropdown && openDropdowns.includes(index) && (
+                  <ul className="pl-4 mt-2">
+                    {link.dropdown.map((item, idx) => (
+                      <li key={idx} className="py-2">
+                        <a
+                          onClick={() => {
+                            navigate("/" + item.path);
+                            toggleMenu(); // Fechar o menu ao clicar no item
+                          }}
+                          className="text-white text-md cursor-pointer block"
+                        >
+                          {item.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

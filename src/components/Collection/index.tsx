@@ -43,16 +43,16 @@ export default function Collection() {
         <CustomButton children="Venha nos Conhecer" onClick={handleScroll} />
       </div>
 
-      <div className="bg-inherit relative mt-24 lg:mt-0">
+      <div className="bg-inherit relative  lg:mt-0">
         <div className={`logo-container ${animationFinished ? "merged" : ""}`}>
           <img
             src={vectorLeft}
-            className="logo-part left-part w-24 lg:w-auto"
+            className="logo-part left-part w-16 md:w-24 lg:w-auto"
             alt="Left Vector"
           />
           <img
             src={vectorRight}
-            className="logo-part right-part w-24 lg:w-auto"
+            className="logo-part right-part w-16 md:w-24 lg:w-auto"
             alt="Right Vector"
           />
         </div>
