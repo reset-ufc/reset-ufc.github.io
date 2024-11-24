@@ -1,8 +1,6 @@
-"use client";
-
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Database, BarChart, Server, Brain } from "lucide-react";
+import { Database, BarChart, ShieldCheck, BotIcon } from "lucide-react";
 
 interface ResearchCardProps {
   title: string;
@@ -46,28 +44,28 @@ const ResearchCard = ({ title, description, icon }: ResearchCardProps) => {
 export default function ResearchArea() {
   const researchAreas = [
     {
-      title: "Data Science",
+      title: "Software Engineering",
       description:
-        "Campo interdisciplinar que usa métodos, processos, algoritmos e estatística para extrair conhecimento e insights de dados estruturado e não estruturados.",
+        "Área que envolve o estudo da manutenção e evolução de sistemas, utilizando mineração de repositórios de software para identificar padrões e otimizar processos.",
       icon: <Database />,
     },
     {
-      title: "Analytics",
+      title: "Big Data Analytics",
       description:
-        "Ramo da visualização de dados focada na construção de ferramentas que aumentam a capacidade analítica humana por meio do uso de interfaces interativas.",
+        "Explora técnicas de mineração de dados e recuperação da informação para analisar grandes volumes de dados, identificando padrões e insights relevantes.",
       icon: <BarChart />,
     },
     {
-      title: "Big Data",
+      title: "Software Security",
       description:
-        "Área de conhecimento que estuda como tratar conjuntos de dados grandes, heterogêneos e variados para descobrir padrões e informações relevantes.",
-      icon: <Server />,
+        "Focado na proteção de sistemas e aplicações, garantindo segurança contra vulnerabilidades e ataques por meio de práticas e ferramentas robustas.",
+      icon: <ShieldCheck />,
     },
     {
       title: "Machine Learning",
       description:
-        "Subconjunto da inteligência artificial que permite o treinamento de máquinas para aprender com dados sem serem programadas explicitamente.",
-      icon: <Brain />,
+        "Área de conhecimento que permite que máquinas aprendam com dados para realizar tarefas específicas, aplicando modelos matemáticos e estatísticos.",
+      icon: <BotIcon />,
     },
   ];
 
