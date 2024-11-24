@@ -1,19 +1,29 @@
+import { useState } from "react";
 import Slider from "react-slick";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export default function CarouselSection() {
+export function CarouselSection() {
+  const [sliderRef, setSliderRef] = useState<Slider | null>(null);
+
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3, // Default value for larger screens
+    slidesToShow: 3,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    arrows: false,
     responsive: [
       {
-        breakpoint: 768, 
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 640,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -24,62 +34,77 @@ export default function CarouselSection() {
 
   const data = [
     {
-      title:
-        "Execuções Fiscais – Cartas e Mandados de Citação Tribunal de Justiça do Ceará",
+      title: "Exploração de Big Data em Ambientes Corporativos",
+      date: "15 de Junho, 2023",
+      description:
+        "Análise das estratégias para implementar e gerenciar big data em empresas, focando na otimização de processos e tomada de decisão.",
+      category: "Big Data",
     },
     {
-      title:
-        "Jornada de Inovação – Direito e Linguagem no Setor Público – Edição INMETRO",
+      title: "Inovações em Machine Learning para o Setor de Saúde",
+      date: "22 de Julho, 2023",
+      description:
+        "Estudo das aplicações de machine learning na saúde, incluindo diagnósticos, predições e melhorias nos cuidados aos pacientes.",
+      category: "Machine Learning",
     },
     {
-      title:
-        "Jornada De Inovação – Direito E Linguagem No Setor Público – Edição Sobral",
+      title: "Engenharia de Software: Práticas Modernas e Desafios",
+      date: "5 de Agosto, 2023",
+      description:
+        "Discussão sobre as técnicas e metodologias modernas na engenharia de software, bem como os desafios enfrentados pelos desenvolvedores.",
+      category: "Engenharia de Software",
     },
     {
-      title:
-        "(Re)design de Serviço Público – Filas de Cirurgias Eletivas do Estado do Ceará",
+      title: "(Re)design de Aplicações Web para Melhoria de UX",
+      date: "18 de Setembro, 2023",
+      description:
+        "Caso de estudo sobre a reestruturação de aplicações web para melhorar a experiência do usuário e aumentar a eficiência do sistema.",
+      category: "Inovação",
     },
   ];
 
   return (
-    <div className="bg-[#270B79] p-4 sm:p-6 md:p-8 mx-4 sm:mx-8 md:mx-16 lg:mx-28 animate-fade-left animate-once animate-alternate">
-      <Slider {...settings}>
-        {data.map((item, index) => (
-          <div key={index} className="p-2 sm:p-4 cursor-pointer">
-            <div
-              className={`bg-gray-200 rounded-md hover:bg-[#ec642a] hover:text-white transition p-6 sm:p-8 md:p-10 lg:p-12 text-black font-Lufga-ExtraBold h-36 sm:h-44 md:h-52 lg:h-60 flex items-center justify-center`}
-            >
-              <p
-                className={`transition-transform ease-in-out hover:-translate-y-1 hover:scale-105 text-center text-sm sm:text-base md:text-lg lg:text-xl max-h-full flex-wrap break-words overflow-hidden text-ellipsis`}
-              >
-                {item.title}
-              </p>
+    <div className="bg-gradient-to-r from-purple-900 to-indigo-800 p-6 md:p-10 lg:p-14 mx-auto max-w-7xl rounded-md">
+      <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
+        Artigos em Destaque
+      </h2>
+      <div className="relative">
+        <Slider ref={setSliderRef} {...settings}>
+          {data.map((item, index) => (
+            <div key={index} className="px-2">
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105">
+                <div className="p-6">
+                  <span className="inline-block px-3 py-1 text-sm font-semibold text-indigo-600 bg-indigo-100 rounded-full mb-4">
+                    {item.category}
+                  </span>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 mb-4">{item.date}</p>
+                  <p className="text-gray-700 mb-4 line-clamp-3">
+                    {item.description}
+                  </p>
+                  <button className="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-300">
+                    Leia mais
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
+        <button
+          onClick={() => sliderRef?.slickPrev()}
+          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full bg-white p-2 rounded-full shadow-md hover:bg-indigo-100 transition-colors duration-300"
+        >
+          <ChevronLeft className="w-6 h-6 text-indigo-600" />
+        </button>
+        <button
+          onClick={() => sliderRef?.slickNext()}
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full bg-white p-2 rounded-full shadow-md hover:bg-indigo-100 transition-colors duration-300"
+        >
+          <ChevronRight className="w-6 h-6 text-indigo-600" />
+        </button>
+      </div>
     </div>
-  );
-}
-
-function SampleNextArrow(props: any) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={`${className} bg-white rounded-full`}
-      style={{ ...style, display: "block" }}
-      onClick={onClick}
-    />
-  );
-}
-
-function SamplePrevArrow(props: any) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={`${className} bg-white rounded-full`}
-      style={{ ...style, display: "block" }}
-      onClick={onClick}
-    />
   );
 }

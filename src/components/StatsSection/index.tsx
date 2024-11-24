@@ -1,5 +1,8 @@
-// import DevImage from "../../../public/dev-image.png";
-import { Users, FileText, Box, Briefcase } from "lucide-react"; // Importando os ícones
+"use client";
+
+import { useState, useEffect } from "react";
+import { Users, FileText, Box, Briefcase } from "lucide-react";
+import { motion } from "framer-motion";
 
 const statsData = [
   { number: 100, text: "COLABORADORES", icon: Users },
@@ -9,42 +12,84 @@ const statsData = [
 ];
 
 const StatsSection = () => {
-  return (
-    <section className="flex flex-col items-center justify-center py-8 sm:py-12 md:py-16 bg-[#270B79] min-h-screen text-white relative overflow-hidden">
-    {/* Área de animação */}
-    <div className="area absolute inset-0">
-      <ul className="circles">
-        {Array.from({length: 10}).map((_, index) => (
-          <li key={index}></li>
-        ))}
-      </ul>
-    </div>
+  const [isVisible, setIsVisible] = useState(false);
 
-    {/* Conteúdo da seção */}
-    <div className="container mx-auto px-4 z-10">
-      <h2 className="text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 text-center">
-        Faça parte de uma equipe de cientistas, inventores e amigos
-      </h2>
-      <div className="flex flex-col items-center justify-between">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 text-center">
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const section = document.getElementById("stats-section");
+    if (section) observer.observe(section);
+
+    return () => {
+      if (section) observer.unobserve(section);
+    };
+  }, []);
+
+  return (
+    <section
+      id="stats-section"
+      className="py-16 md:py-24 bg-gradient-to-br from-purple-900 via-indigo-800 to-blue-900 text-white relative overflow-hidden"
+    >
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center leading-tight"
+        >
+          Faça parte de uma equipe de{" "}
+          <span className="text-[#ed6327]">cientistas</span>,{" "}
+          <span className="text-[#ed6327]">inventores</span> e{" "}
+          <span className="text-[#ed6327]">amigos</span>
+        </motion.h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {statsData.map((item, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-white text-black rounded-lg p-4 sm:p-6 shadow-lg flex flex-col items-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
-              <item.icon className="text-[#270B79] size-6 sm:size-8 mb-2 sm:mb-4" />
-              <div className="text-2xl sm:text-3xl md:text-4xl bg-inherit font-Lufga-ExtraBold text-[#270B79]">
+              <div className="flex items-center justify-center mb-4">
+                <item.icon className="text-yellow-400 w-12 h-12" />
+              </div>
+              <div className="text-4xl md:text-5xl font-bold text-center mb-2">
                 {item.number}
               </div>
-              <div className="mt-1 sm:mt-2 bg-inherit font-Lufga-Regular text-sm sm:text-base">
+              <div className="text-sm md:text-base text-center text-gray-300 font-medium">
                 {item.text}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
-  </section>
+      <div className="absolute inset-0 z-0">
+        {[...Array(50)].map((_, index) => (
+          <div
+            key={index}
+            className="absolute rounded-full bg-white opacity-10"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              width: `${Math.random() * 10 + 5}px`,
+              height: `${Math.random() * 10 + 5}px`,
+              animation: `float ${
+                Math.random() * 10 + 5
+              }s infinite ease-in-out`,
+            }}
+          ></div>
+        ))}
+      </div>
+    </section>
   );
 };
 
