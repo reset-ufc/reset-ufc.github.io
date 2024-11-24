@@ -7,6 +7,7 @@ import { FaArrowUp } from "react-icons/fa";
 import { motion } from "framer-motion";
 import ResearchArea from "../../components/ResearchArea";
 import { Helmet } from "react-helmet-async";
+import { SponsorshipsSection } from "../../components/SponsorshipsSection";
 
 export default function Home() {
   const [showButton, setShowButton] = useState(false);
@@ -94,23 +95,7 @@ export default function Home() {
           <Portfolio />
           <StatsSection />
           <div className="flex flex-col text-center px-4 sm:px-5 py-12 sm:py-16 md:py-24">
-            <h2 className="text-3xl sm:text-4xl font-Lufga-ExtraBold bg-inherit text-[#270B79] pb-3">
-              Nossos Patrocínios
-            </h2>
-            <p className="font-medium text-zinc-500 max-w-2xl mx-auto">
-              Os membros do RESET LAB recebem financiamento da CAPES, FAPESP,
-              CNPQ e Tomorrow.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8 justify-center items-center">
-              {Array.from({ length: 4 }).map((_, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-center px-8 sm:px-16 py-6 sm:py-10 bg-white shadow-lg rounded-lg"
-                >
-                  IMAGENS DOS PATROCINADORES AQUI
-                </div>
-              ))}
-            </div>
+            <SponsorshipsSection />
           </div>
         </div>
         <div
