@@ -11,7 +11,7 @@ const statsData = [
   { number: 22, text: "PARCEIROS", icon: Briefcase },
 ];
 
-const StatsSection = () => {
+export const StatsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const StatsSection = () => {
   return (
     <section
       id="stats-section"
-      className="py-16 md:py-24 bg-gradient-to-br from-purple-900 via-indigo-800 to-blue-900 text-white relative overflow-hidden"
+      className="py-16 md:py-24  text-white relative overflow-hidden"
     >
       <div className="container mx-auto px-4 relative z-10">
         <motion.h2
@@ -73,7 +73,7 @@ const StatsSection = () => {
         </div>
       </div>
       <div className="absolute inset-0 z-0">
-        {[...Array(50)].map((_, index) => (
+        {[...Array(60)].map((_, index) => (
           <div
             key={index}
             className="absolute rounded-full bg-white opacity-10"
@@ -92,5 +92,3 @@ const StatsSection = () => {
     </section>
   );
 };
-
-export default StatsSection;

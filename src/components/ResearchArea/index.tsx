@@ -13,7 +13,7 @@ const ResearchCard = ({ title, description, icon }: ResearchCardProps) => {
 
   return (
     <motion.div
-      className="bg-[#270B79] text-white p-6 rounded-lg shadow-lg transition-all duration-300 ease-in-out"
+      className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
       whileHover={{ scale: 1.05 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
@@ -26,12 +26,10 @@ const ResearchCard = ({ title, description, icon }: ResearchCardProps) => {
         >
           {icon}
         </motion.div>
-        <h2 className="font-Lufga-Regular text-2xl text-center bg-inherit">
-          {title}
-        </h2>
+        <h2 className="font-bold text-2xl text-center text-white">{title}</h2>
       </div>
       <motion.p
-        className="text-white bg-inherit text-sm leading-relaxed text-center"
+        className="text-gray-300 text-sm leading-relaxed text-center"
         initial={{ opacity: 0.8 }}
         animate={{ opacity: isHovered ? 1 : 0.8 }}
       >
@@ -70,36 +68,55 @@ export default function ResearchArea() {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 bg-inherit">
-      <motion.h2
-        className="flex justify-center text-3xl lg:text-4xl text-center font-Lufga-ExtraBold bg-inherit text-[#270B79] pb-10"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        Explore nossas áreas de pesquisa
-      </motion.h2>
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 bg-inherit lg:grid-cols-2 gap-8"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        {researchAreas.map((area, index) => (
-          <motion.div
+    <section className="py-16 md:py-24 text-white relative overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.h2
+          className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center leading-tight"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Explore nossas áreas de pesquisa
+        </motion.h2>
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          {researchAreas.map((area, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <ResearchCard
+                title={area.title}
+                description={area.description}
+                icon={area.icon}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+      <div className="absolute inset-0 z-0">
+        {[...Array(50)].map((_, index) => (
+          <div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-          >
-            <ResearchCard
-              title={area.title}
-              description={area.description}
-              icon={area.icon}
-            />
-          </motion.div>
+            className="absolute rounded-full bg-white opacity-10"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              width: `${Math.random() * 10 + 5}px`,
+              height: `${Math.random() * 10 + 5}px`,
+              animation: `float ${
+                Math.random() * 10 + 5
+              }s infinite ease-in-out`,
+            }}
+          ></div>
         ))}
-      </motion.div>
-    </div>
+      </div>
+    </section>
   );
 }

@@ -64,7 +64,7 @@ export function CarouselSection() {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-purple-900 to-indigo-800 p-6 md:p-10 lg:p-14 mx-auto max-w-7xl rounded-md">
+    <div className="p-6 md:p-10 lg:p-14 mx-auto max-w-7xl rounded-md">
       <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
         Artigos em Destaque
       </h2>
