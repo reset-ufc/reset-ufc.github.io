@@ -1,13 +1,14 @@
 import Collection from "../../components/Collection";
 import { CarouselSection } from "../../components/CarouselSection";
 import Portfolio from "../../components/portfolio";
-import StatsSection from "../../components/StatsSection";
+import { StatsSection } from "../../components/StatsSection";
 import { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import { motion } from "framer-motion";
 import ResearchArea from "../../components/ResearchArea";
 import { Helmet } from "react-helmet-async";
 import { SponsorshipsSection } from "../../components/SponsorshipsSection";
+import { CollaborativeResearch } from "../../components/CollaborativeResearch";
 
 export default function Home() {
   const [showButton, setShowButton] = useState(false);
@@ -48,49 +49,20 @@ export default function Home() {
       <Helmet title="home" />
       <Collection />
       <div id="next-section">
-        <div className="flex flex-col bg-white">
-          <div className="flex flex-col lg:flex-row justify-center gap-6 lg:gap-10 text-center items-center px-4 lg:px-5 py-10 lg:py-16 bg-slate-100">
-            <div className="flex flex-col justify-center items-center max-w-2xl lg:max-w-lg">
-              <h2 className="text-3xl lg:text-4xl font-Lufga-ExtraBold bg-inherit text-[#270B79] pb-3">
-                Somos um grupo de pesquisa{" "}
-                <span className="text-[#ed6327]">colaborativa</span>
-              </h2>
-              <p className="font-medium text-zinc-500 text-sm lg:text-base">
-                O ARIES LAB é uma equipe de pesquisa do Instituto de Computação
-                da Universidade Federal da Bahia (UFBA), em conjunto com a
-                Universidade Federal de Lavras (UFLA) e a Universidade Estadual
-                da Bahia (UNEB).
-              </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center mt-6 lg:mt-0">
-              {Array.from({ length: 3 }).map((_, index) => (
-                <div
-                  key={index}
-                  className="bg-white py-10 px-6 rounded-lg shadow-md flex items-center justify-center "
-                >
-                  IMAGENS DAS INSTITUIÇÕES AQUI
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className="flex flex-col bg-gradient-to-b from-[#270B79] via-[#3711a6] to-indigo-800">
+          <CollaborativeResearch />
           <ResearchArea />
         </div>
-        <div className="bg-[#270B79] py-6 sm:py-16 md:py-20 lg:py-24">
+        <div className="bg-gradient-to-t from-[#270B79] via-[#3711a6] to-indigo-800 py-6 sm:py-16 md:py-20 lg:py-24">
           <div className="mt-4 sm:mt-12">
             <CarouselSection />
           </div>
         </div>
         <div className="animate-fade-right animate-once animate-alternate">
-          <div className="bg-[#270B79] py-8 sm:py-12 md:py-16">
-            <h1 className="text-white text-center text-3xl sm:text-4xl font-Lufga-ExtraBold px-4">
-              Portfólio
-            </h1>
-            <h2 className="text-white text-center text-base sm:text-lg font-Lufga-Regular mt-2 px-4">
-              Dê uma olhada em alguns dos nossos projetos
-            </h2>
+          <div className="bg-gradient-to-t to-[#270B79] via-[#3711a6] from-indigo-800 py-8 sm:py-12 md:py-16">
+            <Portfolio />
+            <StatsSection />
           </div>
-          <Portfolio />
-          <StatsSection />
           <div className="flex flex-col text-center px-4 sm:px-5 py-12 sm:py-16 md:py-24">
             <SponsorshipsSection />
           </div>
