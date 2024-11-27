@@ -1,40 +1,39 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react"; // Ícones de menu, fechar e setas
-import reset_image from '/public/logo.png';
+import reset_image from "/public/logo.png";
 
 const links = [
   {
     label: "Início",
-    path: ""
+    path: "home",
   },
   {
     label: "Membros",
-    path: "members"
+    path: "members",
   },
   {
     label: "Notícias",
-    path: "news"
+    path: "news",
   },
   {
     label: "Services",
     path: "",
-    dropdown: [
-      { label: "Tools", path: "tools" },
-    ]
+    dropdown: [{ label: "Tools", path: "tools" }],
   },
   {
     label: "Contact",
     path: "",
     dropdown: [
       { label: "Email", path: "contact/email" },
-      { label: "Phone", path: "contact/phone" }
-    ]
-  }
+      { label: "Phone", path: "contact/phone" },
+    ],
+  },
 ];
 
 export default function Header() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdowns, setOpenDropdowns] = useState<number[]>([]);
 
@@ -46,7 +45,7 @@ export default function Header() {
   // Função para abrir/fechar dropdowns no menu lateral
   const toggleDropdown = (index: number) => {
     if (openDropdowns.includes(index)) {
-      setOpenDropdowns(openDropdowns.filter(i => i !== index)); // Fechar
+      setOpenDropdowns(openDropdowns.filter((i) => i !== index)); // Fechar
     } else {
       setOpenDropdowns([...openDropdowns, index]); // Abrir
     }
@@ -66,7 +65,11 @@ export default function Header() {
 
         {/* Ícone de sanduíche para telas menores */}
         <button onClick={toggleMenu} className="pr-6 md:hidden">
-          {isOpen ? <X size={24} color="white" /> : <Menu size={24} color="white" />}
+          {isOpen ? (
+            <X size={24} color="white" />
+          ) : (
+            <Menu size={24} color="white" />
+          )}
         </button>
 
         {/* Navbar para telas grandes */}
@@ -75,7 +78,9 @@ export default function Header() {
             <div key={index} className="relative group h-full">
               <a
                 onClick={() => navigate("/" + link.path)}
-                className="transition h-full flex items-center cursor-pointer font-Lufga-ExtraBold hover:text-[#ec642a]"
+                className={`transition h-full flex items-center cursor-pointer font-Lufga-ExtraBold ${
+                  location.pathname === "/" + link.path ? "text-[#ec642a]" : ""
+                }`}
               >
                 {link.label}
               </a>
@@ -85,9 +90,15 @@ export default function Header() {
                     <a
                       key={idx}
                       onClick={() => navigate("/" + item.path)}
-                      className="relative bg-white block font-Lufga-Regular hover:font-Lufga-ExtraBold py-1 text-gray-500 hover:text-black transition"
+                      className={`relative bg-white block font-Lufga-Regular hover:font-Lufga-ExtraBold py-1 ${
+                        location.pathname === "/" + item.path
+                          ? "text-black font-Lufga-ExtraBold"
+                          : "text-gray-500 hover:text-black"
+                      }`}
                     >
-                      <span className="pl-5 bg-white cursor-pointer">{item.label}</span>
+                      <span className="pl-5 bg-white cursor-pointer">
+                        {item.label}
+                      </span>
                     </a>
                   ))}
                 </div>
@@ -109,18 +120,23 @@ export default function Header() {
               <div key={index} className="w-full border-b border-white">
                 <div
                   onClick={() => {
-                    link.dropdown ? toggleDropdown(index) : navigate("/" + link.path);
+                    link.dropdown
+                      ? toggleDropdown(index)
+                      : navigate("/" + link.path);
                   }}
-                  className="flex justify-between items-center w-full cursor-pointer py-2 text-lg font-bold"
+                  className={`flex justify-between items-center w-full cursor-pointer py-2 text-lg font-bold ${
+                    location.pathname === "/" + link.path
+                      ? "text-[#ec642a]"
+                      : ""
+                  }`}
                 >
                   {link.label}
-                  {link.dropdown && (
-                    openDropdowns.includes(index) ? (
+                  {link.dropdown &&
+                    (openDropdowns.includes(index) ? (
                       <ChevronUp size={20} color="white" />
                     ) : (
                       <ChevronDown size={20} color="white" />
-                    )
-                  )}
+                    ))}
                 </div>
 
                 {/* Dropdown do menu lateral */}
@@ -133,7 +149,11 @@ export default function Header() {
                             navigate("/" + item.path);
                             toggleMenu(); // Fechar o menu ao clicar no item
                           }}
-                          className="text-white text-md cursor-pointer block"
+                          className={`text-md cursor-pointer block ${
+                            location.pathname === "/" + item.path
+                              ? "text-[#ec642a]"
+                              : "text-white"
+                          }`}
                         >
                           {item.label}
                         </a>

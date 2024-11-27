@@ -12,16 +12,16 @@ export function CollaborativeResearch() {
   ];
 
   return (
-    <section className="py-16 md:py-24 text-white relative overflow-hidden">
+    <section className="py-12 md:py-16 lg:py-24 text-white relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col lg:flex-row justify-center gap-10 lg:gap-16 items-center">
+        <div className="flex flex-col items-center lg:flex-row lg:justify-between lg:items-start gap-8 lg:gap-16">
           <motion.div
-            className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left max-w-2xl lg:max-w-lg"
+            className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left max-w-md lg:max-w-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 leading-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 leading-tight">
               Somos um grupo de pesquisa{" "}
               <span className="text-[#ed6327]">colaborativa</span>
             </h2>
@@ -32,7 +32,7 @@ export function CollaborativeResearch() {
             </p>
           </motion.div>
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8 lg:mt-0"
+            className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 w-full max-w-lg lg:max-w-xl mt-8 lg:mt-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -40,20 +40,22 @@ export function CollaborativeResearch() {
             {institutions.map((institution, index) => (
               <motion.div
                 key={index}
-                className="flex-col text-center bg-white w-40 h-w-40 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex items-center justify-center"
+                className="flex flex-col items-center justify-center bg-white rounded-xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="relative flex-shrink-0">
+                <div className="relative flex-shrink-0 w-20 h-20 flex items-center justify-center">
                   <img
                     src={institution.src}
                     alt={institution.name}
-                    className="object-contain"
+                    className="object-contain max-w-full max-h-full"
                   />
                 </div>
-                <p className="text-black mt-2 leading-none">
-                  {institution.description}
-                </p>
+                {institution.description && (
+                  <p className="text-black mt-2 text-xs sm:text-sm text-center leading-tight">
+                    {institution.description}
+                  </p>
+                )}
               </motion.div>
             ))}
           </motion.div>
