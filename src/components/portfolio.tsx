@@ -21,8 +21,8 @@ export default function Portfolio() {
   ];
 
   return (
-    <div>
-      <h1 className="text-white text-center text-3xl sm:text-4xl font-Lufga-ExtraBold px-4">
+    <div className="my-6">
+      <h1 className="text-white text-center text-3xl md:text-4xl font-bold leading-tight font-Lufga-ExtraBold px-4">
         Portfólio
       </h1>
       <h2 className="text-white text-center text-base sm:text-lg font-Lufga-Regular mt-2 px-4">

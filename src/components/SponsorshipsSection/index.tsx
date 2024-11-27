@@ -8,9 +8,9 @@ export function SponsorshipsSection() {
 
   return (
     <section className="py-12 px-4">
-      <h2 className="text-3xl sm:text-4xl font-extrabold text-[#270B79] pb-3 text-center">
+      <h1 className="text-3xl md:text-4xl font-extrabold text-[#270B79] pb-3 text-center">
         Nossos Patrocínios
-      </h2>
+      </h1>
       <p className="font-medium text-zinc-500 max-w-2xl mx-auto text-center mb-8">
         Os membros do RESET LAB recebem financiamento da CNPQ, FUNCAP, CIDACS e
         FAPESP

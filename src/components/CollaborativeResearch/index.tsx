@@ -2,9 +2,13 @@ import { motion } from "framer-motion";
 
 export function CollaborativeResearch() {
   const institutions = [
-    { name: "UFBA", logo: "/ufba-logo.png" },
-    { name: "UFLA", logo: "/ufla-logo.png" },
-    { name: "UNEB", logo: "/uneb-logo.png" },
+    { name: "PUC-RIO", src: "/puc-rio-logo.png" },
+    {
+      name: "USP",
+      src: "/usp-logo.png",
+      description: "Universidade de São Paulo",
+    },
+    { name: "UECE", src: "/uece-logo.png" },
   ];
 
   return (
@@ -22,10 +26,9 @@ export function CollaborativeResearch() {
               <span className="text-[#ed6327]">colaborativa</span>
             </h2>
             <p className="text-gray-300 text-sm lg:text-base">
-              O ARIES LAB é uma equipe de pesquisa do Instituto de Computação da
-              Universidade Federal da Bahia (UFBA), em conjunto com a
-              Universidade Federal de Lavras (UFLA) e a Universidade Estadual da
-              Bahia (UNEB).
+              O RESET LAB é um grupo de pesquisa colaborativa que trabalha de
+              forma interdisciplinar com diversas instituições e laboratórios de
+              pesquisa.
             </p>
           </motion.div>
           <motion.div
@@ -37,17 +40,20 @@ export function CollaborativeResearch() {
             {institutions.map((institution, index) => (
               <motion.div
                 key={index}
-                className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex items-center justify-center"
+                className="flex-col text-center bg-white w-40 h-w-40 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
-                <img
-                  src={institution.logo}
-                  alt={`${institution.name} logo`}
-                  width={120}
-                  height={120}
-                  className="max-w-full h-auto"
-                />
+                <div className="relative flex-shrink-0">
+                  <img
+                    src={institution.src}
+                    alt={institution.name}
+                    className="object-contain"
+                  />
+                </div>
+                <p className="text-black mt-2 leading-none">
+                  {institution.description}
+                </p>
               </motion.div>
             ))}
           </motion.div>

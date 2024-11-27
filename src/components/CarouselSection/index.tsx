@@ -65,9 +65,12 @@ export function CarouselSection() {
 
   return (
     <div className="p-6 md:p-10 lg:p-14 mx-auto max-w-7xl rounded-md">
-      <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
+      <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 text-center">
         Artigos em Destaque
-      </h2>
+      </h1>
+      <p className="text-white text-center text-base sm:text-lg font-Lufga-Regular mb-2 px-4">
+        Confira os artigos mais recentes e relevantes de nossa equipe
+      </p>
       <div className="relative">
         <Slider ref={setSliderRef} {...settings}>
           {data.map((item, index) => (
