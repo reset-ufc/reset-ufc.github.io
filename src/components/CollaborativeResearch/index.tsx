@@ -9,6 +9,7 @@ export function CollaborativeResearch() {
       description: "Universidade de São Paulo",
     },
     { name: "UECE", src: "/uece-logo.png" },
+    { name: "FIOCRUZ", src: "/fiocruz-logo.jpg" },
   ];
 
   return (
@@ -32,7 +33,7 @@ export function CollaborativeResearch() {
             </p>
           </motion.div>
           <motion.div
-            className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 w-full max-w-lg lg:max-w-xl mt-8 lg:mt-0"
+            className="grid grid-cols-2 sm:grid-cols-4 space-x-3 w-full max-w-lg lg:max-w-xl mt-8 lg:mt-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -44,18 +45,18 @@ export function CollaborativeResearch() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="relative flex-shrink-0 w-20 h-20 flex items-center justify-center">
+                <div className="relative w-28 h-w-28 flex flex-col items-center justify-center">
                   <img
                     src={institution.src}
                     alt={institution.name}
                     className="object-contain max-w-full max-h-full"
                   />
+                  {institution.description && (
+                    <p className="text-black mt-2 text-xs sm:text-sm text-center leading-none">
+                      {institution.description}
+                    </p>
+                  )}
                 </div>
-                {institution.description && (
-                  <p className="text-black mt-2 text-xs sm:text-sm text-center leading-tight">
-                    {institution.description}
-                  </p>
-                )}
               </motion.div>
             ))}
           </motion.div>
