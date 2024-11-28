@@ -23,13 +23,6 @@ export default function Collection() {
 
   return (
     <div className="relative flex flex-col lg:flex-row justify-center min-h-screen items-center animate-fade animate-once animate-alternate bg-[#270B79] p-4 lg:p-0">
-    <div className="area">
-      <ul className="circles">
-        {Array.from({length: 10}).map((_, index) => (
-          <li key={index}></li>
-        ))}
-      </ul>
-    </div>
 
     <div className="bg-transparent flex flex-col lg:flex-row justify-evenly w-full h-full items-center z-10 gap-8 lg:gap-0">
       <div className="bg-inherit flex flex-col justify-center text-white text-center lg:text-left">
