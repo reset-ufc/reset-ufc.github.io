@@ -140,7 +140,6 @@ export function CarouselSection() {
           <ChevronRight className="w-6 h-6 text-indigo-600" />
         </button>
       </div>
-      <div className="absolute inset-0 z-0"></div>
     </div>
   );
 }

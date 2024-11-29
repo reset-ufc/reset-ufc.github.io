@@ -1,6 +1,6 @@
 import Collection from "../../components/Collection";
 import { CarouselSection } from "../../components/CarouselSection";
-import Portfolio from "../../components/portfolio";
+// import Portfolio from "../../components/portfolio";
 import { StatsSection } from "../../components/StatsSection";
 import { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
@@ -48,7 +48,7 @@ export default function Home() {
     <>
       <Helmet title="home" />
       <Collection />
-      <div id="next-section">
+      <div>
         <div className="flex flex-col bg-gradient-to-b from-[#270B79] via-[#3711a6] to-indigo-800">
           <CollaborativeResearch />
           <ResearchArea />
@@ -60,7 +60,7 @@ export default function Home() {
         </div>
         <div className="animate-fade-right animate-once animate-alternate">
           <div className="bg-gradient-to-t to-[#270B79] via-[#3711a6] from-indigo-800 py-8 sm:py-12 md:py-16">
-            <Portfolio />
+            {/* <Portfolio /> */}
             <StatsSection />
           </div>
           <div className="flex flex-col text-center px-4 sm:px-5 py-12 sm:py-16 md:py-24">

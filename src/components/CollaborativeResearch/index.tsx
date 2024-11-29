@@ -13,7 +13,10 @@ export function CollaborativeResearch() {
   ];
 
   return (
-    <section className="py-12 md:py-16 lg:py-24 text-white relative overflow-hidden">
+    <section
+      id="collaborative-research"
+      className="py-12 md:py-16 lg:py-24 text-white relative overflow-hidden"
+    >
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center lg:flex-row lg:justify-between lg:items-start gap-8 lg:gap-16">
           <motion.div
