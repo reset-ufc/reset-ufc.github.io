@@ -23,19 +23,6 @@ export default function Collection() {
 
   return (
     <div className="relative flex flex-col lg:flex-row justify-center min-h-screen items-center animate-fade animate-once animate-alternate bg-[#270B79] p-4 lg:p-0">
-
-    <div className="bg-transparent flex flex-col lg:flex-row justify-evenly w-full h-full items-center z-10 gap-8 lg:gap-0">
-      <div className="bg-inherit flex flex-col justify-center text-white text-center lg:text-left">
-        <h1 className="bg-inherit flex flex-col lg:flex-row text-5xl lg:text-8xl font-Lufga-ExtraBold">
-          Reset
-          <span className="bg-inherit font-Lufga-Regular">Lab</span>
-        </h1>
-        <p className="bg-inherit text-2xl lg:text-4xl w-full lg:w-[350px] font-semibold my-4 lg:my-7">
-          Inovando na Conexão entre Software e Dados.
-        </p>
-        <CustomButton children="Venha nos Conhecer" onClick={handleScroll} />
-      </div>
-
       <div className="bg-transparent flex flex-col lg:flex-row justify-evenly w-full h-full items-center z-10 gap-8 lg:gap-0">
         <div className="bg-inherit flex flex-col justify-center text-white text-center lg:text-left">
           <h1 className="bg-inherit flex flex-col lg:flex-row text-5xl lg:text-8xl font-Lufga-ExtraBold">
@@ -65,7 +52,6 @@ export default function Collection() {
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }
