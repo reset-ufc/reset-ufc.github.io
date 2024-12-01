@@ -43,6 +43,13 @@ export function ProjectDetailsPage() {
         </p>
       </section>
 
+      <section className="mb-8">
+        <h2 className="text-xl font-semibold mb-3 text-gray-700">
+          Palavras chaves
+        </h2>
+        <p className="text-gray-600">{project.keywords.join(", ")}</p>
+      </section>
+
       <section>
         <h2 className="text-xl font-semibold mb-3 text-gray-700">Membros</h2>
         <ul className="space-y-2">

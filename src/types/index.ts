@@ -40,8 +40,10 @@ export interface ResearchProjectProps {
   id: string;
   title: string;
   description: string;
+  Funding: string;
   status: string;
   nature: string;
   studentsInvolved: StudentsInvolved;
   members: ProjectMember[];
+  keywords: string[];
 }
