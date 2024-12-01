@@ -40,7 +40,7 @@ export interface ResearchProjectProps {
   slug: string;
   title: string;
   description: string;
-  Funding: string;
+  funding: string;
   status: string;
   nature: string;
   studentsInvolved: StudentsInvolved;

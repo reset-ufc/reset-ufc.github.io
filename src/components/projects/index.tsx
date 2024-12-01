@@ -10,12 +10,21 @@ import { twMerge } from "tailwind-merge";
 interface PortfolioProps {
   searchTerm?: string;
   statusFilter?: string;
+  periodFilter?: string;
+  fundingFilter?: string;
+  keywordFilter?: string;
 }
 
-export default function Projects({ searchTerm, statusFilter }: PortfolioProps) {
+export default function Projects({
+  searchTerm = "",
+  statusFilter = "all",
+  periodFilter = "all",
+  fundingFilter = "all",
+  keywordFilter = "all",
+}: PortfolioProps) {
   const researchProjects = [
     {
-      id: "peacemaker-bot",
+      slug: "peacemaker-bot",
       name: "The PeacemakerBot",
       description:
         "Bot não-intrusivo para monitorar incivilidade em pull requests",
@@ -23,10 +32,13 @@ export default function Projects({ searchTerm, statusFilter }: PortfolioProps) {
         "Desenvolvimento de um bot automatizado para identificar e moderar comportamentos incivilizados em conversações de pull requests em projetos de software aberto.",
       period: "2024/2025",
       status: "Em andamento",
+      funding: "PIBITI",
+      nature: "Pesquisa",
+      keywords: ["incivilidade", "bot", "NLP", "LLMs", "GitHub"],
       link: "/projects/peacemaker-bot",
     },
     {
-      id: "security-automation-ci",
+      slug: "security-automation-ci",
       name: "Segurança Automatizada em CI para ML",
       description:
         "Investigação da automação de segurança na integração contínua de sistemas baseados em aprendizado de máquina.",
@@ -34,18 +46,34 @@ export default function Projects({ searchTerm, statusFilter }: PortfolioProps) {
         "Estudo sobre a integração de ferramentas de segurança em processos de CI para mitigar vulnerabilidades em sistemas de aprendizado de máquina.",
       period: "2024/2025",
       status: "Em andamento",
+      funding: "PIBIC",
+      nature: "Pesquisa",
+      keywords: ["segurança", "automação", "CI", "ML"],
       link: "/projects/security-automation-ci",
     },
   ];
 
+  // Filtragem dos projetos
   const filteredProjects = researchProjects.filter((project) => {
-    const search = searchTerm?.toLowerCase() || "";
+    const search = searchTerm.toLowerCase();
     const matchesSearch =
       project.name.toLowerCase().includes(search) ||
       project.description.toLowerCase().includes(search);
     const matchesStatus =
       statusFilter === "all" || project.status === statusFilter;
-    return matchesSearch && matchesStatus;
+    const matchesPeriod =
+      periodFilter === "all" || project.period === periodFilter;
+    const matchesFunding =
+      fundingFilter === "all" || project.funding === fundingFilter;
+    const matchesKeywords =
+      keywordFilter === "all" || project.keywords.includes(keywordFilter);
+    return (
+      matchesSearch &&
+      matchesStatus &&
+      matchesPeriod &&
+      matchesFunding &&
+      matchesKeywords
+    );
   });
 
   return (
@@ -68,9 +96,9 @@ export default function Projects({ searchTerm, statusFilter }: PortfolioProps) {
           }}
           className={twMerge("mySwiper", "!pb-12")}
         >
-          {filteredProjects.map((project, index) => (
-            <SwiperSlide key={index}>
-              <div className="bg-white rounded-xl overflow-hidden shadow-lg flex flex-col h-[400px]">
+          {filteredProjects.map((project) => (
+            <SwiperSlide key={project.slug}>
+              <div className="bg-white rounded-xl overflow-hidden shadow-lg flex flex-col h-[440px]">
                 <div className="p-6 flex flex-col flex-grow">
                   <h3 className="text-black text-xl font-semibold mb-2 line-clamp-2">
                     {project.name}
@@ -79,12 +107,28 @@ export default function Projects({ searchTerm, statusFilter }: PortfolioProps) {
                     {project.description}
                   </p>
                   <div className="mb-4">
-                    <p className="text-gray-600 text-sm mb-1">
-                      Período: {project.period}
-                    </p>
-                    <p className="text-gray-600 text-sm">
-                      Status: {project.status}
-                    </p>
+                    <div className="space-y-2">
+                      <p className="text-gray-600 text-sm">
+                        <span className="font-semibold">Natureza:</span>{" "}
+                        {project.nature}
+                      </p>
+                      <p className="text-gray-600 text-sm">
+                        <span className="font-semibold">Período:</span>{" "}
+                        {project.period}
+                      </p>
+                      <p className="text-gray-600 text-sm">
+                        <span className="font-semibold">Status:</span>{" "}
+                        {project.status}
+                      </p>
+                      <p className="text-gray-600 text-sm">
+                        <span className="font-semibold">Financiadora:</span>{" "}
+                        {project.funding}
+                      </p>
+                      <p className="text-gray-600 text-sm">
+                        <span className="font-semibold">Palavras chaves:</span>{" "}
+                        {project.keywords.join(", ")}
+                      </p>
+                    </div>
                   </div>
                 </div>
                 <div className="mt-auto p-6">

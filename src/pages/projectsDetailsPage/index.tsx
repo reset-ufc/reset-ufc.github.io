@@ -38,9 +38,18 @@ export function ProjectDetailsPage() {
         <h2 className="text-xl font-semibold mb-3 text-gray-700">
           Estudantes Envolvidos
         </h2>
-        <p className="text-gray-600">
-          Doutorado: {project.studentsInvolved.phd}
-        </p>
+        <div className="space-y-2">
+          {project.studentsInvolved.phd && (
+            <p className="text-gray-600">
+              Doutorado: {project.studentsInvolved.phd}
+            </p>
+          )}
+          {project.studentsInvolved.undergraduate && (
+            <p className="text-gray-600">
+              Graduação: {project.studentsInvolved.undergraduate}
+            </p>
+          )}
+        </div>
       </section>
 
       <section className="mb-8">
