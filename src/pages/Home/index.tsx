@@ -54,13 +54,13 @@ export default function Home() {
           <CollaborativeResearch />
           <ResearchArea />
         </div>
-        <div className="bg-gradient-to-t from-[#270B79] via-[#3711a6] to-indigo-800 py-6 sm:py-16 md:py-20 lg:py-24">
+        <div className="bg-gradient-to-t from-[#270B79] via-[#3711a6] to-indigo-800 py-6 md:py-8">
           <div className="mt-4 sm:mt-12">
             <CarouselSection />
           </div>
         </div>
         <div className="animate-fade-right animate-once animate-alternate">
-          <div className="bg-gradient-to-t to-[#270B79] via-[#3711a6] from-indigo-800 py-8 sm:py-12 md:py-16">
+          <div className="bg-gradient-to-t to-[#270B79] via-[#3711a6] from-indigo-800 py-4 md:py-10">
             <FeaturedProjects />
             <StatsSection />
           </div>
