@@ -18,7 +18,7 @@ export function CollaborativeResearch() {
       className="py-12 md:py-16 lg:py-24 text-white relative overflow-hidden"
     >
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col items-center lg:flex-row lg:justify-between lg:items-start gap-8 lg:gap-16">
+        <div className="flex flex-col items-center lg:flex-row lg:justify-around lg:items-start gap-6 lg:gap-10">
           <motion.div
             className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left max-w-md lg:max-w-lg"
             initial={{ opacity: 0, y: 20 }}
@@ -30,9 +30,9 @@ export function CollaborativeResearch() {
               <span className="text-[#ed6327]">colaborativa</span>
             </h2>
             <p className="text-gray-300 text-sm lg:text-base">
-              O RESET LAB é um grupo de pesquisa colaborativa que trabalha de
-              forma interdisciplinar com diversas instituições e laboratórios de
-              pesquisa.
+              O RESET LAB é um grupo de pesquisa colaborativa da Universidade
+              Federal (UFC) do ceará que trabalha de forma interdisciplinar com
+              diversas instituições e laboratórios de pesquisa.
             </p>
           </motion.div>
           <motion.div

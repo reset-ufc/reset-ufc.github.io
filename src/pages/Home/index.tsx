@@ -1,6 +1,5 @@
 import Collection from "../../components/Collection";
 import { CarouselSection } from "../../components/CarouselSection";
-// import Portfolio from "../../components/portfolio";
 import { StatsSection } from "../../components/StatsSection";
 import { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
@@ -9,6 +8,7 @@ import ResearchArea from "../../components/ResearchArea";
 import { Helmet } from "react-helmet-async";
 import { SponsorshipsSection } from "../../components/SponsorshipsSection";
 import { CollaborativeResearch } from "../../components/CollaborativeResearch";
+import FeaturedProjects from "../../components/FeaturedProjects";
 
 export default function Home() {
   const [showButton, setShowButton] = useState(false);
@@ -60,7 +60,7 @@ export default function Home() {
         </div>
         <div className="animate-fade-right animate-once animate-alternate">
           <div className="bg-gradient-to-t to-[#270B79] via-[#3711a6] from-indigo-800 py-8 sm:py-12 md:py-16">
-            {/* <Portfolio /> */}
+            <FeaturedProjects />
             <StatsSection />
           </div>
           <div className="flex flex-col text-center px-4 sm:px-5 py-12 sm:py-16 md:py-24">

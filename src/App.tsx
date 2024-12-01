@@ -5,18 +5,26 @@ import ProfilePage from "./components/ProfilePage";
 import NewsCardList from "./components/NewsSection";
 import NewsDetail from "./components/NewsDetail";
 import ToolsSection from "./pages/Tools";
+import { ProjectDetailsPage } from "./pages/projectsDetailsPage";
+import { ProjectPage } from "./pages/projectPage";
+import ScrollToTop from "./utils/scroll-top";
 
 function App() {
   return (
-    <Routes>
-      <Route path="*" element={<Navigate to="/home" />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/members" element={<TeamInterface />} />
-      <Route path="/members/:name" element={<ProfilePage />} />
-      <Route path="/news" element={<NewsCardList />} />
-      <Route path="/tools" element={<ToolsSection />} />
-      <Route path="/news/:title" element={<NewsDetail />} />
-    </Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="*" element={<Navigate to="/home" />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/projects" element={<ProjectPage />} />
+        <Route path="/projects/:title" element={<ProjectDetailsPage />} />
+        <Route path="/members" element={<TeamInterface />} />
+        <Route path="/members/:name" element={<ProfilePage />} />
+        <Route path="/news" element={<NewsCardList />} />
+        <Route path="/tools" element={<ToolsSection />} />
+        <Route path="/news/:title" element={<NewsDetail />} />
+      </Routes>
+    </>
   );
 }
 

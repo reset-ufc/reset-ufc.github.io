@@ -13,6 +13,10 @@ const links = [
     path: "members",
   },
   {
+    label: "Projetos",
+    path: "projects",
+  },
+  {
     label: "Notícias",
     path: "news",
   },

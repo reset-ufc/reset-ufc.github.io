@@ -14,8 +14,11 @@ const Footer = () => {
         </div>
         <div className="flex-1 px-2 sm:px-4 bg-inherit">
           <h3 className="mb-2 font-bold bg-inherit text-lg">Endereço</h3>
-          <p className="bg-inherit">Rua Bento Avila De Sousa, 141</p>
-          <p className="bg-inherit">Itapajé – CE</p>
+          <p className="bg-inherit">
+            Universidade Federal do Ceará, Campus de Itapajé. <br />
+            Campus Jardim de Anita. Rua Francisco José de Oliveira, s/n, Centro
+          </p>
+          <p className="bg-inherit">Itapajé-CE</p>
           <p className="bg-inherit">CEP: 62600-000</p>
         </div>
         {/* <div className="flex-1 px-2 sm:px-4 bg-inherit">

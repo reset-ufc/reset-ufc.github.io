@@ -25,3 +25,23 @@ export interface NewsCardProps {
   date: string;
   imageUrl: string;
 }
+
+interface ProjectMember {
+  name: string;
+  role: string;
+}
+
+interface StudentsInvolved {
+  undergraduate?: number;
+  phd?: number;
+}
+
+export interface ResearchProjectProps {
+  url: string;
+  title: string;
+  description: string;
+  status: string;
+  nature: string;
+  studentsInvolved: StudentsInvolved;
+  members: ProjectMember[];
+}
