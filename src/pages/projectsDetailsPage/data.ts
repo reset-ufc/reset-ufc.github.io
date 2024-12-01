@@ -2,7 +2,7 @@ import { ResearchProjectProps } from "../../types";
 
 export const researchProject: ResearchProjectProps[] = [
   {
-    url: "peacemaker-bot",
+    id: "peacemaker-bot",
     title:
       "Construção de um bot não-intrusivo para monitorar traços de incivilidade de desenvolvedores em conversações de pull requests",
     description:
@@ -37,7 +37,7 @@ export const researchProject: ResearchProjectProps[] = [
     ],
   },
   {
-    url: "security-automation-ci",
+    id: "security-automation-ci",
     title:
       "Investigando a Automação de Segurança na Integração Contínua de Sistemas Baseados em Aprendizado de Máquina",
     description:

@@ -3,7 +3,7 @@ import { researchProject } from "./data";
 
 export function ProjectDetailsPage() {
   const { title } = useParams();
-  const project = researchProject.find((project) => project.url === title);
+  const project = researchProject.find((project) => project.id === title);
 
   if (!project)
     return (

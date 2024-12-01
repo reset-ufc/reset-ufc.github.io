@@ -8,7 +8,7 @@ import { ArrowRight } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 
 export default function FeaturedProjects() {
-  const researchProjects = [
+  const FeaturedProjectsData = [
     {
       id: "peacemaker-bot",
       name: "The PeacemakerBot",
@@ -48,7 +48,7 @@ export default function FeaturedProjects() {
         }}
         className={twMerge("mySwiper", "!pb-12")}
       >
-        {researchProjects.map((project, index) => (
+        {FeaturedProjectsData.map((project, index) => (
           <SwiperSlide key={index}>
             <div className="bg-white rounded-xl overflow-hidden shadow-lg flex flex-col h-[400px]">
               <div className="p-6 flex flex-col flex-grow">

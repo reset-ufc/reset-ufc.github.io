@@ -37,7 +37,7 @@ interface StudentsInvolved {
 }
 
 export interface ResearchProjectProps {
-  url: string;
+  id: string;
   title: string;
   description: string;
   status: string;
