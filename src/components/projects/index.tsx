@@ -6,6 +6,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { NavLink } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { twMerge } from "tailwind-merge";
+import { ProjectsData } from "./data";
 
 interface PortfolioProps {
   searchTerm?: string;
@@ -22,39 +23,8 @@ export default function Projects({
   fundingFilter = "all",
   keywordFilter = "all",
 }: PortfolioProps) {
-  const researchProjects = [
-    {
-      slug: "peacemaker-bot",
-      name: "The PeacemakerBot",
-      description:
-        "Bot não-intrusivo para monitorar incivilidade em pull requests",
-      summary:
-        "Desenvolvimento de um bot automatizado para identificar e moderar comportamentos incivilizados em conversações de pull requests em projetos de software aberto.",
-      period: "2024/2025",
-      status: "Em andamento",
-      funding: "PIBITI",
-      nature: "Pesquisa",
-      keywords: ["incivilidade", "bot", "NLP", "LLMs", "GitHub"],
-      link: "/projects/peacemaker-bot",
-    },
-    {
-      slug: "security-automation-ci",
-      name: "Segurança Automatizada em CI para ML",
-      description:
-        "Investigação da automação de segurança na integração contínua de sistemas baseados em aprendizado de máquina.",
-      summary:
-        "Estudo sobre a integração de ferramentas de segurança em processos de CI para mitigar vulnerabilidades em sistemas de aprendizado de máquina.",
-      period: "2024/2025",
-      status: "Em andamento",
-      funding: "PIBIC",
-      nature: "Pesquisa",
-      keywords: ["segurança", "automação", "CI", "ML"],
-      link: "/projects/security-automation-ci",
-    },
-  ];
-
   // Filtragem dos projetos
-  const filteredProjects = researchProjects.filter((project) => {
+  const filteredProjects = ProjectsData.filter((project) => {
     const search = searchTerm.toLowerCase();
     const matchesSearch =
       project.name.toLowerCase().includes(search) ||
