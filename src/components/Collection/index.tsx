@@ -22,36 +22,56 @@ export default function Collection() {
   };
 
   return (
-    <div className="relative flex flex-col lg:flex-row justify-center min-h-screen items-center animate-fade animate-once animate-alternate bg-[#270B79] p-4 lg:p-0">
-      <div className="bg-transparent flex flex-col lg:flex-row justify-evenly w-full h-full items-center z-10 gap-8 lg:gap-0">
-        <div className="bg-inherit flex flex-col justify-center text-white text-center lg:text-left">
-          <h1 className="bg-inherit flex flex-col lg:flex-row text-5xl lg:text-8xl font-Lufga-ExtraBold">
-            Reset
-            <span className="bg-inherit font-Lufga-Regular">Lab</span>
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#270B79] to-[#1E0A5C]">
+      <div className="flex flex-col lg:flex-row items-center justify-center h-full px-4 mt-8  md:mt-32 lg:py-0 lg:px-16 max-w-7xl mx-auto">
+        <div className="flex flex-col mt-20 justify-center text-white text-center lg:text-left lg:w-1/2 space-y-6 mb-12 lg:mb-0">
+          <h1 className="text-4xl lg:text-6xl font-Lufga-ExtraBold leading-tight">
+            Inovando na Conexão entre Software e Dados
           </h1>
-          <p className="bg-inherit text-2xl lg:text-4xl w-full lg:w-[350px] font-semibold my-4 lg:my-7">
-            Inovando na Conexão entre Software e Dados.
+          <p className="text-xl lg:text-2xl font-Lufga-Regular">
+            Somos um laboratório de pesquisa e desenvolvimento da Universidade
+            Federal do Ceará, Campus Itapajé
           </p>
-          <CustomButton children="Venha nos Conhecer" onClick={handleScroll} />
+          <div className="pt-4">
+            <CustomButton
+              onClick={handleScroll}
+              className="text-lg px-8 py-3 w-full rounded-full transition-transform hover:scale-105"
+            >
+              Descubra Nossa Missão
+            </CustomButton>
+          </div>
         </div>
 
-        <div className="bg-inherit relative  lg:mt-0">
+        <div className="lg:w-1/2 flex justify-center items-center">
           <div
-            className={`logo-container ${animationFinished ? "merged" : ""}`}
+            className={`logo-container relative ${
+              animationFinished ? "merged" : ""
+            }`}
           >
             <img
               src={vectorLeft}
-              className="logo-part left-part w-16 md:w-24 lg:w-auto"
-              alt="Left Vector"
+              className="logo-part left-part w-32 md:w-48 lg:w-64 absolute top-0 left-0 transition-all duration-1000"
+              alt="Símbolo de Inovação - Parte Esquerda"
+              style={{
+                transform: animationFinished
+                  ? "translateX(25%)"
+                  : "translateX(0)",
+              }}
             />
             <img
               src={vectorRight}
-              className="logo-part right-part w-16 md:w-24 lg:w-auto"
-              alt="Right Vector"
+              className="logo-part right-part w-32 md:w-48 lg:w-64 absolute top-0 right-0 transition-all duration-1000"
+              alt="Símbolo de Inovação - Parte Direita"
+              style={{
+                transform: animationFinished
+                  ? "translateX(-25%)"
+                  : "translateX(0)",
+              }}
             />
           </div>
         </div>
       </div>
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1E0A5C] to-transparent"></div>
     </div>
   );
 }

@@ -608,6 +608,10 @@ video {
   inset: 0px;
 }
 
+.bottom-0 {
+  bottom: 0px;
+}
+
 .bottom-10 {
   bottom: 2.5rem;
 }
@@ -642,6 +646,10 @@ video {
 
 .left-6 {
   left: 1.5rem;
+}
+
+.right-0 {
+  right: 0px;
 }
 
 .right-10 {
@@ -707,11 +715,6 @@ video {
   margin-bottom: 5rem;
 }
 
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -767,6 +770,10 @@ video {
 
 .mt-20 {
   margin-top: 5rem;
+}
+
+.mt-32 {
+  margin-top: 8rem;
 }
 
 .mt-4 {
@@ -866,8 +873,8 @@ video {
   height: 16rem;
 }
 
-.h-\[400px\] {
-  height: 400px;
+.h-\[440px\] {
+  height: 440px;
 }
 
 .h-\[60px\] {
@@ -904,10 +911,6 @@ video {
 
 .w-12 {
   width: 3rem;
-}
-
-.w-16 {
-  width: 4rem;
 }
 
 .w-2\/3 {
@@ -1040,20 +1043,6 @@ video {
   animation: bounce var(--tw-animate-duration, 1s) var(--tw-animate-easing, ease) var(--tw-animate-delay, 0s) var(--tw-animate-iteration, infinite) var(--tw-animate-fill, none);
 }
 
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-.animate-fade {
-  animation: fade var(--tw-animate-duration, 1s) var(--tw-animate-easing, ease) var(--tw-animate-delay, 0s) var(--tw-animate-iteration, 1) var(--tw-animate-fill, both);
-}
-
 @keyframes fade-down {
   0% {
     opacity: 0;
@@ -1136,10 +1125,6 @@ video {
 
 .justify-around {
   justify-content: space-around;
-}
-
-.justify-evenly {
-  justify-content: space-evenly;
 }
 
 .justify-items-center {
@@ -1332,6 +1317,11 @@ video {
   background-color: inherit;
 }
 
+.bg-neutral-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(64 64 64 / var(--tw-bg-opacity));
+}
+
 .bg-neutral-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(38 38 38 / var(--tw-bg-opacity));
@@ -1365,12 +1355,22 @@ video {
   --tw-bg-opacity: 0.1;
 }
 
+.bg-\[url\(\'\.\.\/\.\.\/assets\/hero\.png\'\)\] {
+  background-image: url('../../assets/hero.png');
+}
+
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
 
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
+}
+
+.from-\[\#1E0A5C\] {
+  --tw-gradient-from: #1E0A5C var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(30 10 92 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
 .from-\[\#270B79\] {
@@ -1407,6 +1407,22 @@ video {
 
 .to-indigo-800 {
   --tw-gradient-to: #3730a3 var(--tw-gradient-to-position);
+}
+
+.to-transparent {
+  --tw-gradient-to: transparent var(--tw-gradient-to-position);
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-center {
+  background-position: center;
+}
+
+.bg-no-repeat {
+  background-repeat: no-repeat;
 }
 
 .object-contain {
@@ -1468,9 +1484,19 @@ video {
   padding-right: 1rem;
 }
 
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .py-12 {
@@ -1486,6 +1512,11 @@ video {
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 .py-4 {
@@ -1559,6 +1590,10 @@ video {
   padding-top: 8rem;
 }
 
+.pt-4 {
+  padding-top: 1rem;
+}
+
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -1596,11 +1631,6 @@ video {
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
-}
-
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
 }
 
 .text-base {
@@ -1822,6 +1852,10 @@ video {
   transition-duration: 150ms;
 }
 
+.duration-1000 {
+  transition-duration: 1000ms;
+}
+
 .duration-300 {
   transition-duration: 300ms;
 }
@@ -1987,11 +2021,6 @@ video {
     padding-right: 1.25rem;
   }
 
-  .sm\:py-12 {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-
   .sm\:py-16 {
     padding-top: 4rem;
     padding-bottom: 4rem;
@@ -2030,8 +2059,8 @@ video {
     display: none;
   }
 
-  .md\:w-24 {
-    width: 6rem;
+  .md\:w-48 {
+    width: 12rem;
   }
 
   .md\:w-\[240px\] {
@@ -2060,19 +2089,24 @@ video {
     padding-right: 1rem;
   }
 
+  .md\:py-10 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
   .md\:py-16 {
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
 
-  .md\:py-20 {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-  }
-
   .md\:py-24 {
     padding-top: 6rem;
     padding-bottom: 6rem;
+  }
+
+  .md\:py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .md\:text-4xl {
@@ -2092,21 +2126,20 @@ video {
 }
 
 @media (min-width: 1024px) {
-  .lg\:my-7 {
-    margin-top: 1.75rem;
-    margin-bottom: 1.75rem;
+  .lg\:mb-0 {
+    margin-bottom: 0px;
   }
 
   .lg\:mt-0 {
     margin-top: 0px;
   }
 
-  .lg\:w-\[350px\] {
-    width: 350px;
+  .lg\:w-1\/2 {
+    width: 50%;
   }
 
-  .lg\:w-auto {
-    width: auto;
+  .lg\:w-64 {
+    width: 16rem;
   }
 
   .lg\:max-w-lg {
@@ -2137,20 +2170,22 @@ video {
     justify-content: space-around;
   }
 
-  .lg\:gap-0 {
-    gap: 0px;
-  }
-
   .lg\:gap-10 {
     gap: 2.5rem;
   }
 
-  .lg\:p-0 {
-    padding: 0px;
-  }
-
   .lg\:p-14 {
     padding: 3.5rem;
+  }
+
+  .lg\:px-16 {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  .lg\:py-0 {
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 
   .lg\:py-24 {
@@ -2160,6 +2195,11 @@ video {
 
   .lg\:text-left {
     text-align: left;
+  }
+
+  .lg\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .lg\:text-4xl {
@@ -2172,8 +2212,8 @@ video {
     line-height: 1;
   }
 
-  .lg\:text-8xl {
-    font-size: 6rem;
+  .lg\:text-6xl {
+    font-size: 3.75rem;
     line-height: 1;
   }
 

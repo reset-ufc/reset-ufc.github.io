@@ -36,7 +36,7 @@ export function CollaborativeResearch() {
             </p>
           </motion.div>
           <motion.div
-            className="grid grid-cols-2 sm:grid-cols-4 space-x-3 w-full max-w-lg lg:max-w-xl mt-8 lg:mt-0"
+            className="grid md:grid-cols-4 grid-cols-2 gap-4 md:gap-1 space-x-3 w-full max-w-lg lg:max-w-xl mt-8 lg:mt-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
