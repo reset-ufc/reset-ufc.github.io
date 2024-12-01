@@ -2,8 +2,8 @@ import { useParams } from "react-router-dom";
 import { researchProject } from "./data";
 
 export function ProjectDetailsPage() {
-  const { title } = useParams();
-  const project = researchProject.find((project) => project.id === title);
+  const { slug } = useParams();
+  const project = researchProject.find((project) => project.slug === slug);
 
   if (!project)
     return (

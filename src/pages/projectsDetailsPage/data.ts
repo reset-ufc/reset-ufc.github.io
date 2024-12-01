@@ -2,7 +2,7 @@ import { ResearchProjectProps } from "../../types";
 
 export const researchProject: ResearchProjectProps[] = [
   {
-    id: "peacemaker-bot",
+    slug: "peacemaker-bot",
     title:
       "Construção de um bot não-intrusivo para monitorar traços de incivilidade de desenvolvedores em conversações de pull requests",
     description:
@@ -39,7 +39,7 @@ export const researchProject: ResearchProjectProps[] = [
     keywords: ["incivilidade", "bot", "NLP", "LLMs", "GitHub"],
   },
   {
-    id: "security-automation-ci",
+    slug: "security-automation-ci",
     title:
       "Investigando a Automação de Segurança na Integração Contínua de Sistemas Baseados em Aprendizado de Máquina",
     description:
