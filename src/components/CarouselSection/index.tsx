@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { NavLink } from "react-router-dom";
 
 export function CarouselSection() {
   const [sliderRef, setSliderRef] = useState<Slider | null>(null);
@@ -34,44 +35,56 @@ export function CarouselSection() {
 
   const data = [
     {
-      title: "Exploração de Big Data em Ambientes Corporativos",
+      title:
+        "Towards Effective Gamification of Existing Systems: Method and Experience Report.",
       description:
-        "Análise das estratégias para implementar e gerenciar big data em empresas, focando na otimização de processos e tomada de decisão.",
-      category: "Big Data",
-      location: "São Paulo, Brasil",
-      year: 2023,
-      authors: ["Dr. Ana Silva", "Prof. João Santos", "Eng. Maria Oliveira"],
-    },
-    {
-      title: "Inovações em Machine Learning para o Setor de Saúde",
-      description:
-        "Estudo das aplicações de machine learning na saúde, incluindo diagnósticos, predições e melhorias nos cuidados aos pacientes.",
-      category: "Machine Learning",
-      location: "Rio de Janeiro, Brasil",
-      year: 2023,
-      authors: ["Prof. Carlos Mendes", "Dra. Luciana Ferreira"],
-    },
-    {
-      title: "Engenharia de Software: Práticas Modernas e Desafios",
-      description:
-        "Discussão sobre as técnicas e metodologias modernas na engenharia de software, bem como os desafios enfrentados pelos desenvolvedores.",
+        "Relato de experiência na gamificação de sistemas existentes, destacando os desafios e apresentando o método Gamify4Fun para auxiliar desenvolvedores.",
       category: "Engenharia de Software",
-      location: "Porto Alegre, Brasil",
-      year: 2023,
+      location: "Fortaleza, Brasil",
+      year: 2024,
       authors: [
-        "Dra. Mariana Costa",
-        "Eng. Pedro Almeida",
-        "Prof. Ricardo Souza",
+        "Anderson Uchôa",
+        "Rafael de Mello",
+        "Jairo Souza",
+        "Leopoldo Teixeira",
+        "Baldoino Fonseca",
+        "Alessandro Garcia",
       ],
+      url: "https://link.springer.com/article/10.1007/s11219-024-09696-y",
     },
     {
-      title: "(Re)design de Aplicações Web para Melhoria de UX",
+      title:
+        "Enhancing Recommendations of Composite Refactorings based on the Practice",
       description:
-        "Caso de estudo sobre a reestruturação de aplicações web para melhorar a experiência do usuário e aumentar a eficiência do sistema.",
-      category: "Inovação",
-      location: "Belo Horizonte, Brasil",
-      year: 2023,
-      authors: ["Eng. Rafael Oliveira", "Designer Julia Campos"],
+        "Este artigo discute a qualidade do design de software, abordando a identificação e remoção de code smells através de refatorações compostas. Ele destaca os desafios na aplicação dessas refatorações e a eficácia limitada em eliminar completamente os code smells.",
+      category: "Engenharia de Software",
+      location: "Fortaleza, Brasil",
+      year: 2024,
+      authors: [
+        "Anderson Uchôa",
+        "Ana Carla Bibiano",
+        "Daniel Coutinho",
+        "Wesley K. G. Assunção",
+        "Alessandro Garcia",
+        "Rafael de Mello",
+        "Thelma E. Colanzi",
+        "Daniel Tenório",
+        "Audrey Vasconcelos",
+        "Baldoino Fonseca",
+        "Márcio Ribeiro",
+      ],
+      url: "https://bibbase.org/network/publication/bibiano-coutinho-ucha-assuno-garcia-demello-colanzi-tenrio-etal-enhancingrecommendationsofcompositerefactoringsbasedonthepractice-2024",
+    },
+    {
+      title:
+        "On the Effectiveness of Trivial Refactorings in Predicting Non-trivial Refactorings",
+      description:
+        "Este estudo investiga o processo de refatoração, ressaltando os benefícios e desafios envolvidos. Explora a falta de pesquisas sobre o impacto de operações triviais e não triviais, e propõe o uso de modelos de aprendizagem supervisionada para detectar e corrigir refatorações de forma automatizada.",
+      category: "Engenharia de Software",
+      location: "Fortaleza, Brasil",
+      year: 2024,
+      authors: ["Anderson Uchôa", "Carla Bezerra", "Darwin Pinheiro"],
+      url: "https://bibbase.org/network/publication/pinheiro-bezerra-ucha-ontheeffectivenessoftrivialrefactoringsinpredictingnontrivialrefactorings-2024",
     },
   ];
 
@@ -96,15 +109,19 @@ export function CarouselSection() {
                     {item.title}
                   </h3>
                   <p className="text-sm text-gray-600 mb-1">{item.location}</p>
-                  <p className="text-sm text-gray-600 mb-4">
+                  <p className="text-sm text-gray-600 mb-4 line-clamp-1">
                     Autores: {item.authors.join(", ")}
                   </p>
                   <p className="text-gray-700 mb-4 line-clamp-3">
                     {item.description}
                   </p>
-                  <button className="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-300">
+                  <NavLink
+                    to={item.url}
+                    target="_blank"
+                    className="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-300"
+                  >
                     Leia mais
-                  </button>
+                  </NavLink>
                 </div>
               </div>
             </div>
