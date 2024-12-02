@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet-async";
 import { SponsorshipsSection } from "../../components/SponsorshipsSection";
 import { CollaborativeResearch } from "../../components/CollaborativeResearch";
 import FeaturedProjects from "../../components/FeaturedProjects";
+import { FeaturedArticles } from "../../components/FeaturedArticlesSection";
 
 export default function Home() {
   const [showButton, setShowButton] = useState(false);
@@ -54,7 +55,7 @@ export default function Home() {
         </div>
         <div className="bg-gradient-to-t from-[#270B79] via-[#3711a6] to-indigo-800 py-6 md:py-8">
           <div className="mt-4 sm:mt-12">
-            <FeaturedProjects />
+            <FeaturedArticles />
           </div>
         </div>
         <div className="animate-fade-right animate-once animate-alternate">
