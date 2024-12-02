@@ -1,5 +1,4 @@
 import Collection from "../../components/Collection";
-import { CarouselSection } from "../../components/CarouselSection";
 import { StatsSection } from "../../components/StatsSection";
 import { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
@@ -55,7 +54,7 @@ export default function Home() {
         </div>
         <div className="bg-gradient-to-t from-[#270B79] via-[#3711a6] to-indigo-800 py-6 md:py-8">
           <div className="mt-4 sm:mt-12">
-            <CarouselSection />
+            <FeaturedProjects />
           </div>
         </div>
         <div className="animate-fade-right animate-once animate-alternate">

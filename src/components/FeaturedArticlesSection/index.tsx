@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { NavLink } from "react-router-dom";
 
-export function CarouselSection() {
+export function FeaturedArticles() {
   const [sliderRef, setSliderRef] = useState<Slider | null>(null);
 
   const settings = {
