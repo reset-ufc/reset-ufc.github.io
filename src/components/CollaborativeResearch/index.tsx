@@ -1,17 +1,7 @@
 import { motion } from "framer-motion";
+import { institutionsData } from "./data";
 
 export function CollaborativeResearch() {
-  const institutions = [
-    { name: "PUC-RIO", src: "/puc-rio-logo.png" },
-    {
-      name: "USP",
-      src: "/usp-logo.png",
-      description: "Universidade de São Paulo",
-    },
-    { name: "UECE", src: "/uece-logo.png" },
-    { name: "FIOCRUZ", src: "/fiocruz-logo.jpg" },
-  ];
-
   return (
     <section
       id="collaborative-research"
@@ -41,7 +31,7 @@ export function CollaborativeResearch() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {institutions.map((institution, index) => (
+            {institutionsData.map((institution, index) => (
               <motion.div
                 key={index}
                 className="flex flex-col items-center justify-center bg-white rounded-xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"

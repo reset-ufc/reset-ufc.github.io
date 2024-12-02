@@ -772,10 +772,6 @@ video {
   margin-top: 5rem;
 }
 
-.mt-32 {
-  margin-top: 8rem;
-}
-
 .mt-4 {
   margin-top: 1rem;
 }
@@ -1317,11 +1313,6 @@ video {
   background-color: inherit;
 }
 
-.bg-neutral-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(64 64 64 / var(--tw-bg-opacity));
-}
-
 .bg-neutral-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(38 38 38 / var(--tw-bg-opacity));
@@ -1355,12 +1346,12 @@ video {
   --tw-bg-opacity: 0.1;
 }
 
-.bg-\[url\(\'\.\.\/\.\.\/assets\/hero\.png\'\)\] {
-  background-image: url('../../assets/hero.png');
-}
-
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
 
 .bg-gradient-to-t {
@@ -1401,6 +1392,10 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
+.to-\[\#1E0A5C\] {
+  --tw-gradient-to: #1E0A5C var(--tw-gradient-to-position);
+}
+
 .to-\[\#270B79\] {
   --tw-gradient-to: #270B79 var(--tw-gradient-to-position);
 }
@@ -1411,18 +1406,6 @@ video {
 
 .to-transparent {
   --tw-gradient-to: transparent var(--tw-gradient-to-position);
-}
-
-.bg-cover {
-  background-size: cover;
-}
-
-.bg-center {
-  background-position: center;
-}
-
-.bg-no-repeat {
-  background-repeat: no-repeat;
 }
 
 .object-contain {
@@ -1492,11 +1475,6 @@ video {
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-}
-
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
 }
 
 .py-12 {
@@ -1993,10 +1971,6 @@ video {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .sm\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
   .sm\:flex-row {
     flex-direction: row;
   }
@@ -2051,6 +2025,10 @@ video {
     right: 0px;
   }
 
+  .md\:mt-32 {
+    margin-top: 8rem;
+  }
+
   .md\:flex {
     display: flex;
   }
@@ -2071,8 +2049,16 @@ video {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:gap-1 {
+    gap: 0.25rem;
   }
 
   .md\:p-10 {
