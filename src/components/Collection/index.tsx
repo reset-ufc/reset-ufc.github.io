@@ -22,7 +22,7 @@ export default function Collection() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#270B79] to-[#1E0A5C]">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#270B79] to-[#1E0A5C]">
       <div className="flex flex-col lg:flex-row items-center justify-center h-full px-4 mt-8  md:mt-32 lg:py-0 lg:px-16 max-w-7xl mx-auto">
         <div className="flex flex-col mt-20 justify-center text-white text-center lg:text-left lg:w-1/2 space-y-6 mb-12 lg:mb-0">
           <h1 className="text-4xl lg:text-6xl font-Lufga-ExtraBold leading-tight">
@@ -71,7 +71,6 @@ export default function Collection() {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1E0A5C] to-transparent"></div>
     </div>
   );
 }

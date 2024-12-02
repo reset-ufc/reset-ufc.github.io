@@ -49,7 +49,7 @@ export default function Home() {
       <Helmet title="home" />
       <Collection />
       <div>
-        <div className="flex flex-col bg-gradient-to-b from-[#270B79] via-[#3711a6] to-indigo-800">
+        <div className="flex flex-col bg-gradient-to-b from-[#1E0A5C] via-[#3711a6] to-indigo-800">
           <CollaborativeResearch />
           <ResearchArea />
         </div>
