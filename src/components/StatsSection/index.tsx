@@ -43,7 +43,7 @@ export const StatsSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-3xl lg:text-4xl font-bold mb-12 text-center leading-tight"
+          className="text-3xl md:text-4xl font-bold mb-12 text-center leading-tight"
         >
           Faça parte de uma equipe de{" "}
           <span className="text-[#ed6327]">cientistas</span>,{" "}

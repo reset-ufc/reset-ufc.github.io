@@ -39,6 +39,59 @@ export const researchProject: ResearchProjectProps[] = [
     keywords: ["incivilidade", "bot", "NLP", "LLMs", "GitHub"],
   },
   {
+    slug: "freire-assistente-virtual",
+    title:
+      "FREIRE - Assistente Virtual para facilitar o acesso a informações de editais na UFC",
+    description:
+      "PIBI/UFC n 04/2024 - Programa Inovando UFC. Estudantes, docentes e técnicos administrativos da UFC enfrentam dificuldades para acessar informações sobre editais e oportunidades internas. A comunicação dessas informações ocorre por meio de editais em linguagem técnica, redes sociais e sites de pró-reitorias, o que não é eficaz nem acessível, especialmente para estudantes. Editais com oferta de bolsas também passam despercebidos por docentes e TAEs. Este projeto propõe a criação de um assistente virtual chamado FREIRE, utilizando técnicas de NLP e LLMs para analisar grandes volumes de texto e compreender padrões linguísticos. O objetivo é facilitar o acesso a informações de editais de forma robusta e contextualizada, contribuindo para um ambiente mais inclusivo e informado.",
+    status: "Em andamento",
+    funding: "PIBI/UFC",
+    nature: "Desenvolvimento",
+    studentsInvolved: {
+      undergraduate: 3,
+      master: 1,
+      phd: 2,
+    },
+    members: [
+      {
+        name: "Anderson Gonçalves Uchôa",
+        role: "Coordenador",
+      },
+      {
+        name: "Elisângela da Silva Rodrigues",
+        role: "Integrante",
+      },
+      {
+        name: "Bruna Thainá Castro Amazonas",
+        role: "Integrante",
+      },
+      {
+        name: "Arthur Willame Barroso de Mesquita",
+        role: "Integrante",
+      },
+      {
+        name: "Artur de Oliveira da Rocha Franco",
+        role: "Integrante",
+      },
+      {
+        name: "Carlos Jefté Bastos de Mesquita Freire",
+        role: "Integrante",
+      },
+      {
+        name: "Antonio Cruz Gomes",
+        role: "Integrante",
+      },
+    ],
+    keywords: [
+      "editais",
+      "assistente virtual",
+      "NLP",
+      "LLMs",
+      "acessibilidade",
+    ],
+  },
+
+  {
     slug: "security-automation-ci",
     title:
       "Investigando a Automação de Segurança na Integração Contínua de Sistemas Baseados em Aprendizado de Máquina",

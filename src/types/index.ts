@@ -34,6 +34,7 @@ interface ProjectMember {
 interface StudentsInvolved {
   undergraduate?: number;
   phd?: number;
+  master?: number;
 }
 
 export interface ResearchProjectProps {

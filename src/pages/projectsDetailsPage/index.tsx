@@ -49,6 +49,11 @@ export function ProjectDetailsPage() {
               Graduação: {project.studentsInvolved.undergraduate}
             </p>
           )}
+          {project.studentsInvolved.master && (
+            <p className="text-gray-600">
+              Mestrado: {project.studentsInvolved.master}
+            </p>
+          )}
         </div>
       </section>
 

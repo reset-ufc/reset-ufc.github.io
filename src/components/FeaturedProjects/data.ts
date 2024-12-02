@@ -27,6 +27,26 @@ export const FeaturedProjectsData: FeaturedProjectsProps[] = [
     link: "/projects/peacemaker-bot",
   },
   {
+    slug: "freire-assistente-virtual",
+    name: "FREIRE - Assistente Virtual",
+    description:
+      "Assistente virtual para facilitar o acesso a informações sobre editais e oportunidades internas na UFC, utilizando técnicas de NLP e LLMs.",
+    summary:
+      "Desenvolvimento de um assistente virtual chamado FREIRE, voltado para estudantes, docentes e técnicos administrativos da UFC. O objetivo é mitigar dificuldades no acesso e compreensão de editais, oferecendo uma solução robusta e contextualizada.",
+    period: "2024",
+    status: "Em andamento",
+    funding: "PIBI/UFC",
+    nature: "Desenvolvimento",
+    keywords: [
+      "editais",
+      "assistente virtual",
+      "NLP",
+      "LLMs",
+      "acessibilidade",
+    ],
+    link: "/projects/freire-assistente-virtual",
+  },
+  {
     slug: "security-automation-ci",
     name: "Segurança Automatizada em CI para ML",
     description:
