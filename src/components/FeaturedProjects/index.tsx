@@ -15,8 +15,7 @@ export default function FeaturedProjects() {
         Projetos em Destaque
       </h1>
       <p className="text-gray-300 text-center text-lg md:text-xl font-light mb-4 max-w-2xl mx-auto">
-        Explore nossos projetos de pesquisa inovadores e descubra o futuro da
-        tecnologia.
+        Conheça mais sobre nossos projetos de pesquisa e desenvolvimento
       </p>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
