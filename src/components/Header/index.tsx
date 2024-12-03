@@ -128,9 +128,12 @@ export default function Header() {
               <div key={index} className="w-full border-b border-white">
                 <div
                   onClick={() => {
-                    link.dropdown
-                      ? toggleDropdown(index)
-                      : navigate("/" + link.path);
+                    if (link.dropdown) {
+                      toggleDropdown(index);
+                    } else {
+                      navigate("/" + link.path);
+                      toggleMenu(); // Fecha o menu ao navegar
+                    }
                   }}
                   className={`flex justify-between items-center w-full cursor-pointer py-2 text-lg font-bold ${
                     location.pathname === "/" + link.path
@@ -155,7 +158,7 @@ export default function Header() {
                         <a
                           onClick={() => {
                             navigate("/" + item.path);
-                            toggleMenu(); // Fechar o menu ao clicar no item
+                            toggleMenu(); // Fecha o menu ao clicar no item
                           }}
                           className={`text-md cursor-pointer block ${
                             location.pathname === "/" + item.path
