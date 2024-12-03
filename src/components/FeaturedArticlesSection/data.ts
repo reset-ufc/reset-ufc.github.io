@@ -2,7 +2,7 @@ interface ArticlesDataProps {
   title: string;
   description: string;
   category: string;
-  location: string;
+  journalName: string;
   year: number;
   authors: string[];
   keywords?: string[];
@@ -16,7 +16,7 @@ export const articlesData: ArticlesDataProps[] = [
     description:
       "Relato de experiência na gamificação de sistemas existentes, destacando os desafios e apresentando o método Gamify4Fun para auxiliar desenvolvedores.",
     category: "Engenharia de Software",
-    location: "Fortaleza, Brasil",
+    journalName: "Springer Nature",
     year: 2024,
     authors: [
       "Anderson Uchôa",
@@ -39,7 +39,7 @@ export const articlesData: ArticlesDataProps[] = [
     description:
       "Este artigo realiza uma análise empírica para identificar a distribuição de probabilidade mais adequada para modelar o tempo de serviço de uma Unidade Central de Processamento típica. Os experimentos indicam que o tempo de serviço é melhor caracterizado por uma distribuição Erlang denotada por Erl7 (0.12).",
     category: "Queueing Theory",
-    location: "Fortaleza, Brasil",
+    journalName: "Observatorio de la economia latinoamericana",
     year: 2024,
     authors: [
       "Hitalo Nascimento",
@@ -61,7 +61,7 @@ export const articlesData: ArticlesDataProps[] = [
     description:
       "Este artigo discute a qualidade do design de software, abordando a identificação e remoção de code smells através de refatorações compostas. Ele destaca os desafios na aplicação dessas refatorações e a eficácia limitada em eliminar completamente os code smells.",
     category: "Engenharia de Software",
-    location: "Fortaleza, Brasil",
+    journalName: "BibBase",
     year: 2024,
     authors: [
       "Anderson Uchôa",
@@ -90,7 +90,7 @@ export const articlesData: ArticlesDataProps[] = [
     description:
       "Este estudo investiga o processo de refatoração, ressaltando os benefícios e desafios envolvidos. Explora a falta de pesquisas sobre o impacto de operações triviais e não triviais, e propõe o uso de modelos de aprendizagem supervisionada para detectar e corrigir refatorações de forma automatizada.",
     category: "Engenharia de Software",
-    location: "Fortaleza, Brasil",
+    journalName: "Fortaleza, Brasil",
     year: 2024,
     authors: ["Anderson Uchôa", "Carla Bezerra", "Darwin Pinheiro"],
     url: "https://bibbase.org/network/publication/pinheiro-bezerra-ucha-ontheeffectivenessoftrivialrefactoringsinpredictingnontrivialrefactorings-2024",

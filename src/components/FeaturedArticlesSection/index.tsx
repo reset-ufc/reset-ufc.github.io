@@ -54,7 +54,9 @@ export function FeaturedArticles() {
                   <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-gray-600 mb-1">{item.location}</p>
+                  <p className="text-sm text-gray-600 mb-1">
+                    {item.journalName}
+                  </p>
                   <p className="text-sm text-gray-600 mb-4 line-clamp-1">
                     <span className="font-semibold">Autores</span>:{" "}
                     {item.authors.join(", ")}
