@@ -1,4 +1,4 @@
-import Collection from "../../components/Collection";
+import { Collection } from "../../components/Collection";
 import { StatsSection } from "../../components/StatsSection";
 import { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";

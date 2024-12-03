@@ -1,20 +1,10 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import CustomButton from "../CustomButton";
 import "./index.css";
 import vectorLeft from "/public/vetor branco.png";
 import vectorRight from "/public/Vetor Laranja.png";
 
-export default function Collection() {
-  const [animationFinished, setAnimationFinished] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setAnimationFinished(true);
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, []);
-
+export function Collection() {
   const handleScroll = () => {
     const nextSection = document.getElementById("collaborative-research");
     if (nextSection) {
@@ -43,10 +33,38 @@ export default function Collection() {
     },
   };
 
+  const logoVariants = {
+    hidden: (direction: "left" | "right") => {
+      if (direction === "left") {
+        return {
+          x: "-100vw",
+          opacity: 0,
+          rotate: -20,
+        };
+      } else {
+        return {
+          x: "100vw",
+          opacity: 0,
+          rotate: 20,
+        };
+      }
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+      rotate: 0,
+      transition: {
+        duration: 2.5,
+        ease: [0.6, 0.01, -0.05, 0.95],
+        opacity: { duration: 1 },
+      },
+    },
+  };
+
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#270B79] to-[#1E0A5C]">
       <motion.div
-        className="flex flex-col lg:flex-row items-center justify-center h-full px-4 mt-8 md:mt-32 lg:py-0 lg:px-16 max-w-7xl mx-auto"
+        className="flex flex-col lg:flex-row items-center justify-center h-full px-4 mt-10 md:mt-32 lg:py-0 lg:px-16 max-w-7xl mx-auto"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -79,22 +97,24 @@ export default function Collection() {
         </motion.div>
 
         <div className="lg:w-1/2 flex justify-center items-center">
-          <div className="logo-container relative">
+          <div className="relative h-56 w-56 md:w-full">
             <motion.img
               src={vectorLeft}
-              className="logo-part left-part w-32 md:w-48 lg:w-64 absolute top-0 left-0"
+              className="w-80 absolute left-3 top-5 md:left-[40%] md:top-1 transform -translate-x-1/2"
               alt="Símbolo de Inovação - Parte Esquerda"
-              initial={{ x: "-50%" }}
-              animate={{ x: animationFinished ? "0%" : "-50%" }}
-              transition={{ duration: 1, ease: "easeInOut" }}
+              variants={logoVariants}
+              custom="left"
+              initial="hidden"
+              animate="visible"
             />
             <motion.img
               src={vectorRight}
-              className="logo-part right-part w-32 md:w-48 lg:w-64 absolute top-0 right-0"
+              className="w-80 absolute left-3 top-5 md:left-[40%] md:top-1 transform -translate-x-1/2"
               alt="Símbolo de Inovação - Parte Direita"
-              initial={{ x: "50%" }}
-              animate={{ x: animationFinished ? "0%" : "50%" }}
-              transition={{ duration: 1, ease: "easeInOut" }}
+              variants={logoVariants}
+              custom="right"
+              initial="hidden"
+              animate="visible"
             />
           </div>
         </div>
