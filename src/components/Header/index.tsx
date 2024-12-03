@@ -17,6 +17,10 @@ const links = [
     path: "projects",
   },
   {
+    label: "Publicações",
+    path: "publications",
+  },
+  {
     label: "Notícias",
     path: "news",
   },

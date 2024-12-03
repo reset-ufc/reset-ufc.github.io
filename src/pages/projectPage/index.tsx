@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Projects from "../../components/projects";
+import { Projects } from "../../components/Projects";
 
 export function ProjectPage() {
   const [searchTerm, setSearchTerm] = useState("");
