@@ -7,7 +7,7 @@ import ResearchArea from "../../components/ResearchArea";
 import { Helmet } from "react-helmet-async";
 import { SponsorshipsSection } from "../../components/SponsorshipsSection";
 import { CollaborativeResearch } from "../../components/CollaborativeResearch";
-import FeaturedProjects from "../../components/FeaturedProjects";
+import { FeaturedProjects } from "../../components/FeaturedProjects";
 import { FeaturedArticles } from "../../components/FeaturedArticlesSection";
 
 export default function Home() {
@@ -48,7 +48,7 @@ export default function Home() {
     <>
       <Helmet title="home" />
       <Collection />
-      <div>
+      <div className="bg-[#1E0A5C]">
         <div className="flex flex-col bg-gradient-to-b from-[#1E0A5C] via-[#3711a6] to-indigo-800">
           <CollaborativeResearch />
           <ResearchArea />
@@ -63,7 +63,7 @@ export default function Home() {
             <FeaturedProjects />
             <StatsSection />
           </div>
-          <div className="flex flex-col text-center px-4 sm:px-5 py-12 sm:py-16 md:py-24">
+          <div className="flex flex-col text-center bg-white px-4 sm:px-5 py-12 sm:py-16 md:py-24">
             <SponsorshipsSection />
           </div>
         </div>
