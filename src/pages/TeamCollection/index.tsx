@@ -87,7 +87,7 @@ export function TeamInterface() {
         <h1 className="text-4xl font-bold mb-8 text-white text-center">
           Professores
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-16">
           {professors.length > 0 ? (
             professors.map((professor, index) => (
               <Link
@@ -156,7 +156,7 @@ export function TeamInterface() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {teamWithoutProfessors.map((member, index) => (
               <TeamMember key={index} {...member} />
             ))}

@@ -31,7 +31,7 @@ export default function ProfilePage() {
                 <div className="flex items-center bg-white bg-opacity-20 rounded-full px-4 py-2">
                   <Github size={20} className="mr-2" />
                   <NavLink to={member.contact.github} target="_blank">
-                    {member.contact.github}
+                    {member.github}
                   </NavLink>
                 </div>
                 {member.contact.latter && (
@@ -58,7 +58,7 @@ export default function ProfilePage() {
 
         <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">
-            Research Keywords
+            Palavras-chave de pesquisa
           </h2>
           <div className="flex flex-wrap gap-3">
             {member.researchKeywords.map((keyword, index) => (
@@ -72,7 +72,7 @@ export default function ProfilePage() {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-lg p-6">
+        {/* <div className="bg-white rounded-lg shadow-lg p-6">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">
             Artigos Publicados
           </h2>
@@ -86,7 +86,7 @@ export default function ProfilePage() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
