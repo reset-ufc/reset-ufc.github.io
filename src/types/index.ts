@@ -5,7 +5,7 @@ export interface TeamMemberProps {
   description: string;
   researchKeywords: string[];
   publishedPapers: string[];
-  contact: { email: string; github: string };
+  contact: { email: string; github: string; latter?: string };
   email: string;
   github: string;
   img?: string;

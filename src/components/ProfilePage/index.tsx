@@ -1,86 +1,93 @@
-import { Search, Github, Mail } from "lucide-react";
+import { Github, Mail, FileText } from "lucide-react";
+import { NavLink, useParams } from "react-router-dom";
 import teamMembers from "../../pages/TeamCollection/data";
 
-import { useParams } from "react-router-dom";
-
 export default function ProfilePage() {
-  const { name } = useParams(); // Pegue o nome do colaborador da URL
-  const member = teamMembers.find(member => member.name === name); // Ache o membro correspondente
+  const { name } = useParams();
+  const member = teamMembers.find((member) => member.name === name);
 
-  if (!member) return <div>Member not found!</div>;
+  if (!member) return <div className="text-center p-8">Member not found!</div>;
 
   return (
-    <div className="bg-gray-100 pt-20">
-      <div className="relative bg-[#270B79] text-white py-12">
-        <div className="container mx-auto flex justify-center">
-          <div className="flex flex-col items-center text-center">
+    <div className="bg-gray-100 min-h-screen pt-20">
+      <div className="bg-[#270B79] text-white py-12 rounded-xl shadow-lg">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
             <img
               src={member.img}
               alt={member.name}
-              className="rounded-full w-40 h-40 mb-6 shadow-lg"
+              className="rounded-full w-40 h-40 border-4 border-white shadow-xl"
             />
-            <h1 className="text-4xl font-bold">{member.name}</h1>
-            <p className="text-lg text-red-300 font-semibold">{member.role}</p>
+            <div className="text-center md:text-left">
+              <h1 className="text-4xl font-bold mb-2">{member.name}</h1>
+              <p className="text-xl text-red-300 font-semibold mb-4">
+                {member.role}
+              </p>
+              <div className="flex flex-wrap justify-center md:justify-start gap-4">
+                <div className="flex items-center bg-white bg-opacity-20 rounded-full px-4 py-2">
+                  <Mail size={20} className="mr-2" />
+                  <span>{member.contact.email}</span>
+                </div>
+                <div className="flex items-center bg-white bg-opacity-20 rounded-full px-4 py-2">
+                  <Github size={20} className="mr-2" />
+                  <NavLink to={member.contact.github} target="_blank">
+                    {member.contact.github}
+                  </NavLink>
+                </div>
+                {member.contact.latter && (
+                  <div className="flex items-center bg-white bg-opacity-20 rounded-full px-4 py-2">
+                    <>
+                      <FileText size={20} className="mr-2" />
+                      <NavLink to={member.contact.latter} target="_blank">
+                        {member.contact.latter}
+                      </NavLink>
+                    </>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="container bg-white mx-auto mt-8">
-        <div className="bg-white shadow-lg rounded-lg p-8">
-          <h2 className="text-xl font-Lufga-Regular bg-inherit text-gray-700 mb-4">
-            DESCRIPTION
-          </h2>
-          <p className="text-gray-600 mb-6 bg-inherit">
-            {member.description}
-          </p>
-
-          {/* Contato */}
-          <h3 className="text-lg font-Lufga-Regular bg-inherit text-gray-700 mb-2">
-            CONTACT ME
-          </h3>
-          <div className="flex items-center bg-inherit space-x-2 mb-2">
-            <Mail size={20} className="bg-inherit" />
-            <span className="text-gray-600 bg-inherit">{member.contact.email}</span>
-          </div>
-          <div className="flex items-center space-x-2 bg-inherit">
-            <Github size={20} className="bg-inherit" />
-            <span className="text-gray-600 bg-inherit">{member.contact.github}</span>
-          </div>
+      <div className="container mx-auto px-4 py-8">
+        <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">Descrição</h2>
+          <p className="text-gray-600">{member.description}</p>
         </div>
-      </div>
 
-      <div className="bg-white rounded-lg shadow-lg mx-[185px] p-5 mt-10"> 
-        <div className="container mx-auto my-8 bg-white">
-          <h2 className="text-2xl font-semibold text-gray-700 bg-inherit mb-4 text-center">
-            RESEARCH KEYWORDS
+        <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">
+            Research Keywords
           </h2>
-          <div className="flex justify-center space-x-4 bg-inherit">
+          <div className="flex flex-wrap gap-3">
             {member.researchKeywords.map((keyword, index) => (
               <div
                 key={index}
-                className="bg-[#ec642a] text-white px-4 py-2 rounded-full shadow-md flex items-center space-x-2"
+                className="bg-[#ec642a] text-white px-4 py-2 rounded-full shadow-md flex items-center space-x-2 transition-transform hover:scale-105"
               >
-                <Search size={20} className="bg-inherit" />
-                <span className="bg-inherit">{keyword}</span>
+                <span>{keyword}</span>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="container mx-auto mt-8 mb-6 bg-white my-20 ">
-          <h2 className="text-2xl font-semibold text-gray-700 bg-inherit mb-4 text-center">
-            PUBLISHED PAPERS
+        <div className="bg-white rounded-lg shadow-lg p-6">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">
+            Artigos Publicados
           </h2>
-          <div className="flex justify-center space-x-4 bg-white">
+          <div className="flex flex-wrap gap-3">
             {member.publishedPapers.map((paper, index) => (
-              <button key={index} className="px-4 py-2 bg-gray-300 text-black rounded-full shadow-md">
+              <div
+                key={index}
+                className="bg-gray-200 text-gray-800 px-4 py-2 rounded-full shadow-md transition-colors hover:bg-gray-300"
+              >
                 {paper}
-              </button>
+              </div>
             ))}
           </div>
         </div>
       </div>
-      <div className="h-10"></div>
     </div>
   );
 }
