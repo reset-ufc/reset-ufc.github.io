@@ -1,4 +1,6 @@
 export interface teacherMemberProps {
+  isCoordinator?: boolean;
+  isViceCoordinator?: boolean;
   name: string;
   lastName?: string;
   role: string;
