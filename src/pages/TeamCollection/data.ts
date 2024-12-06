@@ -7,7 +7,7 @@ const teamMembers: TeamMemberProps[] = [
     role: "Professor",
     github: "https://github.com/hitalolee",
     email: "hitalo.nascimento@ufc.br",
-    img: "../../../public/hitalo-nascimento.jpeg",
+    img: "https://i.imgur.com/5F7piky.jpeg",
     description: `Hitalo Nascimento é Professor Adjunto da Universidade Federal do Ceará (UFC), onde atua como docente no Curso de Ciência de Dados do Campus de Itapajé. Foi Pesquisador de Pós-doutorado no grupo de Pesquisa em Telecomunicações Sem fio (GTEL) - UFC, atuando no projeto: Controle de Rádio Enlace e Alocação de Recursos para New Radio. Possui Doutorado em Engenharia de Teleinformática pela UFC e Mestrado em Ciência da Computação pela Universidade Estadual do Ceará (UECE) na qual foi bolsista da Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (Capes) e Pesquisador do Laboratório de Otimização e Gestão Industrial (Login). É Analista de Sistemas e Estatístico por formação, tendo atuado como Arquiteto de Software e Cientista de Dados na Secretaria do Planejamento e Gestão (SEPLAG) do Estado do Ceará. Foi Professor colaborador no Programa de Pós-graduação em Ciência da Computação da UECE (Mestrado e Doutorado) em 2020 e Professor pesquisador na mesma Universidade (Curso de Computação - UAB/UECE) de 2013 a 2018, tendo atuado ainda como Professor Titular do Centro Universitário da Grande Fortaleza de 2014 a 2022 e Professor da Estácio do Ceará em 2021 e 2022. Atuou como pesquisador do CNPq na modalidade SET-E (Programa Especial - Rhae-Inovação. Vigência: 01/01/2015 a 31/05/2015, período no qual projetou o Motor de Inteligência Computacional do sistema para tomada de decisão estratégica e operacional em ambiente hospitalar). Seus interesses atuais de pesquisa incluem: Inteligência Artificial Geral, Estatística e Probabilidade Aplicada, Ciência de Dados, Sistemas de Navegação/Posicionamento e Serviços baseados em Localização, Modelos de Propagação de Rádio para ambientes (indoor e outdoor) e Adaptação de Link.`,
     contact: {
       email: "hitalo.nascimento@ufc.br",
@@ -153,7 +153,7 @@ Seus principais interesses de pesquisa são: Redes de Computadores, com ênfase 
     role: "Graduando",
     github: "EricmesquiBR",
     email: "ericmesquita2480@alu.ufc.br",
-    img: "/public/eric-mesquita.png",
+    img: "https://i.imgur.com/BcBW85E.png",
     description: `Engenharia de Software; Mineração de Dados.
 Já atuei em projetos como:
 - Modernização de Sistemas Legados: Suporte (Semi-)Automatizado e Práticas de Desenvolvimento
@@ -182,7 +182,7 @@ Já atuei em projetos como:
     role: "Graduando",
     github: "uSilas",
     email: "silaseufrasio@alu.ufc.br",
-    img: "/public/silas-eufracio.jpeg",
+    img: "https://i.imgur.com/2bDzXSI.jpeg",
     description: `Eu pesquiso sobre IA's generativas, data science. Já participei de estágios pelo curso profissionalizante Técnico em Informática, pela escola EEEP Adriano Nobre, e atualmente participo do projeto PeaceMaker (PIBIT) relacionado a utilização de LLM's para uso no github.`,
     contact: {
       email: "silaseufrasio@alu.ufc.br",
@@ -201,7 +201,7 @@ Já atuei em projetos como:
     role: "Graduando",
     github: "NelsonFelipe",
     email: "nelsonfelipe@alu.ufc.br",
-    img: "/public/nelson-felipe.jpg",
+    img: "https://i.imgur.com/svNhUDR.jpeg",
     description: `Realizo trabalhos relacionados com desenvolvimento, uso bastante Python e tecnologias relacionadas com desenvolvimento web, HTML, CSS e JavaScript.`,
     contact: {
       email: "nelsonfelipe@alu.ufc.br",
