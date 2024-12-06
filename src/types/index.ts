@@ -1,4 +1,4 @@
-export interface TeamMemberProps {
+export interface teacherMemberProps {
   name: string;
   lastName?: string;
   role: string;
@@ -9,6 +9,18 @@ export interface TeamMemberProps {
   email: string;
   github: string;
   img?: string;
+}
+
+export interface teamMemberProps {
+  name: string;
+  role: string;
+  email: string;
+  github: string;
+  img?: string;
+  description: string;
+  contact: { email: string; github: string; latter?: string };
+  researchKeywords: string[];
+  publishedPapers: string[];
 }
 
 export interface ToolProps {

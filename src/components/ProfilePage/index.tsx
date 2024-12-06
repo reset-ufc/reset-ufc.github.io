@@ -1,10 +1,13 @@
 import { Github, Mail, FileText } from "lucide-react";
 import { NavLink, useParams } from "react-router-dom";
-import teamMembers from "../../pages/TeamCollection/data";
+import { teacherTeamData } from "../../pages/TeamCollection/teacher-data";
+import { teamData } from "../../pages/TeamCollection/team-data";
 
 export default function ProfilePage() {
   const { name } = useParams();
-  const member = teamMembers.find((member) => member.name === name);
+  const member =
+    teacherTeamData.find((member) => member.name === name) ||
+    teamData.find((member) => member.name === name);
 
   if (!member) return <div className="text-center p-8">Member not found!</div>;
 
