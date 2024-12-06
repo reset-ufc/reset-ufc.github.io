@@ -39,11 +39,11 @@ export function TeamInterface() {
           </button>
           <button
             className={`px-6 py-3 rounded-r-full font-medium transition-colors ${
-              activeTab === "team"
+              activeTab === "collaborators"
                 ? "bg-white text-[#270B79] border"
                 : "bg-[#3d1ba6] text-white"
             }`}
-            onClick={() => setActiveTab("team")}
+            onClick={() => setActiveTab("collaborators")}
           >
             <Users className="inline-block mr-2" />
             Colaboradores
@@ -90,7 +90,7 @@ export function TeamInterface() {
           </div>
         )}
 
-        {activeTab === "team" && (
+        {activeTab === "collaborators" && (
           <div className="text-white">
             <div className="max-w-4xl mx-auto mb-12">
               <div className="relative w-full max-w-2xl mx-auto">
