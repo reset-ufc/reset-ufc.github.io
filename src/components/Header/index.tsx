@@ -20,23 +20,6 @@ const links = [
     label: "Publicações",
     path: "publications",
   },
-  {
-    label: "Notícias",
-    path: "news",
-  },
-  {
-    label: "Services",
-    path: "",
-    dropdown: [{ label: "Tools", path: "tools" }],
-  },
-  {
-    label: "Contact",
-    path: "",
-    dropdown: [
-      { label: "Email", path: "contact/email" },
-      { label: "Phone", path: "contact/phone" },
-    ],
-  },
 ];
 
 export default function Header() {
