@@ -1,3 +1,7 @@
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 export function SponsorshipsSection() {
   const sponsors = [
     { src: "/CNPQ.png", alt: "CNPq logo" },
@@ -6,30 +10,63 @@ export function SponsorshipsSection() {
     { src: "/fapesp.webp", alt: "FAPESP logo" },
   ];
 
+  const sliderSettings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
-    <section className="py-12 px-4">
+    <section className="px-4">
       <h1 className="text-3xl md:text-4xl font-extrabold text-[#270B79] pb-3 text-center">
         Nossos Patrocínios
       </h1>
       <p className="font-medium text-black max-w-2xl mx-auto text-center mb-8">
         Os membros do <span className="font-bold">ResetLab</span> recebem
-        financiamento da CNPQ, FUNCAP, CIDACS e FAPESP
+        financiamento da CNPq, FUNCAP, CIDACS e FAPESP
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
-        {sponsors.map((sponsor, index) => (
-          <div
-            key={index}
-            className="bg-white shadow-lg rounded-lg p-6 flex items-center justify-center w-full h-40"
-          >
-            <div className="relative">
-              <img
-                src={sponsor.src}
-                alt={sponsor.alt}
-                className="object-contain h-32 w-32"
-              />
+      <div className="container mx-auto">
+        <Slider {...sliderSettings}>
+          {sponsors.map((sponsor, index) => (
+            <div key={index} className="px-2 flex items-center justify-center">
+              <div className="bg-white rounded-lg p-6 flex items-center justify-center w-full h-40">
+                <img
+                  src={sponsor.src}
+                  alt={sponsor.alt}
+                  className="object-contain h-32 w-32"
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </Slider>
       </div>
     </section>
   );
