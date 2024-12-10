@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { NavLink } from "react-router-dom";
 import { articlesData } from "./data";
+import SectionTitle from "../section-title";
 
 export function FeaturedArticles() {
   const settings = {
@@ -34,12 +35,10 @@ export function FeaturedArticles() {
 
   return (
     <div className="p-6 md:p-10 lg:p-14 mx-auto max-w-7xl rounded-md">
-      <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 text-center">
-        Artigos em Destaque
-      </h1>
-      <p className="text-gray-300 text-center text-lg md:text-xl font-light mb-4 max-w-2xl mx-auto">
-        Confira os artigos mais recentes e relevantes de nossa equipe
-      </p>
+      <SectionTitle
+        title="Artigos em destaque"
+        description="Confira os artigos mais recentes e relevantes da nossa equipe"
+      />
       <div className="relative">
         <Slider {...settings}>
           {articlesData.map((item, index) => (

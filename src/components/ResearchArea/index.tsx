@@ -7,6 +7,7 @@ import {
   Palette,
   Book,
 } from "lucide-react";
+import SectionTitle from "../section-title";
 
 interface ResearchCardProps {
   title: string;
@@ -60,7 +61,7 @@ export default function ResearchArea() {
     {
       title: "Creative Computing",
       description:
-        "Explore o mundo da Computação Criativa com foco em jogos eletrônicos. Combina o poder da programação com a criatividade do design de jogos, preparando você para criar experiências interativas imersivas.",
+        "Computação para prover a criação e expressão em diversas áreas, como: arte, comunicação e cultura. Há aplicações como jogos e música, com interseções com outras áreas como a educação e marketing",
       icon: <Palette />,
     },
     {
@@ -74,14 +75,7 @@ export default function ResearchArea() {
   return (
     <section className="py-16 md:py-16 text-white relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold mb-12 text-center leading-tight"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          Explore nossas áreas de pesquisa
-        </motion.h2>
+        <SectionTitle title="Explore nossas áreas de Pesquisa" />
         <motion.div
           className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8"
           initial={{ opacity: 0 }}
@@ -91,9 +85,10 @@ export default function ResearchArea() {
           {researchAreas.map((area, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 50 }}
+              transition={{ duration: 0.5, delay: 0.1 * index }}
             >
               <ResearchCard
                 title={area.title}

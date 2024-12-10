@@ -35,7 +35,7 @@ export const teacherTeamData: teacherMemberProps[] = [
     role: "Professor",
     github: "elisanrodrigues",
     email: "elisangela.rodrigues@ufc.br",
-    img: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4202537Y0",
+    img: "https://i.imgur.com/ZHRnFsl.jpeg",
     description:
       "Pós doutorado em estatística no Cidacs/Fiocruz. Doutora em Estatística pela Universidade de São Paulo (IME-USP). Mestre em Matemática Aplicada e Estatítica pela Universidade Federal do Rio Grande do Norte. Bacharel em Estatística e Especialista em Matemática Pura e Aplicada. Professora substituta da Universidade Federal do Rio Grande do Norte – UFRN no ano de 2013, Professora substituta da Universidade Estadual da Paraíba – UEPB no período de 2009 e 2010 e professora do Curso de Especialização em Estatística Aplicada da Fundação Universitária de Apoio ao Ensino, Pesquisa e Extensão – FURNE no ano de 2010. Quando aluna de graduação fui bolsista PIBIC/CNPq com o projeto entitulado Construção e Validação de Escalas de Atitudes. Com experiência na área de Inferência Estatística, Análise de Sobrevivência e Modelos de Regressão, Análise Multivariada e Big Data.",
     contact: {

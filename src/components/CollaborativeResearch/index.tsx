@@ -39,21 +39,24 @@ export function CollaborativeResearch() {
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
           <div className="lg:w-1/2 text-center">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-4">
-              Somos um grupo de pesquisa{" "}
-              <span className="text-[#ed6327]">colaborativa</span>
+              Nos Fazemos Pesquisa{" "}
+              <span className="text-[#ed6327]">Colaborativa</span> e {""}
+              <span className="text-[#ed6327]">Interdisciplinar</span>
             </h2>
             <p className="text-gray-300 text-sm lg:text-base mb-6">
-              O <span className="font-bold">ResetLab</span> é um grupo de
-              pesquisa colaborativa da Universidade Federal (UFC) do Ceará que
-              trabalha de forma interdisciplinar com diversas instituições e
-              laboratórios de pesquisa.
+              O <span className="font-bold">ResetLab</span> é um laboratório de
+              Somos um laboratório de pesquisa e desenvolvimento dedicado à
+              inovação e ao trabalho em equipe. No ResetLab, atuamos de forma
+              colaborativa e interdisciplinar, estabelecendo parcerias com
+              diversas instituições e laboratórios de pesquisa para criar
+              soluções e compartilhar conhecimentos.
             </p>
           </div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="lg:w-1/2 w-full"
+            className="lg:w-1/2 w-full mt-6"
           >
             <Slider {...sliderSettings}>
               {institutionsData.map((institution, index) => (

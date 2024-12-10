@@ -1,6 +1,3 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import { Users, FileText, Box, Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -12,26 +9,11 @@ const statsData = [
 ];
 
 export const StatsSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const section = document.getElementById("stats-section");
-    if (section) observer.observe(section);
-
-    return () => {
-      if (section) observer.unobserve(section);
-    };
-  }, []);
+  const animProps = {
+    initial: { opacity: 0, x: -100 },
+    whileInView: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: -100 },
+  };
 
   return (
     <section
@@ -40,9 +22,7 @@ export const StatsSection = () => {
     >
       <div className="container mx-auto px-4 relative z-10">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          {...animProps}
           className="text-3xl md:text-4xl font-bold mb-12 text-center leading-tight"
         >
           Faça parte de uma equipe de{" "}
@@ -54,9 +34,10 @@ export const StatsSection = () => {
           {statsData.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 50 }}
+              transition={{ duration: 0.5, delay: 0.1 * index }}
               className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
               <div className="flex items-center justify-center mb-4">

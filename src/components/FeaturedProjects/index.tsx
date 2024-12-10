@@ -7,16 +7,16 @@ import { NavLink } from "react-router-dom";
 import { ArrowRight, Calendar, Briefcase, Tag, DollarSign } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import { FeaturedProjectsData } from "./data";
+import SectionTitle from "../section-title";
+import { motion } from "framer-motion";
 
 export function FeaturedProjects() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-16">
-      <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 text-center">
-        Projetos em Destaque
-      </h1>
-      <p className="text-gray-300 text-center text-lg md:text-xl font-light mb-4 max-w-2xl mx-auto">
-        Conheça mais sobre nossos projetos de pesquisa e desenvolvimento
-      </p>
+      <SectionTitle
+        title="Projetos em destaque"
+        description="Conheça mais sobre nosso projeto de pesquisa e desenvolvimento"
+      />
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={30}
@@ -32,7 +32,13 @@ export function FeaturedProjects() {
       >
         {FeaturedProjectsData.map((project, index) => (
           <SwiperSlide key={index} className="p-4">
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl transform transition-all duration-300 hover:scale-105 flex flex-col h-[500px]">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 50 }}
+              transition={{ duration: 0.5, delay: 0.1 * index }}
+              className="bg-white rounded-2xl overflow-hidden shadow-xl transform transition-all duration-300 hover:scale-105 flex flex-col h-[500px]"
+            >
               <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-gray-800 text-2xl font-bold mb-4 line-clamp-2">
                   {project.name}
@@ -82,7 +88,7 @@ export function FeaturedProjects() {
                   <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
                 </NavLink>
               </div>
-            </div>
+            </motion.div>
           </SwiperSlide>
         ))}
       </Swiper>
