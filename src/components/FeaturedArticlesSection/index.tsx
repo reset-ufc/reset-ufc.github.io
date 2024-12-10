@@ -1,21 +1,19 @@
-import { useState } from "react";
 import Slider from "react-slick";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { NavLink } from "react-router-dom";
 import { articlesData } from "./data";
 
 export function FeaturedArticles() {
-  const [sliderRef, setSliderRef] = useState<Slider | null>(null);
-
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
+    autoplay: true,
+    autoplaySpeed: 2000,
     slidesToShow: 3,
     slidesToScroll: 1,
-    arrows: false,
+    arrows: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -43,7 +41,7 @@ export function FeaturedArticles() {
         Confira os artigos mais recentes e relevantes de nossa equipe
       </p>
       <div className="relative">
-        <Slider ref={setSliderRef} {...settings}>
+        <Slider {...settings}>
           {articlesData.map((item, index) => (
             <div key={index} className="px-10 p-6 md:px-4">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105">
@@ -54,9 +52,10 @@ export function FeaturedArticles() {
                   <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-gray-600 mb-1">
+                  <p className="text-sm text-gray-600 mb-1 line-clamp-1">
                     {item.journalName}
                   </p>
+                  <p className="text-sm text-gray-600 mb-1">Ano: {item.year}</p>
                   <p className="text-sm text-gray-600 mb-4 line-clamp-1">
                     <span className="font-semibold">Autores</span>:{" "}
                     {item.authors.join(", ")}
@@ -65,7 +64,7 @@ export function FeaturedArticles() {
                     <span className="font-semibold">Palavras chaves:</span>{" "}
                     {item.keywords?.join(", ")}
                   </p>
-                  <p className="text-gray-700 mb-4 line-clamp-3">
+                  <p className="text-gray-700 mb-4 line-clamp-2">
                     {item.description}
                   </p>
                   <NavLink
@@ -80,18 +79,6 @@ export function FeaturedArticles() {
             </div>
           ))}
         </Slider>
-        <button
-          onClick={() => sliderRef?.slickPrev()}
-          className="absolute left-6 md:left-0 top-1/2 -translate-y-1/2 -translate-x-full bg-white p-2 rounded-full shadow-md hover:bg-indigo-100 transition-colors duration-300"
-        >
-          <ChevronLeft className="w-6 h-6 text-indigo-600" />
-        </button>
-        <button
-          onClick={() => sliderRef?.slickNext()}
-          className="absolute right-6 md:right-0 top-1/2 -translate-y-1/2 translate-x-full bg-white p-2 rounded-full shadow-md hover:bg-indigo-100 transition-colors duration-300"
-        >
-          <ChevronRight className="w-6 h-6 text-indigo-600" />
-        </button>
       </div>
     </div>
   );

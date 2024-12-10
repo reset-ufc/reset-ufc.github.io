@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, ChevronUp } from "lucide-react"; // Ícones de menu, fechar e setas
+import { Menu, X } from "lucide-react"; // Ícones de menu e fechar
 import reset_image from "/public/logo.png";
 
 const links = [
@@ -26,20 +26,10 @@ export default function Header() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
-  const [openDropdowns, setOpenDropdowns] = useState<number[]>([]);
 
   // Função para abrir/fechar o menu
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-  };
-
-  // Função para abrir/fechar dropdowns no menu lateral
-  const toggleDropdown = (index: number) => {
-    if (openDropdowns.includes(index)) {
-      setOpenDropdowns(openDropdowns.filter((i) => i !== index)); // Fechar
-    } else {
-      setOpenDropdowns([...openDropdowns, index]); // Abrir
-    }
   };
 
   return (
@@ -66,35 +56,15 @@ export default function Header() {
         {/* Navbar para telas grandes */}
         <nav className="hidden md:flex h-[60px] space-x-8 text-white">
           {links.map((link, index) => (
-            <div key={index} className="relative group h-full">
-              <a
-                onClick={() => navigate("/" + link.path)}
-                className={`transition h-full flex items-center cursor-pointer font-Lufga-ExtraBold ${
-                  location.pathname === "/" + link.path ? "text-[#ec642a]" : ""
-                }`}
-              >
-                {link.label}
-              </a>
-              {link.dropdown && (
-                <div className="absolute left-0 w-[200px] hidden group-hover:block bg-white text-gray-800 rounded-lg p-5 shadow-lg">
-                  {link.dropdown.map((item, idx) => (
-                    <a
-                      key={idx}
-                      onClick={() => navigate("/" + item.path)}
-                      className={`relative bg-white block font-Lufga-Regular hover:font-Lufga-ExtraBold py-1 ${
-                        location.pathname === "/" + item.path
-                          ? "text-black font-Lufga-ExtraBold"
-                          : "text-gray-500 hover:text-black"
-                      }`}
-                    >
-                      <span className="pl-5 bg-white cursor-pointer">
-                        {item.label}
-                      </span>
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
+            <a
+              key={index}
+              onClick={() => navigate("/" + link.path)}
+              className={`transition h-full flex items-center cursor-pointer font-Lufga-ExtraBold ${
+                location.pathname === "/" + link.path ? "text-[#ec642a]" : ""
+              }`}
+            >
+              {link.label}
+            </a>
           ))}
         </nav>
       </header>
@@ -108,54 +78,16 @@ export default function Header() {
 
           <ul className="flex flex-col items-center space-y-6 px-4 py-8">
             {links.map((link, index) => (
-              <div key={index} className="w-full border-b border-white">
-                <div
-                  onClick={() => {
-                    if (link.dropdown) {
-                      toggleDropdown(index);
-                    } else {
-                      navigate("/" + link.path);
-                      toggleMenu(); // Fecha o menu ao navegar
-                    }
-                  }}
-                  className={`flex justify-between items-center w-full cursor-pointer py-2 text-lg font-bold ${
-                    location.pathname === "/" + link.path
-                      ? "text-[#ec642a]"
-                      : ""
-                  }`}
-                >
-                  {link.label}
-                  {link.dropdown &&
-                    (openDropdowns.includes(index) ? (
-                      <ChevronUp size={20} color="white" />
-                    ) : (
-                      <ChevronDown size={20} color="white" />
-                    ))}
-                </div>
-
-                {/* Dropdown do menu lateral */}
-                {link.dropdown && openDropdowns.includes(index) && (
-                  <ul className="pl-4 mt-2">
-                    {link.dropdown.map((item, idx) => (
-                      <li key={idx} className="py-2">
-                        <a
-                          onClick={() => {
-                            navigate("/" + item.path);
-                            toggleMenu(); // Fecha o menu ao clicar no item
-                          }}
-                          className={`text-md cursor-pointer block ${
-                            location.pathname === "/" + item.path
-                              ? "text-[#ec642a]"
-                              : "text-white"
-                          }`}
-                        >
-                          {item.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
+              <li
+                key={index}
+                className="w-full border-b border-white py-2 text-lg font-bold text-center cursor-pointer"
+                onClick={() => {
+                  navigate("/" + link.path);
+                  toggleMenu();
+                }}
+              >
+                {link.label}
+              </li>
             ))}
           </ul>
         </div>

@@ -61,7 +61,8 @@ export const articlesData: ArticlesDataProps[] = [
     description:
       "Este artigo discute a qualidade do design de software, abordando a identificação e remoção de code smells através de refatorações compostas. Ele destaca os desafios na aplicação dessas refatorações e a eficácia limitada em eliminar completamente os code smells.",
     category: "Engenharia de Software",
-    journalName: "BibBase",
+    journalName:
+      "24th IEEE International Conference on Source Code Analysis and Manipulation",
     year: 2024,
     authors: [
       "Anderson Uchôa",
@@ -90,7 +91,7 @@ export const articlesData: ArticlesDataProps[] = [
     description:
       "Este estudo investiga o processo de refatoração, ressaltando os benefícios e desafios envolvidos. Explora a falta de pesquisas sobre o impacto de operações triviais e não triviais, e propõe o uso de modelos de aprendizagem supervisionada para detectar e corrigir refatorações de forma automatizada.",
     category: "Engenharia de Software",
-    journalName: "Fortaleza, Brasil",
+    journalName: "BibBase",
     year: 2024,
     authors: ["Anderson Uchôa", "Carla Bezerra", "Darwin Pinheiro"],
     url: "https://bibbase.org/network/publication/pinheiro-bezerra-ucha-ontheeffectivenessoftrivialrefactoringsinpredictingnontrivialrefactorings-2024",

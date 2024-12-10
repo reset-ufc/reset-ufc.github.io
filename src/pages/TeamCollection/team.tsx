@@ -29,8 +29,8 @@ export function TeamInterface() {
           <button
             className={`px-6 py-3 rounded-l-full font-medium transition-colors ${
               activeTab === "professors"
-                ? "bg-white text-[#270B79] border"
-                : "bg-[#3d1ba6] text-white"
+                ? "bg-[#3d1ba6] text-white"
+                : "bg-white text-[#270B79]"
             }`}
             onClick={() => setActiveTab("professors")}
           >
@@ -40,8 +40,8 @@ export function TeamInterface() {
           <button
             className={`px-6 py-3 rounded-r-full font-medium transition-colors ${
               activeTab === "collaborators"
-                ? "bg-white text-[#270B79] border"
-                : "bg-[#3d1ba6] text-white"
+                ? "bg-[#3d1ba6] text-white"
+                : "bg-white text-[#270B79]"
             }`}
             onClick={() => setActiveTab("collaborators")}
           >
@@ -51,7 +51,7 @@ export function TeamInterface() {
         </div>
 
         {activeTab === "professors" && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 gap-8 mb-16">
             {teacherTeamData.length > 0 ? (
               teacherTeamData.map((professor, index) => (
                 <Link

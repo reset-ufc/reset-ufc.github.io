@@ -11,9 +11,9 @@ export function SponsorshipsSection() {
       <h1 className="text-3xl md:text-4xl font-extrabold text-[#270B79] pb-3 text-center">
         Nossos Patrocínios
       </h1>
-      <p className="font-medium text-zinc-500 max-w-2xl mx-auto text-center mb-8">
-        Os membros do RESET LAB recebem financiamento da CNPQ, FUNCAP, CIDACS e
-        FAPESP
+      <p className="font-medium text-black max-w-2xl mx-auto text-center mb-8">
+        Os membros do <span className="font-bold">ResetLab</span> recebem
+        financiamento da CNPQ, FUNCAP, CIDACS e FAPESP
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
         {sponsors.map((sponsor, index) => (

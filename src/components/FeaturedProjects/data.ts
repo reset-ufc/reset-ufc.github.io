@@ -37,13 +37,7 @@ export const FeaturedProjectsData: FeaturedProjectsProps[] = [
     status: "Em andamento",
     funding: "PIBI/UFC",
     nature: "Desenvolvimento",
-    keywords: [
-      "editais",
-      "assistente virtual",
-      "NLP",
-      "LLMs",
-      "acessibilidade",
-    ],
+    keywords: ["editais", "assistente virtual", "LLMs", "acessibilidade"],
     link: "/projects/freire-assistente-virtual",
   },
   {

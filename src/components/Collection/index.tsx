@@ -6,7 +6,7 @@ import vectorRight from "/public/Vetor Laranja.png";
 
 export function Collection() {
   const handleScroll = () => {
-    const nextSection = document.getElementById("collaborative-research");
+    const nextSection = document.getElementById("mission-session");
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: "smooth" });
     }
@@ -83,8 +83,10 @@ export function Collection() {
             className="text-xl lg:text-2xl font-Lufga-Regular"
             variants={itemVariants}
           >
-            Somos um laboratório de pesquisa e desenvolvimento da Universidade
-            Federal do Ceará, Campus Itapajé
+            Somos um Laboratório de P&D em
+            <span className="font-bold"> Ciência do Software</span> e{" "}
+            <span className="font-bold">Integração de Dados</span> da
+            Universidade Federal do Ceará, Campus Itapajé
           </motion.p>
           <motion.div className="pt-4" variants={itemVariants}>
             <CustomButton
