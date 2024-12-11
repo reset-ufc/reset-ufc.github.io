@@ -7,7 +7,7 @@ import {
   Palette,
   Book,
 } from "lucide-react";
-import SectionTitle from "../section-title";
+import SectionTitle from "../SectionTitle";
 
 interface ResearchCardProps {
   title: string;

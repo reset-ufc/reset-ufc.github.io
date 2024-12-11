@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 import { ArrowRight, Calendar, Briefcase, Tag, DollarSign } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import { FeaturedProjectsData } from "./data";
-import SectionTitle from "../section-title";
+import SectionTitle from "../SectionTitle";
 import { motion } from "framer-motion";
 
 export function FeaturedProjects() {

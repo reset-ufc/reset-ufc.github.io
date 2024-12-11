@@ -3,7 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { NavLink } from "react-router-dom";
 import { articlesData } from "./data";
-import SectionTitle from "../section-title";
+import SectionTitle from "../SectionTitle";
 
 export function FeaturedArticles() {
   const settings = {
