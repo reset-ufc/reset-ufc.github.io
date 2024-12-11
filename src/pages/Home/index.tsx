@@ -9,6 +9,7 @@ import { SponsorshipsSection } from "../../components/SponsorshipsSection";
 import { CollaborativeResearch } from "../../components/CollaborativeResearch";
 import { FeaturedProjects } from "../../components/FeaturedProjects";
 import { FeaturedArticles } from "../../components/FeaturedArticlesSection";
+import { MissionSession } from "../../components/MissionSession";
 
 export default function Home() {
   const [showButton, setShowButton] = useState(false);
@@ -50,6 +51,7 @@ export default function Home() {
       <Collection />
       <div className="bg-[#1E0A5C]">
         <div className="flex flex-col bg-gradient-to-b from-[#1E0A5C] via-[#3711a6] to-indigo-800">
+          <MissionSession />
           <CollaborativeResearch />
           <ResearchArea />
         </div>

@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { motion } from "framer-motion";
 import { institutionsData } from "./data";
+import { titleAnimateProps } from "../../constants/animate";
 
 export function CollaborativeResearch() {
   const sliderSettings = {
@@ -37,7 +38,11 @@ export function CollaborativeResearch() {
     <section className="py-12 md:py-16 lg:py-24 text-white relative overflow-hidden">
       <div className="container mx-auto px-5 relative z-10">
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
-          <div className="lg:w-1/2 text-center">
+          <motion.div
+            className="lg:w-1/2 text-center"
+            {...titleAnimateProps}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-4">
               Nos Fazemos Pesquisa{" "}
               <span className="text-[#ed6327]">Colaborativa</span> e {""}
@@ -51,7 +56,7 @@ export function CollaborativeResearch() {
               diversas instituições e laboratórios de pesquisa para criar
               soluções e compartilhar conhecimentos.
             </p>
-          </div>
+          </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

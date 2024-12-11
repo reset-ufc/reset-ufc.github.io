@@ -6,7 +6,7 @@ import vectorRight from "/public/Vetor Laranja.png";
 
 export function Collection() {
   const handleScroll = () => {
-    const nextSection = document.getElementById("mission-session");
+    const nextSection = document.getElementById("mission-section");
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: "smooth" });
     }
@@ -64,7 +64,7 @@ export function Collection() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#270B79] to-[#1E0A5C]">
       <motion.div
-        className="flex flex-col lg:flex-row items-center justify-center h-full px-4 mt-10 md:mt-32 lg:py-0 lg:px-16 max-w-7xl mx-auto"
+        className="flex flex-col lg:flex-row items-center justify-center h-full px-4 lg:py-0 lg:px-16 max-w-7xl mx-auto"
         variants={containerVariants}
         initial="hidden"
         animate="visible"

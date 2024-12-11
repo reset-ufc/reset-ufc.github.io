@@ -6,6 +6,18 @@ html,
   padding: 0;
 }
 
+:root {
+  --header-height: 7rem; /* Ajuste este valor para corresponder à altura do seu header */
+}
+
+body {
+  padding-top: var(--header-height);
+}
+
+.pt-header {
+  padding-top: var(--header-height);
+}
+
 .pageContainer {
   display: flex;
   flex-direction: column;

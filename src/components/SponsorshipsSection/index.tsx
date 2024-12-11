@@ -1,6 +1,8 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { motion } from "framer-motion";
+import { titleAnimateProps } from "../../constants/animate";
 
 export function SponsorshipsSection() {
   const sponsors = [
@@ -46,13 +48,18 @@ export function SponsorshipsSection() {
 
   return (
     <section className="px-4">
-      <h1 className="text-3xl md:text-4xl font-extrabold text-[#270B79] pb-3 text-center">
-        Nossos Patrocínios
-      </h1>
-      <p className="font-medium text-black max-w-2xl mx-auto text-center mb-8">
-        Os membros do <span className="font-bold">ResetLab</span> recebem
-        financiamento da CNPq, FUNCAP, CIDACS e FAPESP
-      </p>
+      <motion.div
+        {...titleAnimateProps}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        <h1 className="text-3xl md:text-4xl font-extrabold text-[#270B79] pb-3 text-center">
+          Nossos Patrocínios
+        </h1>
+        <p className="font-medium text-black max-w-2xl mx-auto text-center mb-8">
+          Os membros do <span className="font-bold">ResetLab</span> recebem
+          financiamento da CNPq, FUNCAP, CIDACS e FAPESP
+        </p>
+      </motion.div>
       <div className="container mx-auto">
         <Slider {...sliderSettings}>
           {sponsors.map((sponsor, index) => (

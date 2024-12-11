@@ -1,5 +1,6 @@
 import { Users, FileText, Box, Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
+import { titleAnimateProps } from "../../constants/animate";
 
 const statsData = [
   { number: 100, text: "COLABORADORES", icon: Users },
@@ -9,12 +10,6 @@ const statsData = [
 ];
 
 export const StatsSection = () => {
-  const animProps = {
-    initial: { opacity: 0, x: -100 },
-    whileInView: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: -100 },
-  };
-
   return (
     <section
       id="stats-section"
@@ -22,7 +17,7 @@ export const StatsSection = () => {
     >
       <div className="container mx-auto px-4 relative z-10">
         <motion.h2
-          {...animProps}
+          {...titleAnimateProps}
           className="text-3xl md:text-4xl font-bold mb-12 text-center leading-tight"
         >
           Faça parte de uma equipe de{" "}

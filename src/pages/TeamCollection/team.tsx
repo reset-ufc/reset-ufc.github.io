@@ -17,7 +17,7 @@ export function TeamInterface() {
   }, [searchTerm]);
 
   return (
-    <div className="min-h-screen pt-28 lg:pt-32 pb-20 bg-slate-50">
+    <div className="min-h-screen pt-10 pb-20 bg-slate-50">
       <Helmet title="Membros" />
 
       <div className="container mx-auto px-4">

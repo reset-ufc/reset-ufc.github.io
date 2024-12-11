@@ -8,7 +8,7 @@ export function PublicationPage() {
   const [keywordFilter, setKeywordFilter] = useState("all");
 
   return (
-    <div className="flex flex-col w-full min-h-screen bg-gray-100 p-8 pt-32">
+    <div className="flex flex-col w-full min-h-screen bg-gray-100 p-8 pt-10">
       <div className="max-w-7xl mx-auto w-full ">
         <h1 className="text-5xl font-bold text-[#270B79] text-center mb-8">
           Publicações

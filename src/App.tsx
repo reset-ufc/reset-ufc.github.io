@@ -9,6 +9,7 @@ import { ProjectDetailsPage } from "./pages/projectsDetailsPage";
 import { ProjectPage } from "./pages/projectPage";
 import ScrollToTop from "./utils/scroll-top";
 import { PublicationPage } from "./pages/publicationPage";
+import { VisualIdentityPage } from "./pages/VisualIdentity";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/projects" element={<ProjectPage />} />
         <Route path="/publications" element={<PublicationPage />} />
+        <Route path="/Visual-Identity" element={<VisualIdentityPage />} />
         <Route path="/projects/:slug" element={<ProjectDetailsPage />} />
         <Route path="/members" element={<TeamInterface />} />
         <Route path="/members/:name" element={<ProfilePage />} />

@@ -1,22 +1,17 @@
 import { motion } from "framer-motion";
+import { titleAnimateProps } from "../../constants/animate";
 
 type SectionTitleProps = {
   title: string;
   description?: string;
 };
 
-const animProps = {
-  initial: { opacity: 0, x: -100 },
-  whileInView: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -100 },
-};
-
 const SectionTitle = ({ title, description }: SectionTitleProps) => {
   return (
-    <div className="flex flex-col mb-10">
+    <div className="flex flex-col mb-6">
       <motion.h2
         className="text-3xl md:text-4xl font-bold text-white text-center leading-tight"
-        {...animProps}
+        {...titleAnimateProps}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         {title}
