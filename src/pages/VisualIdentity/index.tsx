@@ -4,12 +4,12 @@ export function VisualIdentityPage() {
       <div>
         <img src="/public/visual.png" alt="logos" />
       </div>
-      <div className="flex items-center justify-center gap-3 py-20 text-white bg-[#ed6327]">
-        <p className="font-medium text-6xl">
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-6 py-10 lg:py-20 text-white bg-[#ed6327] px-4 lg:px-8">
+        <p className="font-medium text-4xl sm:text-5xl lg:text-6xl text-center lg:text-left mb-6 lg:mb-0">
           Conceito <br /> da marca
         </p>
-        <div className="w-[2px] h-[200px] bg-white rounded-full self-center mx-8" />
-        <div className="flex flex-col gap-3 w-[440px]">
+        <div className="w-full h-[2px] lg:w-[2px] lg:h-[200px] bg-white rounded-full self-center mx-0 lg:mx-8" />
+        <div className="flex flex-col gap-3 w-full lg:w-[440px] text-sm sm:text-base">
           <p className="font-light">
             O logo RESET LAB combina inovação e modernidade com elementos
             tecnológicos. A inicial "R" é formada pela junção do símbolo de
