@@ -49,9 +49,7 @@ export function CollaborativeResearch() {
               <span className="text-[#ed6327]">Interdisciplinar</span>
             </h2>
             <p className="text-gray-300 text-sm lg:text-base mb-6">
-              O <span className="font-bold">ResetLab</span> é um laboratório de
-              Somos um laboratório de pesquisa e desenvolvimento dedicado à
-              inovação e ao trabalho em equipe. No ResetLab, atuamos de forma
+              No <span className="font-bold">ResetLab</span> atuamos de forma
               colaborativa e interdisciplinar, estabelecendo parcerias com
               diversas instituições e laboratórios de pesquisa para criar
               soluções e compartilhar conhecimentos.
