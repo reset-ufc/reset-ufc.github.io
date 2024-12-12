@@ -1,3 +1,5 @@
+import visual from "/public/visual.png";
+
 import visual_logo from "/public/visual-logo.png";
 import papel_timbrado from "/public/papel-timbrando.png";
 import paleta_cores from "/public/paleta.png";
@@ -11,7 +13,7 @@ export function VisualIdentityPage() {
   return (
     <main>
       <div>
-        <img src="/public/visual.png" alt="logos" />
+        <img src={visual} alt="Identidade visual logo" />
       </div>
       <div className="flex flex-col lg:flex-row items-center justify-center gap-6 py-10 lg:py-20 text-white bg-[#ed6327] px-4 lg:px-8">
         <p className="font-medium text-4xl sm:text-5xl lg:text-6xl text-center lg:text-left mb-6 lg:mb-0">
