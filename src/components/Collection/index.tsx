@@ -8,7 +8,10 @@ export function Collection() {
   const handleScroll = () => {
     const nextSection = document.getElementById("mission-section");
     if (nextSection) {
-      nextSection.scrollIntoView({ behavior: "smooth" });
+      const offset = -220; // Ajuste baseado no espaço excedente (pode ser testado para refinar)
+      const top =
+        nextSection.getBoundingClientRect().top + window.scrollY + offset;
+      window.scrollTo({ top, behavior: "smooth" });
     }
   };
 
