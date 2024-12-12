@@ -1,3 +1,12 @@
+import visual_logo from "/public/visual-logo.png";
+import papel_timbrado from "/public/papel-timbrando.png";
+import paleta_cores from "/public/paleta.png";
+import cartao from "/public/cartao.png";
+import timbrado from "/public/timbrando.png";
+import email from "/public/email.png";
+import slide from "/public/slide.png";
+import post from "/public/post.png";
+
 export function VisualIdentityPage() {
   return (
     <main>
@@ -28,28 +37,28 @@ export function VisualIdentityPage() {
         </div>
       </div>
       <div className="py-10">
-        <img src="/public/visual-logo.png" alt="logos" />
+        <img src={visual_logo} alt="logos" />
       </div>
       <div className="my-16">
-        <img src="/public/paleta.png" alt="paleta de cores" />
+        <img src={paleta_cores} alt="paleta de cores" />
       </div>
       <div className="my-16 flex items-center justify-center">
-        <img src="/public/papel-timbrando.png" alt="paleta de cores" />
+        <img src={papel_timbrado} alt="papel timbrado" />
       </div>
       <div className="my-16 flex items-center justify-center">
-        <img src="/public/cartao.png" alt="paleta de cores" />
+        <img src={cartao} alt="cartao" />
       </div>
       <div className="my-16 flex items-center justify-center">
-        <img src="/public/timbrando.png" alt="paleta de cores" />
+        <img src={timbrado} alt="timbrado" />
       </div>
       <div className="my-16 flex items-center justify-center">
-        <img src="/public/email.png" alt="paleta de cores" />
+        <img src={email} alt="email" />
       </div>
       <div className="my-16 flex items-center justify-center">
-        <img src="/public/slide.png" alt="paleta de cores" />
+        <img src={slide} alt="apresentação" />
       </div>
       <div className="my-16 flex items-center justify-center">
-        <img src="/public/post.png" alt="paleta de cores" />
+        <img src={post} alt="post" />
       </div>
     </main>
   );
