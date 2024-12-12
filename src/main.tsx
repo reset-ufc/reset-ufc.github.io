@@ -12,13 +12,9 @@ createRoot(document.getElementById("root")!).render(
     <BrowserRouter>
       <HelmetProvider>
         <Helmet titleTemplate="Reset | %s" />
-        <div className="pageContainer">
-          <Header />
-          <main className="content">
-            <App />
-          </main>
-          <Footer />
-        </div>
+        <Header />
+        <App />
+        <Footer />
       </HelmetProvider>
     </BrowserRouter>
   </React.StrictMode>

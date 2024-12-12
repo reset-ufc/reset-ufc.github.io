@@ -2,7 +2,7 @@ import visual_logo from "/public/visual-logo.png";
 import papel_timbrado from "/public/papel-timbrando.png";
 import paleta_cores from "/public/paleta.png";
 import cartao from "/public/cartao.png";
-import timbrado from "/public/timbrando.png";
+import timbrado from "/public/pasta_e_papel_timbrado.png";
 import email from "/public/email.png";
 import slide from "/public/slide.png";
 import post from "/public/post.png";
