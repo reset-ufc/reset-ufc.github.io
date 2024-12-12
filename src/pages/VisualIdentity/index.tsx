@@ -1,5 +1,4 @@
-import visual from "/public/visual.png";
-
+import visual from "/public/identidade_visual.png";
 import visual_logo from "/public/visual-logo.png";
 import papel_timbrado from "/public/papel-timbrando.png";
 import paleta_cores from "/public/paleta.png";
