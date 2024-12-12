@@ -43,12 +43,12 @@ export function CollaborativeResearch() {
             {...titleAnimateProps}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold leading-tight mb-4">
               Nos Fazemos Pesquisa{" "}
               <span className="text-[#ed6327]">Colaborativa</span> e {""}
               <span className="text-[#ed6327]">Interdisciplinar</span>
             </h2>
-            <p className="text-gray-300 text-sm lg:text-base mb-6">
+            <p className="text-gray-300 text-sm lg:text-base ">
               No <span className="font-bold">ResetLab</span> atuamos de forma
               colaborativa e interdisciplinar, estabelecendo parcerias com
               diversas instituições e laboratórios de pesquisa para criar
