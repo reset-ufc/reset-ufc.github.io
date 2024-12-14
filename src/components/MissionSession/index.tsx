@@ -56,12 +56,13 @@ export function MissionSession() {
                 exit={{ opacity: 0, y: 50 }}
                 transition={{ duration: 0.5, delay: 0.1 * index }}
                 onClick={() => setActiveTab(index)}
-                className={`px-3 sm:px-4 py-2 rounded-full transition-colors duration-300 text-sm sm:text-base font-semibold ${
+                className={`px-5 flex items-center gap-3 py-3 rounded-full transition-colors duration-300 text-base font-semibold  ${
                   activeTab === index
-                    ? "text-white"
-                    : "bg-[#ed6327] text-gray-300 hover:bg-[#ed6327]"
+                    ? "bg-[#ed6327] text-white"
+                    : "bg-white text-black hover:bg-indigo-100"
                 }`}
               >
+                {point.icon}
                 {point.title}
               </motion.button>
             ))}

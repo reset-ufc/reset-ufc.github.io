@@ -2,20 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 @font-face {
-    font-family: 'Lufga-ExtraBold';
-    src: url('/fonts/Lufga-ExtraBold.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Lufga-ExtraBold";
+  src: url("/fonts/Lufga-ExtraBold.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'Lufga-Regular';
-    src: url('/fonts/Lufga-Regular.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Lufga-Regular";
+  src: url("/fonts/Lufga-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @layer components {
-    /* .btn-primary {
+  /* .btn-primary {
         @apply py-1.5 px-3 text-center bg-blue-700 rounded-md text-white;
     } */
 }

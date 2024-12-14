@@ -38,3 +38,22 @@ main {
     transform: translateY(-20px);
   }
 }
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.45rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #171717;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ed6327;
+    border-radius: 999px;
+  }
+}

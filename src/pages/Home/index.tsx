@@ -10,6 +10,7 @@ import { CollaborativeResearch } from "../../components/CollaborativeResearch";
 import { FeaturedProjects } from "../../components/FeaturedProjects";
 import { FeaturedArticles } from "../../components/FeaturedArticlesSection";
 import { MissionSession } from "../../components/MissionSession";
+import { ProjectDevelopment } from "../../components/ProjectDevelopment";
 
 export default function Home() {
   const [showButton, setShowButton] = useState(false);
@@ -54,6 +55,7 @@ export default function Home() {
           <MissionSession />
           <CollaborativeResearch />
           <ResearchArea />
+          <ProjectDevelopment />
         </div>
         <div className="bg-gradient-to-t from-[#270B79] via-[#3711a6] to-indigo-800 py-6 md:py-8">
           <div className="mt-4 sm:mt-12">
