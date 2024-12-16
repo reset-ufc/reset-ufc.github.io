@@ -3,8 +3,41 @@ import CustomButton from "../CustomButton";
 import "./index.css";
 import vectorLeft from "/public/vetor branco.png";
 import vectorRight from "/public/Vetor Laranja.png";
+import { useEffect, useState } from "react";
+import { Loader2 } from "lucide-react";
 
 export function Collection() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const images = [vectorLeft, vectorRight];
+
+  useEffect(() => {
+    let loadedImages = 0;
+
+    const imageLoaded = () => {
+      loadedImages++;
+      if (loadedImages === images.length) {
+        setIsLoaded(true);
+      }
+    };
+
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = imageLoaded;
+      img.onerror = imageLoaded;
+    });
+  }, []);
+
+  if (!isLoaded) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-[#270B79]">
+        <div className="text-center">
+          <Loader2 className="animate-spin text-indigo-500 w-16 h-16 mx-auto" />
+        </div>
+      </div>
+    );
+  }
   const handleScroll = () => {
     const nextSection = document.getElementById("mission-section");
     if (nextSection) {
@@ -59,7 +92,7 @@ export function Collection() {
       transition: {
         duration: 2.5,
         ease: [0.6, 0.01, -0.05, 0.95],
-        opacity: { duration: 1 },
+        opacity: { duration: 1.5 },
       },
     },
   };
