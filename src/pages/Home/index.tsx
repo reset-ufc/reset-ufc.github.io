@@ -49,8 +49,8 @@ export default function Home() {
   return (
     <>
       <Helmet title="home" />
-      <Collection />
       <div className="bg-[#1E0A5C]">
+        <Collection />
         <div className="flex flex-col bg-gradient-to-b from-[#1E0A5C] via-[#3711a6] to-indigo-800">
           <MissionSession />
           <CollaborativeResearch />

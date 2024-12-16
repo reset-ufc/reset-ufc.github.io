@@ -73,17 +73,17 @@ export function Collection() {
         animate="visible"
       >
         <motion.div
-          className="flex flex-col mt-20 justify-center text-white text-center lg:text-left lg:w-1/2 space-y-6 mb-12 lg:mb-0"
+          className="flex flex-col mb-6 mt-8 justify-center text-white text-center lg:text-left lg:w-1/2  lg:mb-0"
           variants={containerVariants}
         >
           <motion.h1
-            className="text-4xl lg:text-6xl font-Lufga-ExtraBold leading-tight"
+            className="text-4xl lg:text-6xl mb-2 font-Lufga-ExtraBold leading-tight"
             variants={itemVariants}
           >
             Inovando na Conexão entre Software e Dados
           </motion.h1>
           <motion.p
-            className="text-xl lg:text-2xl font-Lufga-Regular"
+            className="text-xl mb-6 lg:text-2xl"
             variants={itemVariants}
           >
             Somos um Laboratório de P&D em
@@ -91,7 +91,7 @@ export function Collection() {
             <span className="font-bold">Integração de Dados</span> da
             Universidade Federal do Ceará, Campus Itapajé
           </motion.p>
-          <motion.div className="pt-4" variants={itemVariants}>
+          <motion.div variants={itemVariants}>
             <CustomButton
               onClick={handleScroll}
               className="text-lg px-8 py-3 w-full rounded-full transition-transform hover:scale-105"

@@ -38,7 +38,7 @@ export default function Header() {
 
   return (
     <div
-      className="fixed top-0 left-0 w-full z-50 shadow-xl bg-[#270B79]"
+      className="fixed top-0 left-0 w-full z-50 shadow-lg bg-[#270B79]"
       style={{ height: "var(--header-height)" }}
     >
       <header className="flex justify-between items-center px-4 md:px-16 h-full">
