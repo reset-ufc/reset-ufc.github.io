@@ -7,11 +7,12 @@ import { motion } from "framer-motion";
 export function FeaturedProjects() {
   return (
     <div className="max-w-7xl mx-auto px-5 py-16">
-      <SectionTitle
-        title="Projetos em destaque"
-        description="Conheça mais sobre nosso projeto de pesquisa e desenvolvimento"
-      />
-
+      <div className="mb-6">
+        <SectionTitle
+          title="Projetos em destaque"
+          description="Conheça mais sobre nosso projeto de pesquisa e desenvolvimento"
+        />
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {FeaturedProjectsData.map((project, index) => (
           <motion.div

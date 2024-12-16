@@ -176,10 +176,12 @@ export function ProjectDevelopment() {
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
-        <SectionTitle
-          title="Desenvolvimento de Projetos"
-          description="Utilizamos metodologias ágeis e tecnologias modernas para entregar soluções de alta qualidade."
-        />
+        <div className="mb-6">
+          <SectionTitle
+            title="Desenvolvimento de Projetos"
+            description="Utilizamos metodologias ágeis e tecnologias modernas para entregar soluções de alta qualidade."
+          />
+        </div>
         <div className="flex flex-col justify-center md:flex-row mb-8 gap-4">
           {topics.map((topic) => (
             <TopicButton

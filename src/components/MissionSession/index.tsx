@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import SectionTitle from "../SectionTitle";
 import { Shield, Code, Database } from "lucide-react";
+import { titleAnimateProps } from "../../constants/animate";
 
 export function MissionSession() {
   const [activeTab, setActiveTab] = useState(0);
@@ -30,21 +31,24 @@ export function MissionSession() {
   return (
     <main id="mission-section" className="mt-24 pb-12 px-6 lg:px-8 text-white">
       <div className="max-w-6xl mx-auto">
-        <SectionTitle title="Nossa Missão" />
-        <motion.p
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 50 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-base sm:text-lg mb-8 sm:mb-10 text-center leading-relaxed font-light tracking-wide"
-        >
-          O <span className="font-bold text-primary-500">ResetLab</span> é um
-          laboratório de pesquisa e desenvolvimento dedicado à pesquisa avançada
-          em engenharia de software e ciência de dados. Desenvolvemos soluções
-          inovadoras e realizamos projetos de pesquisa que visam melhorar a
-          segurança da informação, análise e desenvolvimento de sistemas, e
-          ciência de dados, promovendo o desenvolvimento acadêmico e industrial.
-        </motion.p>
+        <div className="space-y-2">
+          <SectionTitle title="Nossa Missão" />
+          <motion.p
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-base text-center leading-relaxed font-light tracking-wide"
+          >
+            O <span className="font-bold text-primary-500">ResetLab</span> é um
+            laboratório de pesquisa e desenvolvimento dedicado à pesquisa
+            avançada em engenharia de software e ciência de dados. Desenvolvemos
+            soluções inovadoras e realizamos projetos de pesquisa que visam
+            melhorar a segurança da informação, análise e desenvolvimento de
+            sistemas, e ciência de dados, promovendo o desenvolvimento acadêmico
+            e industrial.
+          </motion.p>
+        </div>
 
         <div className="mt-8 sm:mt-12">
           <div className="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-4 mb-6 sm:mb-8">
@@ -70,10 +74,8 @@ export function MissionSession() {
 
           <motion.div
             key={activeTab}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 50 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            {...titleAnimateProps}
+            transition={{ duration: 0.3, delay: 0.1 }}
             className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-4 sm:p-6 shadow-lg"
           >
             <div className="flex items-center mb-3 sm:mb-4">

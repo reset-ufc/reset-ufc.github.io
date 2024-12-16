@@ -35,10 +35,12 @@ export function FeaturedArticles() {
 
   return (
     <div className="p-6 md:p-10 lg:p-14 mx-auto max-w-7xl rounded-md">
-      <SectionTitle
-        title="Artigos em destaque"
-        description="Confira os artigos mais recentes e relevantes da nossa equipe"
-      />
+      <div className="mb-6">
+        <SectionTitle
+          title="Artigos em destaque"
+          description="Confira os artigos mais recentes e relevantes da nossa equipe"
+        />
+      </div>
       <div className="relative px-4">
         <Slider {...settings}>
           {articlesData.map((item, index) => (

@@ -75,7 +75,9 @@ export default function ResearchArea() {
   return (
     <section className="py-16 md:py-16 text-white relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        <SectionTitle title="Explore nossas áreas de Pesquisa" />
+        <div className="mb-6">
+          <SectionTitle title="Explore nossas áreas de Pesquisa" />
+        </div>
         <motion.div
           className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8"
           initial={{ opacity: 0 }}

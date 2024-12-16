@@ -1167,6 +1167,12 @@ video {
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.space-x-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
@@ -1353,6 +1359,11 @@ video {
   background-color: rgb(224 231 255 / var(--tw-bg-opacity));
 }
 
+.bg-indigo-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(79 70 229 / var(--tw-bg-opacity));
+}
+
 .bg-inherit {
   background-color: inherit;
 }
@@ -1430,6 +1441,12 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-white {
+  --tw-gradient-from: #fff var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .via-\[\#3711a6\] {
   --tw-gradient-to: rgb(55 17 166 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), #3711a6 var(--tw-gradient-via-position), var(--tw-gradient-to);
@@ -1441,6 +1458,10 @@ video {
 
 .to-\[\#270B79\] {
   --tw-gradient-to: #270B79 var(--tw-gradient-to-position);
+}
+
+.to-gray-200 {
+  --tw-gradient-to: #e5e7eb var(--tw-gradient-to-position);
 }
 
 .to-indigo-800 {
@@ -1463,6 +1484,10 @@ video {
 
 .p-2 {
   padding: 0.5rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
 }
 
 .p-4 {
@@ -1540,6 +1565,11 @@ video {
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .py-3 {
@@ -1946,9 +1976,9 @@ video {
 }
 
 @font-face {
-  font-family: 'Lufga-ExtraBold';
+  font-family: "Lufga-ExtraBold";
 
-  src: url('/fonts/Lufga-ExtraBold.otf') format('opentype');
+  src: url("/fonts/Lufga-ExtraBold.otf") format("opentype");
 
   font-weight: normal;
 
@@ -1956,9 +1986,9 @@ video {
 }
 
 @font-face {
-  font-family: 'Lufga-Regular';
+  font-family: "Lufga-Regular";
 
-  src: url('/fonts/Lufga-Regular.otf') format('opentype');
+  src: url("/fonts/Lufga-Regular.otf") format("opentype");
 
   font-weight: normal;
 
@@ -1990,14 +2020,14 @@ video {
   background-color: rgb(236 100 42 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-\[\#ed6327\]:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(237 99 39 / var(--tw-bg-opacity));
-}
-
 .hover\:bg-gray-300:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-indigo-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(224 231 255 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-orange-600:hover {
