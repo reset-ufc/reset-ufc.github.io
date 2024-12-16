@@ -8,7 +8,7 @@ export function Collection() {
   const handleScroll = () => {
     const nextSection = document.getElementById("mission-section");
     if (nextSection) {
-      const offset = -220;
+      const offset = -190;
       const top =
         nextSection.getBoundingClientRect().top + window.scrollY + offset;
       window.scrollTo({ top, behavior: "smooth" });
@@ -65,15 +65,15 @@ export function Collection() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#270B79] to-[#1E0A5C]">
+    <div className="relative overflow-hidden bg-gradient-to-b from-[#270B79] to-[#1E0A5C]">
       <motion.div
-        className="flex flex-col lg:flex-row items-center justify-center h-full px-4 md:pt-6 lg:px-16 max-w-7xl mx-auto"
+        className="flex flex-col lg:flex-row items-center justify-center h-full px-4 mb-10 md:pt-6 md:mb-0 md:px-16 max-w-7xl mx-auto"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         <motion.div
-          className="flex flex-col mb-6 mt-8 md:mt-16 justify-center text-white text-center lg:text-left lg:w-1/2  lg:mb-0"
+          className="flex flex-col mb-4 mt-8 md:mt-16 justify-center text-white text-center lg:text-left lg:w-1/2  lg:mb-0"
           variants={containerVariants}
         >
           <motion.h1

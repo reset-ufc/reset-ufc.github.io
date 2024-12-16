@@ -29,7 +29,10 @@ export function MissionSession() {
   ];
 
   return (
-    <main id="mission-section" className="pb-12 px-6 lg:px-8 text-white">
+    <main
+      id="mission-section"
+      className="mt-44 md:mt-64 md:mb-20 px-6 lg:px-8 text-white"
+    >
       <div className="max-w-6xl mx-auto">
         <div className="space-y-2">
           <SectionTitle title="Nossa Missão" />
