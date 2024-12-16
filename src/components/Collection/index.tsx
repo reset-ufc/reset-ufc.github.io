@@ -67,13 +67,13 @@ export function Collection() {
   return (
     <div className="relative overflow-hidden bg-gradient-to-b from-[#270B79] to-[#1E0A5C]">
       <motion.div
-        className="flex flex-col lg:flex-row items-center justify-center h-full px-4 mb-10 md:pt-6 md:mb-0 md:px-16 max-w-7xl mx-auto"
+        className="flex flex-col lg:flex-row items-center justify-center h-full px-4 mb-10 md:pt-6 md:mb-10 md:px-16 max-w-7xl mx-auto"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         <motion.div
-          className="flex flex-col mb-4 mt-8 md:mt-16 justify-center text-white text-center lg:text-left lg:w-1/2  lg:mb-0"
+          className="flex flex-col mb-4 mt-8 md:mt-16 justify-center text-white text-center lg:text-left lg:w-1/2 lg:mb-0"
           variants={containerVariants}
         >
           <motion.h1
