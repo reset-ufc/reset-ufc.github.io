@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { newsItems } from "../NewsSection/data";
+import { newsItems } from "../NewsFeed/data";
 
 const NewsDetail = () => {
     const { title } = useParams();

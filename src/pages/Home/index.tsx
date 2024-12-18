@@ -9,6 +9,7 @@ import { SponsorshipsSection } from "../../components/SponsorshipsSection";
 import { CollaborativeResearch } from "../../components/CollaborativeResearch";
 import { FeaturedProjects } from "../../components/FeaturedProjects";
 import { FeaturedArticles } from "../../components/FeaturedArticlesSection";
+import NewsList from "../../components/NewsSection";
 import { MissionSession } from "../../components/MissionSession";
 import { ProjectDevelopment } from "../../components/ProjectDevelopment";
 
@@ -51,7 +52,7 @@ export default function Home() {
       <Helmet title="home" />
       <div className="bg-[#1E0A5C]">
         <Collection />
-        <div className="flex flex-col bg-gradient-to-b from-[#1E0A5C] via-[#3711a6] to-indigo-800">
+        <div id="next-section" className="flex flex-col bg-gradient-to-b from-[#1E0A5C] via-[#3711a6] to-indigo-800">
           <MissionSession />
           <CollaborativeResearch />
           <ResearchArea />
@@ -61,6 +62,10 @@ export default function Home() {
           <div className="mt-4 sm:mt-12">
             <FeaturedArticles />
           </div>
+        </div>
+        
+        <div className="animate-fade-right animate-once animate-alternate bg-[#270B79]">
+          <NewsList />
         </div>
         <div className="animate-fade-right animate-once animate-alternate">
           <div className="bg-gradient-to-t to-[#270B79] via-[#3711a6] from-indigo-800 py-4 md:py-10">

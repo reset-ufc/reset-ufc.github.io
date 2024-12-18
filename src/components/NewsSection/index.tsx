@@ -1,23 +1,52 @@
-import { Helmet } from "react-helmet-async";
 import NewsCard from "./NewsCard";
-import { newsItems } from "./data";
-const NewsCardList = () => {
-  
+import SectionTitle from "../SectionTitle";
+import { motion } from "framer-motion";
+
+const NewsList = () => {
+  const newsData = [
+    {
+      image: "https://avatars.githubusercontent.com/u/106624745?v=4",
+      category: "Acesso Cidadão",
+      title: "Simplifica a entrada no sistema Tramita, da Sefaz Ceará",
+      date: "24/01/2023",
+    },
+    {
+      image: "https://avatars.githubusercontent.com/u/106624745?v=4",
+      category: "Projeto Íris",
+      title: "Parceria com Contencioso Administrativo Tributário da Sefaz",
+      date: "23/01/2023",
+    },
+    {
+      image: "https://avatars.githubusercontent.com/u/106624745?v=4",
+      category: "Edital de Pesquisa",
+      title: "Técnicas de Linguagem Simples, Direito Visual e Design Editorial",
+      date: "17/01/2023",
+    },
+  ];
+
   return (
-    <div className="bg-[#270B79] pt-24">
-      <Helmet title="notícias" />
-      <h1 className="text-white flex bg-inherit justify-center text-4xl pt-6 font-Lufga-ExtraBold">
-        Notícias
-      </h1>
-      <div className="flex justify-center">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 p-8">
-        {newsItems.map((item, index) => (
-          <NewsCard key={index} {...item} />
+    <div>
+      <SectionTitle
+        title="Notícias Reset"
+        description="Confira as mais Recentes Notícias do nosso Laboratório de Pesquisa"
+      />
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+        {newsData.map((news, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.5, delay: 0.1 * index }}
+            className="bg-white rounded-2xl overflow-hidden shadow-xl flex flex-col"
+          >
+            <NewsCard key={index} news={news} />
+          </motion.div>
         ))}
-      </div>
       </div>
     </div>
   );
 };
 
-export default NewsCardList;
+export default NewsList;
