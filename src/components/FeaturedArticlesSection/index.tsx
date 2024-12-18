@@ -44,7 +44,7 @@ export function FeaturedArticles() {
       <div className="relative px-4">
         <Slider {...settings}>
           {articlesData.map((item, index) => (
-            <div key={index} className="px-6 md:px-4">
+            <div key={index} className="p-6 md:p-4">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105">
                 <div className="p-6">
                   <span className="inline-block px-3 py-1 text-sm font-semibold text-indigo-600 bg-indigo-100 rounded-full mb-4">
