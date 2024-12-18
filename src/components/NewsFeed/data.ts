@@ -1,30 +1,23 @@
 export const newsItems = [
-    {
-      category: "PAPERS",
-      title: "RESHAPE Lab paper accepted at AIware Conference 2024",
-      date: "2024-05-07",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio...",
-      imageUrl: "https://via.placeholder.com/400x300"
-    },
-    {
-      category: "COLLABORATION",
-      title: "Collaboration USES/UFAM -- RESHAPE/NAU!",
-      date: "2024-03-01",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio...",
-      imageUrl: "https://via.placeholder.com/400x300"
-    },
-    {
-      category: "PAPERS",
-      title: "RESHAPE Lab hat trick at ICSE 2024!",
-      date: "2024-03-01",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio...",
-      imageUrl: "https://via.placeholder.com/400x300"
-    },
-    {
-      category: "AWARD",
-      title: "Bianca Trinkenreich received the 2024 ACM SIGSOFT Distinguished Dissertation Award",
-      date: "2024-02-01",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio...",
-      imageUrl: "https://via.placeholder.com/400x300"
-    }
+  {
+    image: "https://avatars.githubusercontent.com/u/106624745?v=4",
+    title: "Acesso Cidadão simplifica a entrada no sistema Tramita, da Sefaz Ceará",
+    category: "ACESSO CIDADÃO, CULTURA DE INOVAÇÃO, GESTÃO",
+    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    date: "24 jan",
+  },
+  {
+    image: "https://avatars.githubusercontent.com/u/106624745?v=4",
+    title: "Íris apresenta projeto em parceria com o Contencioso Administrativo Tributário",
+    category: "CULTURA DE INOVAÇÃO, EXPERIÊNCIA DO USUÁRIO, GESTÃO",
+    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    date: "23 jan",
+  },
+  {
+    image: "https://avatars.githubusercontent.com/u/106624745?v=4",
+    title: "Edital de Inovação é lançado para startups do setor público",
+    category: "INOVAÇÃO, STARTUPS",
+    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    date: "17 jan",
+  },
   ];

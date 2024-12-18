@@ -6,7 +6,7 @@ import { VisualIdentityPage } from "../pages/VisualIdentity";
 import { ProjectDetailsPage } from "../pages/projectsDetailsPage";
 import { TeamInterface } from "../pages/TeamCollection/team";
 import ProfilePage from "../components/ProfilePage";
-import NewsCardList from "../components/NewsSection";
+import NewsCardList from "../components/NewsFeed";
 import ToolsSection from "../pages/Tools";
 import NewsDetail from "../components/NewsDetail";
 

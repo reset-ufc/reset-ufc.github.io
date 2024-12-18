@@ -34,10 +34,13 @@ export interface ToolProps {
 }
 
 export interface NewsCardProps {
-  category: string;
-  title: string;
-  date: string;
-  imageUrl: string;
+  news: {
+    image: string;
+    title: string;
+    category: string;
+    date: string;
+    description?: string;
+  };
 }
 
 interface ProjectMember {

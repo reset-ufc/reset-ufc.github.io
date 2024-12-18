@@ -1,40 +1,44 @@
-import { Calendar } from "lucide-react";
 import { NewsCardProps } from "../../../types";
 import { useNavigate } from "react-router-dom";
 
-const NewsCard = ({ category, title, date, imageUrl }: NewsCardProps) => {
+const NewsCard = ({ news }: NewsCardProps) => {
   const navigate = useNavigate();
 
   const handleReadMore = () => {
-    navigate(`/news/${encodeURIComponent(title)}`); // Codifica o título para URL
+    navigate(`/news/${encodeURIComponent(news.title)}`); // Codifica o título para URL
   };
 
   return (
-    <div className="max-w-md rounded overflow-hidden shadow-lg bg-white">
-      <div className="relative">
-        <img className="w-full object-cover" src={imageUrl} alt={title} />
-        <span className="absolute top-2 left-2 bg-secondary text-white text-xs font-bold px-2 py-1 rounded">
-          {category.toUpperCase()}
+    <div className="flex justify-center items-center">
+      <div
+      onClick={handleReadMore}
+      className="relative w-3/4 group cursor-pointer bg-white rounded-xl shadow-md overflow-hidden transition-shadow hover:shadow-2xl"
+    >
+      {/* Imagem com efeito de hover */}
+      <div className="h-60 overflow-hidden">
+        <img
+          src={news.image}
+          alt={news.title}
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 grayscale group-hover:grayscale-0"
+        />
+      </div>
+
+      {/* Informações da notícia */}
+      <div className="p-8 flex flex-col">
+        <span className="text-gray-500 text-sm font-semibold uppercase mb-1">
+          {news.category}
         </span>
-        <span className="absolute bottom-2 right-2 bg-black text-white text-xs font-bold px-2 py-1 rounded">
-          {new Date(date).toLocaleDateString("pt-BR", {
-            day: "2-digit",
-            month: "short"
-          })}
-        </span>
+        <h2 className="text-lg font-bold text-gray-900 leading-tight mb-2">
+          {news.title}
+        </h2>
+        <span className="text-gray-500 text-sm">{news.date}</span>
       </div>
-      <div className="px-4 py-4">
-        <div className="font-bold text-lg mb-2 ">{title}</div>
-        <p className="text-gray-600 text-sm flex items-center">
-          <Calendar className="mr-2" size={16} />
-          {date}
-        </p>
-      </div>
-      <div className="px-4 pb-4">
-        <button onClick={handleReadMore} className="bg-secondary hover:bg-orange-700 text-white font-bold py-2 px-4 rounded transition-colors">
-          Read About
-        </button>
-      </div>
+
+      {/* Data em destaque */}
+      {/* <div className="absolute top-0 right-0 bg-black text-white text-xs px-3 py-1">
+        {news.date}
+      </div> */}
+    </div>
     </div>
   );
 };

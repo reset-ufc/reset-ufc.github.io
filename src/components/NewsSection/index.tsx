@@ -58,7 +58,7 @@ const NewsList = () => {
         description="Confira as mais Recentes Notícias do nosso Laboratório de Pesquisa"
       />
 
-      <div className="">
+      <div className="pt-5">
       <Slider {...settingsSlide}>
         {newsData.map((news, index) => (
           <motion.div
