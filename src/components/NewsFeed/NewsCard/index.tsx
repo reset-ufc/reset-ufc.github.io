@@ -5,17 +5,16 @@ const NewsCard = ({ news }: NewsCardProps) => {
   const navigate = useNavigate();
 
   const handleReadMore = () => {
-    navigate(`/news/${encodeURIComponent(news.title)}`); // Codifica o título para URL
+    navigate(`/news/${encodeURIComponent(news.title)}`); 
   };
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex p-7 justify-center items-center">
       <div
       onClick={handleReadMore}
-      className="relative w-3/4 group cursor-pointer bg-white rounded-xl shadow-md overflow-hidden transition-shadow hover:shadow-2xl"
+      className="relative group cursor-pointer bg-white rounded-xl shadow-md overflow-hidden transition-shadow hover:shadow-2xl"
     >
-      {/* Imagem com efeito de hover */}
-      <div className="h-60 overflow-hidden">
+      <div className="h-72 overflow-hidden">
         <img
           src={news.image}
           alt={news.title}
@@ -23,7 +22,6 @@ const NewsCard = ({ news }: NewsCardProps) => {
         />
       </div>
 
-      {/* Informações da notícia */}
       <div className="p-8 flex flex-col">
         <span className="text-gray-500 text-sm font-semibold uppercase mb-1">
           {news.category}
