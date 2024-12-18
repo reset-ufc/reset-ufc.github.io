@@ -1,15 +1,13 @@
 import NewsCard from "./NewsCard";
 import SectionTitle from "../SectionTitle";
-import { motion } from "framer-motion";
 import Slider from "react-slick";
 
 const NewsList = () => {
-
   const settingsSlide = {
     dots: false,
     speed: 500,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 2000,
     slidesToShow: 3,
     slidesToScroll: 1,
     arrows: true,
@@ -52,26 +50,19 @@ const NewsList = () => {
   ];
 
   return (
-    <div className="p-6 md:p-10 lg:p-14">
+    <div className="p-6 md:p-10 lg:p-14 mx-auto max-w-7xl rounded-md">
       <SectionTitle
         title="Notícias Reset"
         description="Confira as mais Recentes Notícias do nosso Laboratório de Pesquisa"
       />
 
-      <div className="pt-5">
-      <Slider {...settingsSlide}>
-        {newsData.map((news, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 50 }}
-            transition={{ duration: 0.5, delay: 0.1 * index }}
-            className="px-3 rounded-2xl"
-          >
-            <NewsCard key={index} news={news} />
-          </motion.div>
-        ))}
+      <div className="pt-5 relative px-4">
+        <Slider {...settingsSlide}>
+          {newsData.map((news, index) => (
+            <div key={index} className="p-6 md:p-4">
+              <NewsCard key={index} news={news} />
+            </div>
+          ))}
         </Slider>
       </div>
     </div>

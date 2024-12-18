@@ -35,7 +35,7 @@ export function CollaborativeResearch() {
   };
 
   return (
-    <section className="py-12 md:py-16 lg:py-24 text-white relative overflow-hidden">
+    <section className="py-24 md:py-16 lg:py-24 text-white relative overflow-hidden">
       <div className="container mx-auto px-5 relative z-10">
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
           <motion.div
