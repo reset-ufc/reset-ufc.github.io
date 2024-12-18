@@ -29,7 +29,7 @@ export default function NewsCard({ news }: NewsCardProps) {
 
       {/* Conteúdo do card */}
       <div className="p-4 bg-white h-40 flex flex-col justify-between">
-        <h2 className="text-lg font-Lufga-Regular text-gray-900 leading-tight">
+        <h2 className="text-lg font-medium text-gray-900 leading-tight">
           {news.title}
         </h2>
         <p className="text-sm text-gray-600">{news.date}</p>

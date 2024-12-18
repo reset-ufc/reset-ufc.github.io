@@ -52,7 +52,10 @@ export default function Home() {
       <Helmet title="home" />
       <div className="bg-[#1E0A5C]">
         <Collection />
-        <div id="next-section" className="flex flex-col bg-gradient-to-b from-[#1E0A5C] via-[#3711a6] to-indigo-800">
+        <div
+          id="next-section"
+          className="flex flex-col bg-gradient-to-b from-[#1E0A5C] via-[#3711a6] to-indigo-800"
+        >
           <MissionSession />
           <CollaborativeResearch />
           <ResearchArea />
@@ -63,7 +66,7 @@ export default function Home() {
             <FeaturedArticles />
           </div>
         </div>
-        
+
         <div className="animate-fade-right animate-once animate-alternate bg-[#270B79]">
           <NewsList />
         </div>
@@ -75,12 +78,6 @@ export default function Home() {
           <div className="flex flex-col text-center bg-white px-4 sm:px-5 py-12 sm:py-16 md:py-24">
             <SponsorshipsSection />
           </div>
-        </div>
-        <div
-          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 cursor-pointer z-10"
-          onClick={handleScrollBottom}
-        >
-          <span className="block w-6 h-6 border-2 bg-inherit border-white rounded-full animate-bounce"></span>
         </div>
       </div>
 

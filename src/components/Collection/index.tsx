@@ -6,6 +6,15 @@ import vectorRight from "/public/Vetor Laranja.png";
 import { useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
 
+export const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.3 },
+  },
+};
+
 export function Collection() {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -60,14 +69,7 @@ export function Collection() {
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3 },
-    },
-  };
+  
 
   const logoVariants = {
     hidden: (direction: "left" | "right") => {

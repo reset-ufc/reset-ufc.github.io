@@ -5,8 +5,9 @@ import { NavLink } from "react-router-dom";
 import { articlesData } from "./data";
 import SectionTitle from "../SectionTitle";
 
+
 export function FeaturedArticles() {
-  const settings = {
+  const settingsSlide = {
     dots: false,
     infinite: true,
     speed: 500,
@@ -32,7 +33,6 @@ export function FeaturedArticles() {
       },
     ],
   };
-
   return (
     <div className="p-6 md:p-10 lg:p-14 mx-auto max-w-7xl rounded-md">
       <div className="mb-6">
@@ -42,7 +42,7 @@ export function FeaturedArticles() {
         />
       </div>
       <div className="relative px-4">
-        <Slider {...settings}>
+        <Slider {...settingsSlide}>
           {articlesData.map((item, index) => (
             <div key={index} className="p-6 md:p-4">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105">
