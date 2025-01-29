@@ -56,7 +56,7 @@ const TopicContent = ({
   items,
   icon,
 }: TopicContentProps) => (
-  <motion.div className="pb-12 md:pb-0 bg-gradient-to-br from-white to-gray-200 p-8 rounded-2xl shadow-xl">
+  <motion.div className="md:pb-10 bg-gradient-to-br from-white to-gray-200 p-8 rounded-2xl shadow-xl">
     <div className="flex items-center space-x-4 mb-6">
       <div className="bg-indigo-600 p-3 rounded-full text-white">{icon}</div>
       <motion.h3

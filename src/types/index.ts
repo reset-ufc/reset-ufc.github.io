@@ -7,9 +7,9 @@ export interface teacherMemberProps {
   description: string;
   researchKeywords: string[];
   publishedPapers: string[];
-  contact: { email: string; github: string; latter?: string };
+  contact: { email: string; github?: string; latter?: string };
   email: string;
-  github: string;
+  github?: string;
   img?: string;
 }
 

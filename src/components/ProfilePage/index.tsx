@@ -12,8 +12,8 @@ export default function ProfilePage() {
   if (!member) return <div className="text-center p-8">Member not found!</div>;
 
   return (
-    <div className="bg-gray-100 min-h-screen pt-20">
-      <div className="bg-[#270B79] text-white py-12 rounded-xl shadow-lg">
+    <div className="bg-gray-100 min-h-screen">
+      <div className="bg-[#270B79] text-white py-12 shadow-lg">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
             <img
@@ -33,7 +33,7 @@ export default function ProfilePage() {
                 </div>
                 <div className="flex items-center bg-white bg-opacity-20 rounded-full px-4 py-2">
                   <Github size={20} className="mr-2" />
-                  <NavLink to={member.contact.github} target="_blank">
+                  <NavLink to={member.contact.github || ""} target="_blank">
                     {member.github}
                   </NavLink>
                 </div>
