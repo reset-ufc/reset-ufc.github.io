@@ -51,42 +51,44 @@ export function TeamInterface() {
         </div>
 
         {activeTab === "professors" && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 gap-8 mb-16">
-            {teacherTeamData.length > 0 ? (
-              teacherTeamData.map((professor, index) => (
-                <Link
-                  to={`/members/${professor.name}`}
-                  key={index}
-                  className="block group"
-                >
-                  <div className="relative h-96 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:scale-105">
-                    <img
-                      src={professor.img}
-                      alt={professor.name}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                    <div className="absolute bottom-6 left-6 text-white">
-                      <p className="text-2xl font-medium">{professor.name}</p>
-                      <p className="text-3xl font-bold">{professor.lastName}</p>
-                      {professor.isCoordinator && (
-                        <span className="mt-2 inline-block bg-[#ec642a] text-white px-3 py-1 rounded-full text-sm font-semibold">
-                          Coordenador
-                        </span>
-                      )}
-                      {professor.isViceCoordinator && (
-                        <span className="mt-2 inline-block bg-[#3d1ba6] text-white px-3 py-1 rounded-full text-sm font-semibold">
-                          Vice-Coordenadora
-                        </span>
-                      )}
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {teacherTeamData.length > 0 ? (
+                teacherTeamData.map((professor, index) => (
+                  <Link
+                    to={`/members/${professor.name}`}
+                    key={index}
+                    className="block group"
+                  >
+                    <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:scale-105">
+                      <img
+                        src={professor.img || ""}
+                        alt={professor.name}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                      />
+                      <div className="absolute bottom-6 left-6 text-white">
+                        <p className="text-2xl font-medium">{professor.name}</p>
+                        <p className="text-3xl font-bold">
+                          {professor.lastName}
+                        </p>
+                        {professor.isCoordinator && (
+                          <span className="mt-2 inline-block bg-[#ec642a] text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Coordenador
+                          </span>
+                        )}
+                        {professor.isViceCoordinator && (
+                          <span className="mt-2 inline-block bg-[#3d1ba6] text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            Vice-Coordenadora
+                          </span>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              ))
-            ) : (
-              <p className="text-center text-[#270B79] col-span-full">
-                No professors found.
-              </p>
-            )}
+                  </Link>
+                ))
+              ) : (
+                <p>No teacher data available.</p>
+              )}
+            </div>
           </div>
         )}
 

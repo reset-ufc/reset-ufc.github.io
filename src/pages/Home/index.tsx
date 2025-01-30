@@ -16,13 +16,6 @@ import { ProjectDevelopment } from "../../components/ProjectDevelopment";
 export default function Home() {
   const [showButton, setShowButton] = useState(false);
 
-  const handleScrollBottom = () => {
-    const nextSection = document.getElementById("next-section");
-    if (nextSection) {
-      nextSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   const handleScrollTop = () => {
     const scrollTop = document.documentElement.scrollTop;
     const windowHeight = window.innerHeight;

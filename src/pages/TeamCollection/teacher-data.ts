@@ -60,7 +60,7 @@ export const teacherTeamData: teacherMemberProps[] = [
     role: "Professor",
     github: "https://github.com/hitalolee",
     email: "hitalo.nascimento@ufc.br",
-    img: "https://i.imgur.com/5F7piky.jpeg",
+    img: "https://i.imgur.com/PLeN12N.jpeg",
     description: `Hitalo Nascimento é Professor Adjunto da Universidade Federal do Ceará (UFC), onde atua como docente no Curso de Ciência de Dados do Campus de Itapajé. Foi Pesquisador de Pós-doutorado no grupo de Pesquisa em Telecomunicações Sem fio (GTEL) - UFC, atuando no projeto: Controle de Rádio Enlace e Alocação de Recursos para New Radio. Possui Doutorado em Engenharia de Teleinformática pela UFC e Mestrado em Ciência da Computação pela Universidade Estadual do Ceará (UECE) na qual foi bolsista da Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (Capes) e Pesquisador do Laboratório de Otimização e Gestão Industrial (Login). É Analista de Sistemas e Estatístico por formação, tendo atuado como Arquiteto de Software e Cientista de Dados na Secretaria do Planejamento e Gestão (SEPLAG) do Estado do Ceará. Foi Professor colaborador no Programa de Pós-graduação em Ciência da Computação da UECE (Mestrado e Doutorado) em 2020 e Professor pesquisador na mesma Universidade (Curso de Computação - UAB/UECE) de 2013 a 2018, tendo atuado ainda como Professor Titular do Centro Universitário da Grande Fortaleza de 2014 a 2022 e Professor da Estácio do Ceará em 2021 e 2022. Atuou como pesquisador do CNPq na modalidade SET-E (Programa Especial - Rhae-Inovação. Vigência: 01/01/2015 a 31/05/2015, período no qual projetou o Motor de Inteligência Computacional do sistema para tomada de decisão estratégica e operacional em ambiente hospitalar). Seus interesses atuais de pesquisa incluem: Inteligência Artificial Geral, Estatística e Probabilidade Aplicada, Ciência de Dados, Sistemas de Navegação/Posicionamento e Serviços baseados em Localização, Modelos de Propagação de Rádio para ambientes (indoor e outdoor) e Adaptação de Link.`,
     contact: {
       email: "hitalo.nascimento@ufc.br",
@@ -85,7 +85,7 @@ export const teacherTeamData: teacherMemberProps[] = [
     role: "Professor",
     github: "https://jhenriquecorrea.github.io/",
     email: "joaocorrea@ufc.br",
-    img: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4277831Y4",
+    img: "https://i.imgur.com/zp217JG.jpeg",
     description: `Possui graduação em Redes de Computadores pelo Instituto Federal de Educação, Ciência e Tecnologia da Paraíba (2015), mestrado em Informática pela Universidade Federal da Paraíba (2017) e doutorado em Ciência da Computação pela Universidade Federal do Espírito Santo (2021). Atualmente é professor da Universidade Federal do Ceará. Foi pesquisador de GTs da RNP entre os anos de 2014 até 2019, com foco em Segurança da Informação e Computação em Nuvem. Foi sócio-fundador da Startup VixPhy, empresa de tecnologia voltada a oferta de serviços de Computação em Nuvem e SD-WAN.
 Atualmente colabora em pesquisa com diversas universidades brasileiras, por meio do projeto SFI2 (Fatiamento de Infraestruturas de Internet do Futuro) e também com universidades estrangeiras como a UniTO e PoliTO, em Turim-Itália.
 Seus principais interesses de pesquisa são: Redes de Computadores, com ênfase em Segurança de Redes de Computadores, Computação em Nuvem, Redes Definidas por Software, Network Function Virtualization, Gerência de Redes e Aprendizado de Máquina`,
@@ -106,7 +106,6 @@ Seus principais interesses de pesquisa são: Redes de Computadores, com ênfase 
       "Healthcare Systems Optimization with AI",
     ],
   },
-
   {
     name: "Mr. Artur",
     lastName: "Franco",
@@ -126,6 +125,30 @@ Seus principais interesses de pesquisa são: Redes de Computadores, com ênfase 
       "RPG em rede",
       "Análise e geração de conteúdo",
       "Processamento de Linguagem Natural",
+    ],
+    publishedPapers: [
+      "Automated Software Testing for Scalable Systems",
+      "Quality Assurance in Distributed Software Development",
+      "Continuous Integration Best Practices",
+    ],
+  },
+  {
+    name: "Dr. Leonardo",
+    lastName: "Esteves",
+    role: "Professor",
+    email: "leonardo.esteves@ufc.br",
+    img: "https://i.imgur.com/3duqr7G.jpeg",
+    description:
+      "Professor Adjunto da Universidade Federal do Ceará – Campus de Itapajé – Jardins de Anita. Leonardo também foi Professor Substituto na área de matemática para computação na Universidade Estadual do Ceará (UECE) em 2021. É doutor(2022) e mestre(2018) em Engenharia de Teleinformática pelo Programa de Pós-Graduação em Engenharia de Teleinformática (UFC). Também é graduado em matemática pela mesma instituição (UFC-2014). Colabora com diversos pesquisadores no Brasil (UFC, UFRGS) e nos Estados Unidos(USA)(National Institute of Standards and Technology-NIST). Periódicos relevantes aceitaram seu trabalho para publicação como a Physical Review A, European Physical Journal Plus e a Physics Letters A. Atualmente, Leonardo é pesquisador em Teoria da informação Clássica e Quântica e Física-Matemática. Seus principais títulos de pesquisa incluem: Funções especiais Deformadas, Disentropia e mecânica estatística não extensiva em Ciência de Dados.",
+    contact: {
+      email: "leonardo.esteves@ufc.br",
+      latter: "http://lattes.cnpq.br/3214208638206937",
+    },
+    researchKeywords: [
+      "Quantum Computation",
+      "Quantum Information",
+      "Mathematical Physics",
+      "Mathematical Analysis",
     ],
     publishedPapers: [
       "Automated Software Testing for Scalable Systems",

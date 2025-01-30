@@ -18,6 +18,7 @@ import {
   downToUpAnimateProps,
   titleAnimateProps,
 } from "../../constants/animate";
+import Slider from "react-slick";
 
 interface TopicButtonProps {
   title: string;
@@ -45,7 +46,7 @@ const TopicButton = ({ title, icon, isActive, onClick }: TopicButtonProps) => (
 interface TopicContentProps {
   title: string;
   description: string;
-  items: ReactNode[];
+  items: ReactNode[] | ReactNode;
   icon: ReactNode;
 }
 
@@ -55,7 +56,7 @@ const TopicContent = ({
   items,
   icon,
 }: TopicContentProps) => (
-  <motion.div className="bg-gradient-to-br from-white to-gray-200 p-8 rounded-2xl shadow-xl">
+  <motion.div className="md:pb-10 bg-gradient-to-br from-white to-gray-200 p-8 rounded-2xl shadow-xl">
     <div className="flex items-center space-x-4 mb-6">
       <div className="bg-indigo-600 p-3 rounded-full text-white">{icon}</div>
       <motion.h3
@@ -73,23 +74,12 @@ const TopicContent = ({
     >
       {description}
     </motion.p>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {items.map((item, index) => (
-        <motion.div
-          key={index}
-          className="bg-white p-4 rounded-xl shadow-md"
-          {...downToUpAnimateProps}
-          transition={{ delay: index * 0.1 }}
-        >
-          {item}
-        </motion.div>
-      ))}
-    </div>
+    <div>{items}</div>
   </motion.div>
 );
 
 const TechnologyItem = ({ name, icon }: { name: string; icon: string }) => (
-  <div className="flex items-center gap-4">
+  <div className="flex items-center gap-4 mb-2">
     <img src={`/${icon}`} alt={name} width={32} height={32} />
     <span className="text-indigo-900 font-semibold">{name}</span>
   </div>
@@ -97,6 +87,18 @@ const TechnologyItem = ({ name, icon }: { name: string; icon: string }) => (
 
 export function ProjectDevelopment() {
   const [activeTopic, setActiveTopic] = useState("etapas");
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+  };
 
   const topics = [
     {
@@ -202,38 +204,75 @@ export function ProjectDevelopment() {
                   title={topic.title}
                   description={topic.description}
                   items={
-                    topic.id === "tecnologias"
-                      ? (topic.items as { name: string; icon: string }[]).map(
-                          (tech) => (
-                            <TechnologyItem
-                              key={tech.name}
-                              name={tech.name}
-                              icon={tech.icon}
-                            />
-                          )
+                    topic.id === "tecnologias" ? (
+                      (topic.items as { name: string; icon: string }[]).map(
+                        (tech) => (
+                          <TechnologyItem
+                            key={tech.name}
+                            name={tech.name}
+                            icon={tech.icon}
+                          />
                         )
-                      : (
-                          topic.items as {
-                            icon: ReactNode;
-                            title: string;
-                            description: string;
-                          }[]
-                        ).map((item) => (
-                          <div
-                            key={item.title}
-                            className="flex flex-col space-y-2"
-                          >
-                            <div className="flex items-center space-x-3">
-                              <div className="text-indigo-600">{item.icon}</div>
-                              <h4 className="text-xl font-semibold text-indigo-900">
-                                {item.title}
-                              </h4>
-                            </div>
-                            <p className="text-indigo-700">
-                              {item.description}
-                            </p>
-                          </div>
-                        ))
+                      )
+                    ) : (
+                      <>
+                        {/* Aparece em telas pequenas */}
+                        <div className="block md:hidden">
+                          <Slider {...sliderSettings}>
+                            {(
+                              topic.items as {
+                                icon: ReactNode;
+                                title: string;
+                                description: string;
+                              }[]
+                            ).map((item, index) => (
+                              <div key={index} className="p-4">
+                                <div className="flex items-center space-x-3">
+                                  <div className="text-indigo-600">
+                                    {item.icon}
+                                  </div>
+                                  <h4 className="text-xl font-semibold text-indigo-900">
+                                    {item.title}
+                                  </h4>
+                                </div>
+                                <p className="text-indigo-700">
+                                  {item.description}
+                                </p>
+                              </div>
+                            ))}
+                          </Slider>
+                        </div>
+                        {/* Aparece em telas grandes */}
+                        <div className="hidden md:grid grid-cols-2 gap-6">
+                          {(
+                            topic.items as {
+                              icon: ReactNode;
+                              title: string;
+                              description: string;
+                            }[]
+                          ).map((item, index) => (
+                            <motion.div
+                              key={index}
+                              className="bg-white p-4 rounded-xl shadow-md"
+                              {...downToUpAnimateProps}
+                              transition={{ delay: index * 0.1 }}
+                            >
+                              <div className="flex items-center space-x-3">
+                                <div className="text-indigo-600">
+                                  {item.icon}
+                                </div>
+                                <h4 className="text-xl font-semibold text-indigo-900">
+                                  {item.title}
+                                </h4>
+                              </div>
+                              <p className="text-indigo-700">
+                                {item.description}
+                              </p>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </>
+                    )
                   }
                   icon={topic.icon}
                 />

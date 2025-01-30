@@ -17,8 +17,10 @@ export default function NewsCard({ news }: NewsCardProps) {
   };
 
   return (
-    <div onClick={() => handleReadMore()} className="relative group rounded-xl cursor-pointer overflow-hidden shadow-lg transition-shadow duration-300 hover:shadow-2xl">
-      {/* Imagem com hover */}
+    <div
+      onClick={() => handleReadMore()}
+      className="relative group rounded-xl cursor-pointer overflow-hidden shadow-lg transition-shadow duration-300 hover:shadow-2xl"
+    >
       <div className="h-60 overflow-hidden">
         <img
           src={news.image}
@@ -27,7 +29,6 @@ export default function NewsCard({ news }: NewsCardProps) {
         />
       </div>
 
-      {/* Conteúdo do card */}
       <div className="p-4 bg-white h-40 flex flex-col justify-between">
         <h2 className="text-lg font-medium text-gray-900 leading-tight">
           {news.title}
