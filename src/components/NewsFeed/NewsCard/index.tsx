@@ -23,9 +23,9 @@ const NewsCard = ({ news }: NewsCardProps) => {
       </div>
 
       <div className="p-8 flex flex-col">
-        <span className="text-gray-500 text-sm font-semibold uppercase mb-1">
+        {/* <span className="text-gray-500 text-sm font-semibold uppercase mb-1">
           {news.category}
-        </span>
+        </span> */}
         <h2 className="text-lg font-bold text-gray-900 leading-tight mb-2">
           {news.title}
         </h2>
