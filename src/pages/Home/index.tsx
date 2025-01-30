@@ -42,7 +42,7 @@ export default function Home() {
 
   return (
     <>
-      <Helmet title="home" />
+      <Helmet title="Home" />
       <div className="bg-[#1E0A5C]">
         <Collection />
         <div
