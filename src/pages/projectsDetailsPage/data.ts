@@ -295,4 +295,249 @@ export const researchProject: ResearchProjectProps[] = [
       "Sistema Recomendador",
     ],
   },
+  {
+    slug: "ReSTaurA",
+    title: "ReSTaurA - Refatoramento Sequencial: Teoria e Suporte Automatizado",
+    description:
+      "A cidade do Rio de Janeiro é responsável por concentrar uma parcela significativa do desenvolvimento de software abrangendo cerca de 40 da produção nacional. Muitos desses softwares se tornam legados: fornecem funcionalidades essenciais para organizações, porém usam tecnologias comumente defasadas. Há uma grande dificuldade em manter ou mesmo modernizar esses softwares, especialmente devido à degradação estrutural que afeta o código. No entanto, vários desses softwares são muito importantes para serem descartados. Para as organizações manterem-se competitivas nos cenários nacional e internacional, é crucial a modernização de softwares legados. A inclusão de novas tecnologias disruptivas, tais como microsserviços e Blockchain, ajuda a: (i) evitar a descontinuação de softwares legados essenciais, e (ii) oferecer várias outras oportunidades para as organizações. Para realizar tais modernizações, refatoração é a principal e mais desafiadora atividade, visto que o nível de degradação de código legado requer reestruturações complexas. O desenvolvedor ainda tem a necessidade de identificar quais refatorações serão mais adequadas para o sistema alvo, o que acaba se tornando uma tarefa dispendiosa e propensa a erros se feita manualmente. Estudos relacionados focam apenas na automatização de refatorações simples. As técnicas para incorporação de tecnologias disruptivas deveriam prover um apoio automatizado para várias etapas de refatorações complexas, considerando o contexto do sistema que está sendo modernizado. Deste modo, o projeto MAssiSo visa: (i) realizar estudos com os sistemas legados da indústria fluminense, que estão passando pelo processo de modernização; (ii) propor e desenvolver um sistema recomendador que auxilie no processo de refatoração de código legado; (iii) investigar técnicas de otimização e recomendações que permitam a identificação, aplicação e reintegração de refatoração em código legado, (iv) avaliar o impacto na qualidade do software após a reestruturação proposta pelo recomendador. MAssiSo tem um grupo de quatro pesquisadores, que possuem diferentes bolsas de produtividade, além de serem referências internacionais nas áreas de Engenharia de Software e Otimização.",
+    status: "Em andamento",
+    nature: "Pesquisa",
+    funding: "CNPq",
+    studentsInvolved: {
+      master: 6,
+      phd: 7,
+    },
+    members: [
+      {
+        name: "Anderson Gonçalves Uchôa",
+        role: "Integrante",
+      },
+      {
+        name: "Alessandro Garcia",
+        role: "Coordenador",
+      },
+    ],
+    keywords: ["Refatorações sequenciais", "Heurísticas", "Qualidade"],
+  },
+  {
+    slug: "HackaTudo",
+    title: "HackaTudo! Desmistificando a Criação de Soluções Inovadoras",
+    description:
+      "O projeto HackaTudo! Desmistificando a Criação de Soluções Inovadoras tem como objetivo principal promover a interação entre o Campus de Itapajé ? Jardins de Anita e sua comunidade local na identificação de problemas enfrentados pela comunidade local e a criação de soluções inovadoras, com base nos conhecimentos teóricos e práticos adquiridos pelos alunos durante os cursos de graduação. Além disso, o projeto também visa estimular a criação de equipes multidisciplinares, com diferentes perfis, para a idealização e criação das soluções.",
+    status: "Em andamento",
+    nature: "Extensão",
+    funding: "NaN",
+    studentsInvolved: {
+      undergraduate: 5,
+      phd: 5,
+    },
+    members: [
+      {
+        name: "Anderson Gonçalves Uchôa",
+        role: "Integrante",
+      },
+      {
+        name: "Elisângela da Silva Rodrigues",
+        role: "Coordenador",
+      },
+      {
+        name: "Alberto Sampaio Lima",
+        role: "Integrante",
+      },
+      {
+        name: "Rodrigo Lins Rodrigues",
+        role: "Integrante",
+      },
+      {
+        name: "Francisco Gabriel Barreto Gomes",
+        role: "Integrante",
+      },
+      {
+        name: "Thais Andrade Castro",
+        role: "Integrante",
+      },
+      {
+        name: "Laura de Lima Mendes",
+        role: "Integrante",
+      },
+      {
+        name: "Fernanda Roing ",
+        role: "Integrante",
+      },
+      {
+        name: "Igor Bruno de Sousa Nascimento",
+        role: "Integrante",
+      },
+      {
+        name: "João Luiz dos Santos Filho",
+        role: "Integrante",
+      },
+    ],
+    keywords: [
+      "Soluções inovadoras",
+      "Comunidade local",
+      "Interação",
+      "Equipes multidisciplinares",
+    ],
+  },
+  {
+    slug: "ENGEDADOS",
+    title:
+      "ENGEDADOS - Núcleo de Estudos e Práticas em Engenharia de Software e Ciência de Dados",
+    description:
+      "O projeto ENGEDADOS: Núcleo de Estudos e Práticas em Engenharia de Software e Ciência de Dados tem como principal objetivo a disseminação dos conceitos de engenharia de software e ciência de dados, integrados às disciplinas relacionadas a essas áreas, apoiando a familiarização dos alunos com ferramentas e técnicas especializadas. Portanto, acredita-se que com esse projeto de extensão, os participantes (alunos e comunidade externa) se sentirão mais motivados e capacitados para resolverem problemas reais que são enfrentados pela comunidade local e regiões circunvizinhas. Os participantes também serão capazes de disseminar o conhecimento adquirido em engenharia de software e ciência de dados, por meio da proposição de cursos e tutoriais abertos à comunidade local, promovendo a integração da comunidade externa com a universidade.",
+    status: "Em andamento",
+    nature: "Extensão",
+    funding: "NaN",
+    studentsInvolved: {
+      undergraduate: 3,
+      phd: 6,
+    },
+    members: [
+      {
+        name: "Anderson Gonçalves Uchôa",
+        role: "Coordenador",
+      },
+      {
+        name: "Carla Ilane Moreira Bezerra ",
+        role: "Integrante",
+      },
+      {
+        name: "Elisângela da Silva Rodrigues",
+        role: "Integrante",
+      },
+      {
+        name: "Alberto Sampaio Lima",
+        role: "Integrante",
+      },
+      {
+        name: "Bruna Barreto Mesquita",
+        role: "Integrante",
+      },
+      {
+        name: "João Henrique Gonçalves Medeiros Correa",
+        role: "Integrante",
+      },
+      {
+        name: "Pedro Jonnathan Matos de Sousa",
+        role: "Integrante",
+      },
+      {
+        name: "Rodrigo Lins Rodrigues",
+        role: "Integrante",
+      },
+      {
+        name: "Allan Michel Rocha dos Matos",
+        role: "Integrante",
+      },
+    ],
+    keywords: [
+      "Engenharia de software",
+      "Ciência de dados",
+      "Ferramentas e técnicas especializadas",
+      "Integração da comunidade",
+    ],
+  },
+  {
+    slug: "monitoria-de-programação-integrada",
+    title: "Monitoria de Programação Integrada",
+    description:
+      "A monitoria atenderá em 2022.1 e 2022.2 pelo menos seis turmas diferentes de Fundamentos de Programação, Laboratório de Programação, e Introdução a Ciência de Dados abrangendo as linguagens de programação C, Python e R nos três cursos de graduação do campus da UFC em Itapajé. Cada turma tem no mínimo 30 alunos matriculados, totalizando cerca de 180 alunos. Esses disciplinas são pré-requisitos para diferentes disciplinas nos três cursos de graduação. Além disso, tais disciplinas normalmente possuem um alto índice de reprovação, em cursos de computação. Portanto, é importante que existam monitores que conheçam essas linguagens de programação e tenham horário livre, tanto para dar apoio em sala de aula, quanto para encontros semanais junto com os alunos. Tais monitores, com conhecimento de linguagens de programação se tornam necessários como uma estratégia para aumentar o índice de aprovação em disciplinas de programação.",
+    status: "Em andamento",
+    nature: "Ensino",
+    funding: "NaN",
+    studentsInvolved: {
+      undergraduate: 6,
+      phd: 1,
+    },
+    members: [
+      {
+        name: "Anderson Gonçalves Uchôa",
+        role: "Coordenador",
+      },
+      {
+        name: "João Luiz dos Santos Filho",
+        role: "Integrante",
+      },
+      {
+        name: "Oracio Cruz Melo",
+        role: "Integrante",
+      },
+      {
+        name: "Antonio Filipe Sousa Silva",
+        role: "Integrante",
+      },
+      {
+        name: "Vitoria Nascimento de Paula",
+        role: "Integrante",
+      },
+      {
+        name: "Carlos Gabriel dos Santos Alves",
+        role: "Integrante",
+      },
+      {
+        name: "Carlos Alberto de Sales Oliveira",
+        role: "Integrante",
+      },
+    ],
+    keywords: [
+      "Monitoria",
+      "Linguagens de programação",
+      "Apoio em sala de aula",
+    ],
+  },
+  {
+    slug: "clusters-econômicos-de-inovação",
+    title:
+      "Clusters Econômicos de Inovação - Indústria da Moda e Calçadista - Litoral Oeste",
+    description:
+      "SEDET-ADECE-FUNCAP. Esse projeto faz parte de um projeto maior, denominado ?ECOSSISTEMA DE INOVAÇÃO E O DESENVOLVIMENTO ECONÔMICO DO ESTADO DO CEARÁ? que está dentro do programa Cientista-Chefe na área de Inovação. Objetivo Geral: Fomentar o desenvolvimento de soluções inovadoras endereçadas a problemas que afetam a produtividade, a competitividade, a geração de renda e a atração de talentos em setores priorizados em cada Região de Planejamento do Estado. Objetivos Específicos: ? Selecionar Pesquisadores regionais que possam atuar nos Clusters Econômicos de Inovação distribuídos pelas macrorregiões do Estado; ? Promover a transferência de conhecimento entre os ICTs (Instituições de Ciência e Tecnologia) do Estado e os seus setores produtivos; ? Promover a construção empreendedora de soluções tecnológicas inovadoras que beneficiam setores produtivos do estado; ? Realizar pesquisa de análise da evolução dos negócios inovadores e sua relação com setores produtivos tradicionais do Estado e o impacto no ecossistema de inovação; ? Promover a realização de projetos que possam contribuir com o desenvolvimento desses programas e seu impacto sobre a CT&I.",
+    status: "Em andamento",
+    nature: "Desenvolvimento",
+    funding: "SEDET-ADECE-FUNCAP",
+    studentsInvolved: {
+      undergraduate: 6,
+      phd: 1,
+    },
+    members: [
+      {
+        name: "Anderson Gonçalves Uchôa",
+        role: "Coordenador",
+      },
+      {
+        name: "Pâmela Gonçalves Uchôa ",
+        role: "Integrante",
+      },
+      {
+        name: "João Davi Oliveira Barbosa",
+        role: "Integrante",
+      },
+      {
+        name: "Maria Vanessa Sousa Mesquita",
+        role: "Integrante",
+      },
+      {
+        name: "Cauã de Sousa Brandão",
+        role: "Integrante",
+      },
+      {
+        name: "José Davi Araújo Gomes ",
+        role: "Integrante",
+      },
+      {
+        name: "Matheus Feitosa de Oliveira Rabelo",
+        role: "Integrante",
+      },
+      {
+        name: "Tiago Andrade Castro",
+        role: "Integrante",
+      },
+    ],
+    keywords: [
+      "Ecossistema de inovação",
+      "Produtividade",
+      "Transferência de conhecimento",
+      "Soluções tecnológicas",
+    ],
+  },
 ];

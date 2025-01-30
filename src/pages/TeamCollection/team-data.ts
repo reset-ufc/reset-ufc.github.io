@@ -158,8 +158,7 @@ export const teamData: teacherMemberProps[] = [
     contact: {
       email: "carlosjeftebns@gmail.com",
       github: "https://github.com/carlosjefte",
-      latter:
-        "https://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K1549695U0&tokenCaptchar=03AFcWeA643kkU9i3GdQ8sKjpfoFYCWhTJxIFfFBSeqBbDPhmtw_h5kErrrj-Mq2q_38XIcgRsX06gkpcEvwIXx2ypDsD9YO3eIyd8_hMv5uEiuxzOA59IklbfhKaqGwZT-bhrsX0GBLWQdY_edOD17gz4RU42bovgoil8zmbeDXFMwjKQLQk1eIN-T8rPFUhm0QPO4B13UTWmDPQ5C6toqXSUXBTjI1hRLCKoiUEDQa9FB6jrsQPwdJDKq1atRcogO8BFfwUaAxKDIiuBJxxqv0kQFqcF41cG0urF4J8t_OldCarncERN0gRj05LgKbeXYv2Q1RAHLMeDENHm0Rq05A07BZNwXMqLZayPcNFOsz9sZ6rKixpHRoB0MBbhGBCqmP1Ri0QeXX4fFdUL1KB3W_H7EgEWE2tLEdy5_S1KtwvGyooxWhu-ebrC-3XgalApkxCeDUZYljq5Pd2lJE5Uk64456BXrfw_wKF86OfRz9PDkApjDlO7K5Bn7y5hk8q1zVRxP0gGax1ok0p1oGYlq20xf2iOOYp3jr6BeEMHh-oo5kDhNi80G-65TUIEVEKSr75Iw_BixLuoKu70LCJwMyj6j9V2lGxN_7YRowfTD5IU9eto4MdWCopLQel26dbtZolY_HWsglW48SSgp682y1t1LELLat_ykgJacxNNSsQrvN8v0l041Zeb2arRaxe-IgDPRTgwFNcABksfXlecvij2uhTqymkw-Z6SHTUKI9-D_e7r_7SPdu699qqPXin2bFJUwI0K6ldQPkMDHrkXnE3NlW7EqqKsqc_EULDhazlR2R5pENKIhOxipSZiz-XoKykQfsS8f9je8jDCX67PoHnJ9CK6JLOiFnEyK9CD4Mq1HIGqb5SZIxg",
+      latter: "http://lattes.cnpq.br/5530796285772640",
     },
     researchKeywords: [
       "AI",

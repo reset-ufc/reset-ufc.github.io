@@ -61,6 +61,44 @@ export const ProjectsData: ProjectDataProps[] = [
     link: "/projects/security-automation-ci",
   },
   {
+    slug: "HackaTudo",
+    name: "HackaTudo! Desmistificando a Criação de Soluções Inovadoras",
+    description:
+      "O projeto HackaTudo! Desmistificando a Criação de Soluções Inovadoras tem como objetivo principal promover a interação entre o Campus de Itapajé ? Jardins de Anita e sua comunidade local na identificação de problemas enfrentados pela comunidade local e a criação de soluções inovadoras, com base nos conhecimentos teóricos e práticos adquiridos pelos alunos durante os cursos de graduação. Além disso, o projeto também visa estimular a criação de equipes multidisciplinares, com diferentes perfis, para a idealização e criação das soluções.",
+    summary:
+      "Estudo sobre a integração de ferramentas de segurança em processos de CI para mitigar vulnerabilidades em sistemas de aprendizado de máquina.",
+    period: "2022/Atual",
+    status: "Em andamento",
+    funding: "NaN",
+    nature: "Extensão",
+    keywords: [
+      "Soluções inovadoras",
+      "Comunidade local",
+      "Interação",
+      "Equipes multidisciplinares",
+    ],
+    link: "/projects/HackaTudo",
+  },
+  {
+    slug: "ENGEDADOS",
+    name: "Núcleo de Estudos e Práticas em Engenharia de Software e Ciência de Dados",
+    description:
+      "O projeto ENGEDADOS: Núcleo de Estudos e Práticas em Engenharia de Software e Ciência de Dados tem como principal objetivo a disseminação dos conceitos de engenharia de software e ciência de dados, integrados às disciplinas relacionadas a essas áreas, apoiando a familiarização dos alunos com ferramentas e técnicas especializadas. Portanto, acredita-se que com esse projeto de extensão, os participantes (alunos e comunidade externa) se sentirão mais motivados e capacitados para resolverem problemas reais que são enfrentados pela comunidade local e regiões circunvizinhas. Os participantes também serão capazes de disseminar o conhecimento adquirido em engenharia de software e ciência de dados, por meio da proposição de cursos e tutoriais abertos à comunidade local, promovendo a integração da comunidade externa com a universidade.",
+    summary:
+      "Estudo sobre a integração de ferramentas de segurança em processos de CI para mitigar vulnerabilidades em sistemas de aprendizado de máquina.",
+    period: "2022/Atual",
+    status: "Em andamento",
+    funding: "NaN",
+    nature: "Extensão",
+    keywords: [
+      "Engenharia de software",
+      "Ciência de dados",
+      "Ferramentas e técnicas especializadas",
+      "Integração da comunidade",
+    ],
+    link: "/projects/ENGEDADOS",
+  },
+  {
     slug: "aprendendo-variabilidade-de-software-a-partir-da-evolução-do-software",
     name: "Aprendendo Variabilidade de Software a partir da Evolução do Software",
     description:
@@ -78,6 +116,24 @@ export const ProjectsData: ProjectDataProps[] = [
       "Avaliação empírica",
     ],
     link: "/projects/aprendendo-variabilidade-de-software-a-partir-da-evolução-do-software",
+  },
+  {
+    slug: "monitoria-de-programação-integrada",
+    name: "Monitoria de Programação Integrada",
+    description:
+      "A monitoria atenderá em 2022.1 e 2022.2 pelo menos seis turmas diferentes de Fundamentos de Programação, Laboratório de Programação, e Introdução a Ciência de Dados abrangendo as linguagens de programação C, Python e R nos três cursos de graduação do campus da UFC em Itapajé. Cada turma tem no mínimo 30 alunos matriculados, totalizando cerca de 180 alunos. Esses disciplinas são pré-requisitos para diferentes disciplinas nos três cursos de graduação. Além disso, tais disciplinas normalmente possuem um alto índice de reprovação, em cursos de computação. Portanto, é importante que existam monitores que conheçam essas linguagens de programação e tenham horário livre, tanto para dar apoio em sala de aula, quanto para encontros semanais junto com os alunos. Tais monitores, com conhecimento de linguagens de programação se tornam necessários como uma estratégia para aumentar o índice de aprovação em disciplinas de programação.",
+    summary:
+      "Estudo sobre a integração de ferramentas de segurança em processos de CI para mitigar vulnerabilidades em sistemas de aprendizado de máquina.",
+    period: "2022/Atual",
+    status: "Em andamento",
+    funding: "NaN",
+    nature: "Ensino",
+    keywords: [
+      "Monitoria",
+      "Linguagens de programação",
+      "Apoio em sala de aula",
+    ],
+    link: "/projects/manutenção-inteligente-de-sistemas-de-software",
   },
   {
     slug: "manutenção-inteligente-de-sistemas-de-software",
@@ -99,6 +155,25 @@ export const ProjectsData: ProjectDataProps[] = [
     link: "/projects/manutenção-inteligente-de-sistemas-de-software",
   },
   {
+    slug: "clusters-econômicos-de-inovação",
+    name: "Clusters Econômicos de Inovação - Indústria da Moda e Calçadista - Litoral Oeste",
+    description:
+      "SEDET-ADECE-FUNCAP. Esse projeto faz parte de um projeto maior, denominado ?ECOSSISTEMA DE INOVAÇÃO E O DESENVOLVIMENTO ECONÔMICO DO ESTADO DO CEARÁ? que está dentro do programa Cientista-Chefe na área de Inovação. Objetivo Geral: Fomentar o desenvolvimento de soluções inovadoras endereçadas a problemas que afetam a produtividade, a competitividade, a geração de renda e a atração de talentos em setores priorizados em cada Região de Planejamento do Estado. Objetivos Específicos: ? Selecionar Pesquisadores regionais que possam atuar nos Clusters Econômicos de Inovação distribuídos pelas macrorregiões do Estado; ? Promover a transferência de conhecimento entre os ICTs (Instituições de Ciência e Tecnologia) do Estado e os seus setores produtivos; ? Promover a construção empreendedora de soluções tecnológicas inovadoras que beneficiam setores produtivos do estado; ? Realizar pesquisa de análise da evolução dos negócios inovadores e sua relação com setores produtivos tradicionais do Estado e o impacto no ecossistema de inovação; ? Promover a realização de projetos que possam contribuir com o desenvolvimento desses programas e seu impacto sobre a CT&I.",
+    summary:
+      "Estudo sobre a integração de ferramentas de segurança em processos de CI para mitigar vulnerabilidades em sistemas de aprendizado de máquina.",
+    period: "2022/2022",
+    status: "Concluído",
+    funding: "SEDET-ADECE-FUNCAP",
+    nature: "Desenvolvimento",
+    keywords: [
+      "Ecossistema de inovação",
+      "Produtividade",
+      "Transferência de conhecimento",
+      "Soluções tecnológicas",
+    ],
+    link: "/projects/clusters-econômicos-de-inovação",
+  },
+  {
     slug: "modernização-de-sistemas-legados",
     name: "Modernização de Sistemas Legados: Suporte (Semi-)Automatizado e Práticas de Desenvolvimento",
     description:
@@ -116,24 +191,5 @@ export const ProjectsData: ProjectDataProps[] = [
       "Modernização",
     ],
     link: "/projects/modernização-de-sistemas-legados",
-  },
-  {
-    slug: "modernização-assistida-de-softwares-legados-para-adoção-de-tecnologias-disruptivas",
-    name: "Modernização Assistida de Softwares Legados para Adoção de Tecnologias Disruptivas",
-    description:
-      "O projeto MAssiSo, focado no Rio de Janeiro, visa modernizar softwares legados essenciais utilizando tecnologias disruptivas como microsserviços e Blockchain. Propõe desenvolver um sistema recomendador para auxiliar na refatoração de código legado, investigando técnicas de otimização e recomendações para melhorar a qualidade do software.",
-    summary:
-      "Estudo sobre a integração de ferramentas de segurança em processos de CI para mitigar vulnerabilidades em sistemas de aprendizado de máquina.",
-    period: "2019/2025",
-    status: "Concluído",
-    funding: "FAPERJ",
-    nature: "Pesquisa",
-    keywords: [
-      "Software Legado",
-      "Refatoração",
-      "Tecnologias Disruptivas",
-      "Sistema Recomendador",
-    ],
-    link: "/projects/modernização-assistida-de-softwares-legados-para-adoção-de-tecnologias-disruptivas",
   },
 ];
