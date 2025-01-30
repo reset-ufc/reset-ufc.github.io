@@ -18,14 +18,14 @@ const NewsCard = ({ news }: NewsCardProps) => {
         <img
           src={news.image}
           alt={news.title}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 grayscale group-hover:grayscale-0"
+          className="w-full h-full transition-transform duration-300 group-hover:scale-110 grayscale group-hover:grayscale-0"
         />
       </div>
 
       <div className="p-8 flex flex-col">
-        <span className="text-gray-500 text-sm font-semibold uppercase mb-1">
+        {/* <span className="text-gray-500 text-sm font-semibold uppercase mb-1">
           {news.category}
-        </span>
+        </span> */}
         <h2 className="text-lg font-bold text-gray-900 leading-tight mb-2">
           {news.title}
         </h2>
