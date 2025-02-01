@@ -32,7 +32,7 @@ const NewsDetail = () => {
           <img
             src={newsItem.image}
             alt={newsItem.title}
-            className="w-full md:max-w-3xl h-auto rounded shadow-md"
+            className=" md:max-w-3xl h-96 object-contain rounded shadow-md"
           />
         </div>
 

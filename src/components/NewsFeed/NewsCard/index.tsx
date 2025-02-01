@@ -9,20 +9,20 @@ const NewsCard = ({ news }: NewsCardProps) => {
   };
 
   return (
-    <div className="flex p-7 justify-center items-center">
+    <div className="">
       <div
       onClick={handleReadMore}
-      className="relative group cursor-pointer bg-white rounded-xl shadow-md overflow-hidden transition-shadow hover:shadow-2xl"
+      className="relative group cursor-pointer bg-white rounded-xl shadow-md overflow-hidden transition-shadow hover:shadow-2xl flex flex-col h-full"
     >
-      <div className="h-72 overflow-hidden">
+      <div className="h-72 w-full">
         <img
           src={news.image}
           alt={news.title}
-          className="w-full h-full transition-transform duration-300 group-hover:scale-110 grayscale group-hover:grayscale-0"
+          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110 grayscale group-hover:grayscale-0"
         />
       </div>
 
-      <div className="p-8 flex flex-col">
+      <div className="p-6 flex flex-col flex-grow">
         {/* <span className="text-gray-500 text-sm font-semibold uppercase mb-1">
           {news.category}
         </span> */}
