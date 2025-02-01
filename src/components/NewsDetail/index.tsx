@@ -21,7 +21,7 @@ const NewsDetail = () => {
               month: "long",
               year: "numeric",
             })}{" "}
-            {/* - {newsItem.category} */}
+            - {newsItem.category}
           </p>
           <h1 className="text-4xl font-bold text-gray-900 text-center">
             {newsItem.title}

@@ -37,7 +37,7 @@ export interface NewsCardProps {
   news: {
     image: string;
     title: string;
-    // category: string;
+    category: string;
     date: string;
     description?: string;
   };
