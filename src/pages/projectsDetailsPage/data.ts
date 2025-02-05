@@ -746,7 +746,7 @@ export const researchProject: ResearchProjectProps[] = [
     keywords: ["Estatística", "Ciência de Dados", "Tecnologia Educacional"],
   },
   {
-    slug: "empreendedorismo-e-inclusao-digital",
+    slug: "empreendedorismo-e-inclusao-digital-itapaje",
     title:
       "Empreendedorismo e Inclusão Digital: Uma ação de inserção da economia itapajeense nas redes sociais",
     description:
@@ -835,7 +835,7 @@ export const researchProject: ResearchProjectProps[] = [
     ],
   },
   {
-    slug: "dedilhando-sonhos-uma-abordagem-musical-como-integracao-do-campus-jardins-de-anita-e-a-cidade-de-itapaje",
+    slug: "dedilhando-sonhos-integracao-campus-jardins-anita-itapaje",
     title:
       "Dedilhando sonhos: uma abordagem musical como integração do campus Jardins de Anita e a cidade de Itapajé",
     description:
