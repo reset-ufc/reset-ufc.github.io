@@ -39,6 +39,8 @@ export function PublicationPage() {
           >
             <option value="all">Todos os anos</option>
             <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
           </select>
           <select
             className="p-2 border border-gray-300 rounded-md"

@@ -91,6 +91,40 @@ export const researchProject: ResearchProjectProps[] = [
     ],
   },
   {
+    slug: "monitoria-integrada-de-matematica-aplicada-a-computacao",
+    title: "Monitoria Integrada de Matemática Aplicada à Computação",
+    description:
+      "As disciplinas de Matemática Computacional, Métodos Numéricos e Otimização Contínua objetivam familiarizar o aluno com a lógica matemática acerca da implementação das variadas linguagens computacionais, bem como a compreensão da teoria matemática através da visualização. Essa familiarização depende diretamente dos conhecimentos das linguagens Python, Matlab, e do software estatístico R, bem como o conhecimento base em função de uma e várias variáveis. A monitoria atenderá de 2023.1 e 2023.2 pelo menos para uma turma do curso de Segurança da Informação (1 semestre-Matemática Computacional) e duas turmas do Curso de Ciência de Dados (3 semestre-Otimização Contínua; 4 semestre-Métodos Numéricos) no campus da UFC em Itapajé-CE englobando as ementas das disciplinas citadas de forma teórica e prática. Cada turma tem no mínimo 30 alunos matriculados totalizando 90 alunos. Essas disciplinas são pré-requisitos para diferentes disciplinas no curso tecnológico de Ciência de Dados e Segurança da Informação. Nesse sentido, é de fundamental importância que existam monitores que conheçam e dominem a teoria a ser aplicada usando essas diferentes linguagens de programação.",
+    status: "Em andamento",
+    nature: "Ensino",
+    funding: "NaN",
+    studentsInvolved: {
+      undergraduate: 90,
+    },
+    members: [
+      {
+        name: "Jose Leonardo Esteves da Silva",
+        role: "Coordenador",
+      },
+      {
+        name: "Francisco Samuel Sales Pinheiro Pinto",
+        role: "Integrante",
+      },
+      {
+        name: "Luciana Sousa Martins",
+        role: "Integrante",
+      },
+    ],
+    keywords: [
+      "Matemática Computacional",
+      "Métodos Numéricos",
+      "Otimização Contínua",
+      "Python",
+      "Matlab",
+      "R",
+    ],
+  },
+  {
     slug: "security-automation-ci",
     title:
       "Investigando a Automação de Segurança na Integração Contínua de Sistemas Baseados em Aprendizado de Máquina",
@@ -439,53 +473,392 @@ export const researchProject: ResearchProjectProps[] = [
     ],
   },
   {
-    slug: "monitoria-de-programação-integrada",
-    title: "Monitoria de Programação Integrada",
+    slug: "meninas-cientistas",
+    title: "Meninas Cientistas: protagonismo feminino por meio da ciência",
     description:
-      "A monitoria atenderá em 2022.1 e 2022.2 pelo menos seis turmas diferentes de Fundamentos de Programação, Laboratório de Programação, e Introdução a Ciência de Dados abrangendo as linguagens de programação C, Python e R nos três cursos de graduação do campus da UFC em Itapajé. Cada turma tem no mínimo 30 alunos matriculados, totalizando cerca de 180 alunos. Esses disciplinas são pré-requisitos para diferentes disciplinas nos três cursos de graduação. Além disso, tais disciplinas normalmente possuem um alto índice de reprovação, em cursos de computação. Portanto, é importante que existam monitores que conheçam essas linguagens de programação e tenham horário livre, tanto para dar apoio em sala de aula, quanto para encontros semanais junto com os alunos. Tais monitores, com conhecimento de linguagens de programação se tornam necessários como uma estratégia para aumentar o índice de aprovação em disciplinas de programação.",
+      "O campus Jardins de Anita visa além da formação de bons profissionais na área da tecnologia da informação direcionados para o mercado de trabalho, busca também através projeto Meninas Cientistas: protagonismo feminino por meio da ciência estimular cada vez mais as discentes ingressas e egressas dos cursos de Análise e Desenvolvimento de Sistemas, Segurança da Informação e Ciência de Dados a adquirir gosto pela carreira científica bem como incentivar meninas que estudam nas escolas de ensino médio da cidade de Itapajé a tomarem gosto pela matemática e pela ciência em geral, assumindo um papel de protagonismo em sua realidade e na sociedade.",
     status: "Em andamento",
-    nature: "Ensino",
+    nature: "Extensão",
     funding: "NaN",
     studentsInvolved: {
-      undergraduate: 6,
+      undergraduate: 4,
       phd: 1,
     },
     members: [
       {
-        name: "Anderson Gonçalves Uchôa",
+        name: "JOSE LEONARDO ESTEVES DA SILVA",
         role: "Coordenador",
       },
       {
-        name: "João Luiz dos Santos Filho",
+        name: "Elisângela da Silva Rodrigues ",
         role: "Integrante",
       },
       {
-        name: "Oracio Cruz Melo",
+        name: "EMILY CAMELO MENDONÇA",
         role: "Integrante",
       },
       {
-        name: "Antonio Filipe Sousa Silva",
+        name: "GIOVANNA DIAS CASTRO DE OLIVEIRA ",
         role: "Integrante",
       },
       {
-        name: "Vitoria Nascimento de Paula",
+        name: "MARILENE SANTOS DUARTE",
         role: "Integrante",
       },
       {
-        name: "Carlos Gabriel dos Santos Alves",
+        name: "VICTOR RODRIGUES MORALES",
+        role: "Integrante",
+      },
+    ],
+    keywords: ["Protagonismo", "Tecnologia", "Ciência"],
+  },
+  {
+    slug: "ciencia-de-dados-e-esports",
+    title:
+      "Ciência de Dados e eSports: como a análise estatística contribui com os Jogos Eletrônicos",
+    description:
+      "Há muito tempo os fundamentos da Matemática, Teoria dos Jogos e Análise de Dados são aplicados a estudos sobre diversos aspectos dos jogos esportivos. Nesse contexto, recentemente os fundamentos dessas áreas de conhecimento têm sido aplicados a processos de análise de dados no universo dos eSports (ou Esportes Eletrônicos), gerando grande influência em processos de tomadas de decisão em jogos dessa natureza. Neste cenário, as análises de dados e a descoberta de padrões por meio da aplicação da Inteligência Artificial (IA) e Machine Learning podem auxiliar a análise de desempenho pessoal, destacando pontos fortes e fracos de jogadores com o objetivo de ajudá-los a impulsionar suas performances nos jogos. No entanto, a dinâmica dos jogos eletrônicos e a arquitetura desses ambientes gamificados se diferenciam entre si, assim como os incentivos e objetivos dos participantes. Para esses casos, diferentes métodos da Ciência de Dados podem ser aplicados para auxiliar a criação de estratégias aproximativas que gerem o menor erro possível. Este projeto tem como objetivo propor um curso de formação sobre Estatística aplicada a eSports para a comunidade acadêmica e para alunos de escolas de Ensino Médio do município de Itapajé-CE, instruindo-os a formular estratégias adaptativas e evolutivas em tempo real para jogos eletrônicos competitivos, como por exemplo o jogo League of Legends. Adicionalmente, é proposto para este projeto uma contribuição para a cidade Itapajé, que consiste na participação de estudantes do Ensino Médio no estudo sobre estatística descritiva, teoria da probabilidade e inferência estatística na atividade de análise de dados aplicada ao segmento de eSports, para compreenderem a importância da Ciência de Dados. Ao final, os participantes poderão compartilhar as experiências adquiridas em suas respectivas instituições.",
+    status: "Em andamento",
+    nature: "Extensão",
+    funding: "NaN",
+    studentsInvolved: {
+      undergraduate: 4,
+      phd: 2,
+    },
+    members: [
+      {
+        name: "Elisângela da Silva Rodrigues",
+        role: "Coordenador",
+      },
+      {
+        name: "Pedro Coelho Sampaio Filho",
         role: "Integrante",
       },
       {
-        name: "Carlos Alberto de Sales Oliveira",
+        name: "MARIA EDINEUDA TEIXEIRA PINTO",
+        role: "Integrante",
+      },
+      {
+        name: "HITALO JOSEFERSON BATISTA NASCIMENTO",
+        role: "Integrante",
+      },
+      {
+        name: "VICTOR MATHEUS ARAUJO OLIVEIRA",
+        role: "Integrante",
+      },
+      {
+        name: "JOAO GABRIEL BASTOS SALES",
         role: "Integrante",
       },
     ],
     keywords: [
-      "Monitoria",
-      "Linguagens de programação",
-      "Apoio em sala de aula",
+      "Estatística",
+      "Ciência de Dados",
+      "eSports",
+      "Machine Learning",
     ],
   },
+  {
+    slug: "monitoria-integrada-estatistica-ciencia-de-dados",
+    title: "Monitoria Integrada de Estatística para Ciência de Dados",
+    description:
+      "A Estatística proporciona os meios e as ferramentas para encontrar estrutura em dados, e assim fornecer insights sobre as informações mais profundas ali escondidas para um cientista de dados. As disciplinas de Probabilidade e Estatística, Inferência Estatística e Análise de Regressão I, constituem uma parte da formação estatística de um cientista de dados. São disciplinas que combinam conhecimentos teóricos e práticos, aplicados à base de dados reais oriundas de várias áreas do mercado de trabalho com a utilização de uma linguagem de programação, R ou Python, promovendo integração entre os conceitos de Estatística e Computação para de Ciência de Dados, como pode ser visto em [1], [2] e [3]. Portanto, é de fundamental importância oferecer aos discentes o apoio de monitores, que possuem o conhecimento teórico e que tenham experiência em linguagens de programação como Python e R. A monitoria dará suporte durante o ano de 2023, em pelo menos 3 turmas por semestre, visto que a disciplina de Probabilidade e Estatística é ofertada em mais de um curso no mesmo semestre, além disso, os monitores atenderão turmas de diferentes semestres do Curso de Ciência de Dados, totalizando, aproximadamente, 90 alunos. Por fim, destaca-se a importância desse projeto de monitoria para minimizar a evasão nos cursos, uma vez que esse é um tema central na Universidade.",
+    status: "Em andamento",
+    nature: "Ensino",
+    funding: "NaN",
+    studentsInvolved: {
+      undergraduate: 3,
+      phd: 1,
+    },
+    members: [
+      {
+        name: "Elisângela da Silva Rodrigues",
+        role: "Coordenador",
+      },
+      {
+        name: "Bruna Barreto Mesquita",
+        role: "Integrante",
+      },
+      {
+        name: "LARISSA VITORIA VASCONCELOS SOUSA",
+        role: "Integrante",
+      },
+      {
+        name: "EMILY CAMELO MENDONÇA",
+        role: "Integrante",
+      },
+      {
+        name: "SHELDA DE SOUZA RAMOS",
+        role: "Integrante",
+      },
+    ],
+    keywords: [
+      "Estatística",
+      "Ciência de Dados",
+      "Probabilidade",
+      "Inferência Estatística",
+      "Análise de Regressão",
+      "Python",
+      "R",
+    ],
+  },
+  {
+    slug: "monitoria-integrada-ciencia-de-dados-inteligencia-artificial",
+    title: "Monitoria Integrada de Ciência de Dados e Inteligência Artificial",
+    description:
+      "Disciplinas como Introdução à Ciência de dados; Inteligência artificial; Visualização de dados; Laboratório de Ciência de Dados e Redes Neurais Artificiais, constituem a formação profissional e científica de um cientista de dados. São disciplinas que combinam conhecimentos práticos e teóricos de matemática, ciência da computação e estatística. Assim, é de fundamental importância oferecer aos discentes o apoio de monitores, que possuem habilidades para além da teoria, e que sejam proficientes em linguagens de programação como Python, R, C e C++. Para além disso, este projeto tem o objetivo prover aos monitores a oportunidade para aprimorar os conhecimentos adquiridos em diferentes disciplinas.",
+    status: "Em andamento",
+    nature: "Ensino",
+    funding: "NaN",
+    studentsInvolved: {
+      undergraduate: 2,
+    },
+    members: [
+      {
+        name: "Hitalo Joseferson Batista Nascimento",
+        role: "Coordenador",
+      },
+    ],
+    keywords: [
+      "Ciência de Dados",
+      "Inteligência Artificial",
+      "Visualização de Dados",
+      "Redes Neurais Artificiais",
+    ],
+  },
+  {
+    slug: "infraestrutura-como-mitigacao-autoscaling-ddos-kubernetes",
+    title:
+      "Infraestrutura como Mitigação: a utilização do Autoscaling como proteção contra ataques de DDoS em ambiente de Kubernetes",
+    description:
+      "Os ataques de negação de serviço (DoS) e sua forma distribuída (DDoS) são desafios permanentes na Internet, e se tornam um problema ainda mais complexo com a migração dos serviços e aplicações da Internet para infraestruturas de nuvem compartilhadas e centralizadas. Isso se agrava ainda mais quando os ataques de negação de serviço são realizados de forma similar a clientes legítimos, tornando a mitigação por descarte um grande problema, pois se adotada poderá descartar clientes legítimos confundidos como atacantes. Neste contexto, é necessária uma forma de mitigação dos ataques em que não realize o descarte. Atualmente, os serviços e aplicações na Internet estão utilizando um tipo de virtualização leve, chamada contêineres. A gerência e a orquestração de contêineres, em um ambiente de computação em nuvem, é normalmente realizada pela plataforma de nuvem Kubernetes. Entre as diversas funcionalidades dessa plataforma, existe o autoscaling, mecanismo responsável por realizar o dimensionamento automático dos recursos computacionais conforme a demanda de clientes. O autoscaling oferece uma escalabilidade, seja aumentando a quantidade de réplicas dos contêineres ou aumentando os recursos computacionais de um determinado contêiner. A proposta do presente projeto de pesquisa visa utilizar o mecanismo de autoscaling, disponível na infraestrutura de nuvem, para mitigar ataques de DDoS contra serviços instanciados em contêineres em um ambiente de nuvem. Ou seja, a proposta é atribuir uma nova funcionalidade ao mecanismo de autoscaling, realizando uma mitigação dos ataques e oferecendo uma maior disponibilidade aos clientes legítimos.",
+    status: "Em andamento",
+    nature: "Pesquisa",
+    funding: "Universidade Federal do Ceará - Bolsa",
+    studentsInvolved: {
+      undergraduate: 4,
+    },
+    members: [
+      {
+        name: "João Henrique Gonçalves Medeiros Corrêa",
+        role: "Coordenador",
+      },
+    ],
+    keywords: [
+      "Autoscaling",
+      "DDoS",
+      "Kubernetes",
+      "Contêineres",
+      "Mitigação de Ataques",
+      "Computação em Nuvem",
+    ],
+  },
+  {
+    slug: "detecao-identificacao-ataques-negacao-servico-intrusao-nuvem",
+    title:
+      "Detecção e Identificação de ataques de negação de serviço e de intrusão em ambiente de nuvem utilizando algoritmos de aprendizado de máquina",
+    description:
+      "Este projeto de pesquisa visa detectar e identificar ataques de negação de serviço e de intrusão em ambiente de nuvem com auxílio de algoritmos de aprendizado de máquina. A proposta é utilizar dados oferecidos por serviços de telemetria dos ambientes de nuvem. Ou seja, os algoritmos de aprendizado de máquina podem ser utilizados nos datasets coletados do serviço de telemetria nativa da infraestrutura da nuvem para realizar a detecção e identificação desses ataques. Esses datasets contêm informações da máquina virtual e/ou de contêineres, vítima hospedada no ambiente de nuvem.",
+    status: "Em andamento",
+    nature: "Pesquisa",
+    funding: "Universidade Federal do Ceará - Bolsa",
+    studentsInvolved: {
+      undergraduate: 6,
+    },
+    members: [
+      {
+        name: "João Henrique Gonçalves Medeiros Corrêa",
+        role: "Coordenador",
+      },
+      {
+        name: "Victor Rodrigues Morales",
+        role: "Integrante",
+      },
+      {
+        name: "Thais Adrielle Ferreira Rodrigues",
+        role: "Integrante",
+      },
+    ],
+    keywords: [
+      "Aprendizado de Máquina",
+      "Nuvem",
+      "Ataques de Negação de Serviço",
+      "Ataques de Intrusão",
+      "Telemetria",
+      "Máquina Virtual",
+      "Contêineres",
+    ],
+  },
+  {
+    slug: "portal-de-estatistica-e-ciencia-de-dados",
+    title: "Um Portal de Estatística e Ciência de Dados",
+    description:
+      "Este projeto tem como objetivo desenvolver uma aplicação WEB chamada de Portal de Estatística e Ciência de Dados que servirá como fonte de pesquisa para docentes e discentes da Universidade Federal do Ceará (UFC), assim como para a comunidade externa à UFC, tais como indústrias, comércio e educação básica, de forma a contribuir com o processo de compartilhamento de conhecimento com a sociedade. Adicionalmente, é proposto para este projeto uma contribuição para a cidade Itapajé que consiste na participação de estudantes do Ensino Médio que acompanharão e serão familiarizados com as tecnologias empregadas na construção do portal, bem como conceitos básicos sobre Estatística e Ciência de Dados. Tal participação ajudará na análise sobre quais ações impulsionam a busca de conteúdos práticos e teóricos referentes à Estatística e Ciência de Dados, bem como quais fatores são inibidores ou são facilitadores do processo de disseminação desses conhecimentos. Espera-se como resultados da pesquisa o desenvolvimento um Portal de Estatística e Ciência de Dados que disponibilizará conteúdos práticos e teóricos referentes à estatística descritiva, teoria da probabilidade e inferência estatística.",
+    status: "Em andamento",
+    nature: "Extensão",
+    funding: "NaN",
+    studentsInvolved: {
+      undergraduate: 7,
+      phd: 0,
+    },
+    members: [
+      {
+        name: "Elisângela da Silva Rodrigues",
+        role: "Coordenador",
+      },
+      {
+        name: "Laura de Lima Mendes",
+        role: "Integrante",
+      },
+      {
+        name: "MARIA BIANCA SOUSA COSTA",
+        role: "Integrante",
+      },
+      {
+        name: "Maria Vanessa Sousa Mesquita",
+        role: "Integrante",
+      },
+      {
+        name: "HITALO JOSEFERSON BATISTA NASCIMENTO",
+        role: "Integrante",
+      },
+      {
+        name: "MARIA EDINEUDA TEIXEIRA PINTO",
+        role: "Integrante",
+      },
+      {
+        name: "JOSE LEONARDO ESTEVES DA SILVA",
+        role: "Integrante",
+      },
+      {
+        name: "LUCIANA SOUSA MARTINS",
+        role: "Integrante",
+      },
+      {
+        name: "TIAGO DE ANDRADE CASTRO",
+        role: "Integrante",
+      },
+      {
+        name: "THAYS FERREIRA UCHOA ALBUQUERQUE",
+        role: "Integrante",
+      },
+    ],
+    keywords: ["Estatística", "Ciência de Dados", "Tecnologia Educacional"],
+  },
+  {
+    slug: "empreendedorismo-e-inclusao-digital",
+    title:
+      "Empreendedorismo e Inclusão Digital: Uma ação de inserção da economia itapajeense nas redes sociais",
+    description:
+      "A cidade de Itapajé, situada na região Litoral Oeste do Estado do Ceará, assim como diversas cidades brasileiras, existe um comércio/serviço local bastante movimentado, mas com uma abrangência limitada aos moradores da localidade, restringindo inclusive aos habitantes do bairro em que o comércio/serviço está inserido. A propaganda, elemento necessário para o desenvolvimento de qualquer empreendimento, são normalmente realizadas por carros/motos de som ou pelo popular 'boca-a-boca', a segunda opção, em muitos casos, a única utilizada. Inserir propagandas em rádios locais ou em outdoors requisitam um nível de investimento que normalmente esses comércios e serviços não dispõem. Por outro lado, com o advento das redes sociais, surgem espaços de compartilhamento e podem ser utilizados para a divulgação de produtos e serviços. Apesar da inserção individual nas redes sociais, o mesmo não acontece nos comércios e empresas constituídas na cidade de Itapajé. Há ainda muita dificuldade para obter informação disponível em redes sociais e na Internet de modo geral acerca dos produtos e serviços oferecidos pelos empreendedores locais. Assim, para estimular o empreendedorismo e o crescimento dos comércios e serviços da cidade de Itapajé, este projeto de extensão visa auxiliar os empreendedores ingressarem na atividade digital, com treinamento e elaboração de uma ação contínua voltada ao marketing digital.",
+    status: "Em andamento",
+    nature: "Extensão",
+    funding: "NaN",
+    studentsInvolved: {
+      undergraduate: 3,
+      phd: 1,
+    },
+    members: [
+      {
+        name: "João Henrique Gonçalves Medeiros Corrêa",
+        role: "Coordenador",
+      },
+    ],
+    keywords: [
+      "Empreendedorismo",
+      "Inclusão Digital",
+      "Marketing Digital",
+      "Redes Sociais",
+    ],
+  },
+  {
+    slug: "analise-da-difusao-e-transporte-de-neutrons-em-reatores-nucleares",
+    title:
+      "Análise da difusão e transporte de neutrons em reatores nucleares usando a estatística não-extensiva",
+    description:
+      "A solução para a função fluxo de neutrons em reatores nucleares é amplamente descrita e utilizada na engenharia nuclear. Nesse sentido, o desenvolvimento de novas versões alternativas para modelar e controlar o fluxo de neutrons se torna uma alternativa útil e em muitos casos, dependendo do tipo de reator, relevante. Este projeto de pesquisa visa investigar o comportamento da função fluxo de neutrons em reatores nucleares usando as mecânicas estatística de Tsallis e Kaniadakis observado seus ganhos e perdas em relação ao espectro já conhecido na energia nuclear.",
+    status: "Em andamento",
+    nature: "Pesquisa",
+    funding: "NaN",
+    studentsInvolved: {
+      phd: 2,
+    },
+    members: [
+      {
+        name: "Jose Leonardo Esteves da Silva",
+        role: "Coordenador",
+      },
+      {
+        name: "Julio Cesar Lombaldo Fernandes",
+        role: "Integrante",
+      },
+    ],
+    keywords: [
+      "Difusão de neutrons",
+      "Transporte de neutrons",
+      "Reatores nucleares",
+      "Estatística não-extensiva",
+      "Mecânica de Tsallis",
+      "Mecânica de Kaniadakis",
+    ],
+  },
+  {
+    slug: "analise-global-da-funcao-wq-de-lambert-tsallis",
+    title: "Análise Global da função Wq de Lambert-Tsallis e suas aplicações",
+    description:
+      "A função Wq de Lambert-Tsallis é uma generalização direta da função W de Lambert usando a q-exponencial de Tsallis. Essa função tem se mostrado útil para encontrar soluções analíticas e numéricas em sistemas físicos onde as variáveis dependente e independente se relacionam por alguma lei de potência. Também é utilizada para descrever o funcional Disentropia, uma função que em muitos sentidos, é dual a entropia. Este projeto de pesquisa tem por finalidade investigar globalmente a função de Lambert-Tsallis introduzida por Ramos afim de estender o conhecimento sobre a mesma.",
+    status: "Em andamento",
+    nature: "Pesquisa",
+    funding: "NaN",
+    studentsInvolved: {
+      phd: 2,
+    },
+    members: [
+      {
+        name: "Jose Leonardo Esteves da Silva",
+        role: "Coordenador",
+      },
+      {
+        name: "Rubens Viana Ramos",
+        role: "Integrante",
+      },
+      {
+        name: "Kléber Zuza Nobrega",
+        role: "Integrante",
+      },
+    ],
+    keywords: [
+      "Função Wq de Lambert-Tsallis",
+      "q-exponencial de Tsallis",
+      "Disentropia",
+      "Entropia",
+    ],
+  },
+  {
+    slug: "dedilhando-sonhos-uma-abordagem-musical-como-integracao-do-campus-jardins-de-anita-e-a-cidade-de-itapaje",
+    title:
+      "Dedilhando sonhos: uma abordagem musical como integração do campus Jardins de Anita e a cidade de Itapajé",
+    description:
+      "Considerando o fato do Campus Jardins de Anita ser o campus mais recente do interior da Universidade Federal do Ceará, e de possuir até o momento apenas cursos de graduação com temática em tecnologia, é relatado pelo corpo discente em geral que há uma carência rotineira de atividades e políticas voltadas para fins musicais, teatrais, de desenho e outras manifestações artísticas da expressão humana, bem como ações com essas características que promovam extensão e identificação com a cidade da unidade acadêmica. Nesse sentido, este projeto tem como justificativa promover a disseminação e ambientação musical e artística entre os discentes, docentes e servidores da UFC do campus de Itapajé por meio de apresentações, rodas de músicas de estilos e naturezas diversas e parcerias com grupos musicais pertencentes a cidade de Itapajé-CE.",
+    status: "Concluído",
+    nature: "Extensão",
+    funding: "NaN",
+    studentsInvolved: {
+      undergraduate: 90,
+    },
+    members: [
+      {
+        name: "Jose Leonardo Esteves da Silva",
+        role: "Coordenador",
+      },
+      {
+        name: "Emily Camelo Mendonça",
+        role: "Integrante",
+      },
+    ],
+    keywords: ["Música", "Arte", "Extensão"],
+  },
+
   {
     slug: "clusters-econômicos-de-inovação",
     title:

@@ -118,7 +118,7 @@ Seus principais interesses de pesquisa são: Redes de Computadores, com ênfase 
     contact: {
       email: "arturfranco@ufc.br",
       github: "arturfranco",
-      latter: "https://buscatextual.cnpq.br/buscatextual/visualizacv.do",
+      latter: "http://lattes.cnpq.br/8109462850506648",
     },
     researchKeywords: [
       "Narrativa interativa",
