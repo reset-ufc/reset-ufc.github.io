@@ -441,4 +441,72 @@ export const publicationsData: PublicationsDataProps[] = [
     ],
     url: "https://ieeexplore.ieee.org/document/9463137",
   },
+  {
+    title:
+      "Multimorbidity associated with anxiety symptomatology in post-COVID patients",
+    description:
+      "A pandemia de COVID-19 atingiu mais duramente os indivíduos com condições crônicas. Sabe-se que os sintomas de ansiedade são frequentes em condições pós-COVID. Queremos examinar se a multimorbidade está associada à ansiedade em pacientes pós-COVID. Relatamos estatísticas descritivas de 389 pacientes pós-COVID e realizamos uma regressão linear com sintomas de ansiedade medidos usando a escala de Ansiedade e Depressão Hospitalar (HAD). Para cada condição crônica adicional, houve um aumento médio de 0,11 na pontuação HAD-ansiedade. No entanto, houve uma redução para a idade e para ser do sexo masculino. Esses achados podem potencialmente ajudar os formuladores de políticas a organizar melhor os serviços de saúde pós-COVID e melhorar o cuidado aos pacientes.",
+    category: "Engenharia de Software",
+    journalName: "Psychiatry Research",
+    year: 2021,
+    keywords: ["COVID-19", "long-covid", "quality of life"],
+    authors: [
+      "Milena Nogueira Azevedo",
+      "Elisângela da Silva Rodrigues",
+      "Emília Augusta Franz Vieira Passos",
+      "Márcio Andrade Barreto Filho",
+      "Ana Paula Andrade Barreto",
+      "Marcelo Chalhoub Coelho Lima ",
+      "Mauricio Lima Barreto",
+      "Luis Fernando Silva Castro-de-Araujo",
+    ],
+    url: "https://www.sciencedirect.com/science/article/pii/S0165178122000415?via%3Dihub",
+  },
+  {
+    title:
+      "Multimorbidity associated with anxiety symptomatology in post-COVID patients",
+    description:
+      "A pandemia de COVID-19 atingiu mais duramente os indivíduos com condições crônicas. Sabe-se que os sintomas de ansiedade são frequentes em condições pós-COVID. Queremos examinar se a multimorbidade está associada à ansiedade em pacientes pós-COVID. Relatamos estatísticas descritivas de 389 pacientes pós-COVID e realizamos uma regressão linear com sintomas de ansiedade medidos usando a escala de Ansiedade e Depressão Hospitalar (HAD). Para cada condição crônica adicional, houve um aumento médio de 0,11 na pontuação HAD-ansiedade. No entanto, houve uma redução para a idade e para ser do sexo masculino. Esses achados podem potencialmente ajudar os formuladores de políticas a organizar melhor os serviços de saúde pós-COVID e melhorar o cuidado aos pacientes.",
+    category: "Engenharia de Software",
+    journalName: "Psychiatry Research",
+    year: 2021,
+    keywords: ["COVID-19", "long-covid", "quality of life"],
+    authors: [
+      "Milena Nogueira Azevedo",
+      "Elisângela da Silva Rodrigues",
+      "Emília Augusta Franz Vieira Passos",
+      "Márcio Andrade Barreto Filho",
+      "Ana Paula Andrade Barreto",
+      "Marcelo Chalhoub Coelho Lima ",
+      "Mauricio Lima Barreto",
+      "Luis Fernando Silva Castro-de-Araujo",
+    ],
+    url: "https://www.sciencedirect.com/science/article/pii/S0165178122000415?via%3Dihub",
+  },
+  {
+    title:
+      "Main and moderated effects of multimorbidity and depressive symptoms on cognition",
+    description:
+      "A multimorbidade, ou a ocorrência de duas ou mais condições crônicas, é um desafio global, com implicações na mortalidade, morbidade, incapacidade e qualidade de vida. Os transtornos psiquiátricos são comuns entre as doenças crônicas que afetam os pacientes com multimorbidade. Ainda não está bem compreendido se os sintomas psiquiátricos, especialmente os sintomas depressivos, moderam o efeito da multimorbidade na cognição.",
+    category: "Engenharia de Software",
+    journalName: "Brazilian Psychiatric Association",
+    year: 2021,
+    keywords: [
+      "Multimorbidity",
+      "epidemiology",
+      "aging",
+      "tructural equation modeling",
+    ],
+    authors: [
+      "Elisângela da Silva Rodrigues",
+      "Jacyra Azevedo Paiva de Araujo",
+      "Érika Fialho Morais Xavier",
+      "Daiane Borges Machado",
+      "Marcos E. Barreto",
+      "Richard A. Kanaan",
+      "Mauricio L. Barreto",
+      "Luis Fernando Silva Castro-de-Araujo",
+    ],
+    url: "https://www.bjp.org.br/details/2262/en-US/the-moderation-of-multimorbidity-and-depressive-symptoms-on-cognition",
+  },
 ];
