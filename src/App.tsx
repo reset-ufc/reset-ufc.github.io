@@ -4,6 +4,7 @@ import ScrollToTop from "./utils/scroll-top";
 import { Router } from "./routes/router";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import GTranslate from "./components/GTranslate";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -48,6 +49,8 @@ function App() {
       <ScrollToTop />
       <Header />
       <Router />
+      <GTranslate />
+
       <Footer />
     </>
   );
