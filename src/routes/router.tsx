@@ -13,11 +13,11 @@ import NewsDetail from "../components/NewsDetail";
 export function Router() {
   return (
     <Routes>
-      <Route path="*" element={<Navigate to="/home" />} />
-      <Route path="/home" element={<Home />} />
+      <Route path="*" element={<Navigate to="/" />} />
+      <Route path="/" element={<Home />} />
       <Route path="/projects" element={<ProjectPage />} />
       <Route path="/publications" element={<PublicationPage />} />
-      <Route path="/Visual-Identity" element={<VisualIdentityPage />} />
+      <Route path="/visual-Identity" element={<VisualIdentityPage />} />
       <Route path="/projects/:slug" element={<ProjectDetailsPage />} />
       <Route path="/members" element={<TeamInterface />} />
       <Route path="/members/:name" element={<ProfilePage />} />
