@@ -9,6 +9,10 @@ import ProfilePage from "../components/ProfilePage";
 import NewsCardList from "../components/NewsFeed";
 import ToolsSection from "../pages/Tools";
 import NewsDetail from "../components/NewsDetail";
+import Login from "../pages/admin/Login";
+import Register from "../pages/admin/Register";
+import Dashboard from "../pages/admin/Dashboard";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 export function Router() {
   return (
@@ -24,6 +28,18 @@ export function Router() {
       <Route path="/news" element={<NewsCardList />} />
       <Route path="/tools" element={<ToolsSection />} />
       <Route path="/news/:title" element={<NewsDetail />} />
+      
+      {/* Admin Routes */}
+      <Route path="/admin/login" element={<Login />} />
+      <Route path="/admin/register" element={<Register />} />
+      <Route
+        path="/admin/dashboard"
+        element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 }
