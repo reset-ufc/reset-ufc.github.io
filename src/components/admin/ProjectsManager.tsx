@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useAuth } from '../../hooks/useAuth';
 
 interface Project {
   id: string;
@@ -21,6 +22,7 @@ export default function ProjectsManager() {
     slug: '',
   });
   const [editingProject, setEditingProject] = useState<Project | null>(null);
+  const { token } = useAuth();
 
   useEffect(() => {
     fetchProjects();
@@ -62,13 +64,15 @@ export default function ProjectsManager() {
         await axios.put(`http://localhost:3000/projects/${editingProject.id}`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
+            'Authorization': `Bearer ${token}`,
           },
         });
       } else {
         await axios.post('http://localhost:3000/projects', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
-          },
+            'Authorization': `Bearer ${token}`,
+        },
         });
       }
       await fetchProjects();

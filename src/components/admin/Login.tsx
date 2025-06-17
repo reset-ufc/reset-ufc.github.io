@@ -3,25 +3,28 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuthContext } from '../../contexts/AuthContext';
 
-export default function Login() {
+export function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const { setToken } = useAuthContext();
   const navigate = useNavigate();
-  
+  const { setToken } = useAuthContext();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError('');
+
     try {
       const response = await axios.post('http://localhost:3000/auth/login', {
         email,
         password,
       });
-      
-      setToken(response.data.access_token);
+
+      const { token } = response.data;
+      setToken(token);
       navigate('/admin/dashboard');
     } catch (err) {
-      setError('Credenciais inválidas');
+      setError('Email ou senha inválidos');
     }
   };
 

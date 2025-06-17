@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 interface News {
   id: string;
@@ -20,6 +21,7 @@ export default function NewsManager() {
     author: '',
   });
   const [editingNews, setEditingNews] = useState<News | null>(null);
+  const { token } = useAuthContext();
 
   useEffect(() => {
     fetchNews();
@@ -61,12 +63,14 @@ export default function NewsManager() {
         await axios.put(`http://localhost:3000/news/${editingNews.id}`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
+            'Authorization': `Bearer ${token}`,
           },
         });
       } else {
         await axios.post('http://localhost:3000/news', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
+            'Authorization': `Bearer ${token}`,
           },
         });
       }

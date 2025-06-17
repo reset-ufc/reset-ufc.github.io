@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 interface Publication {
   id: string;
@@ -23,7 +24,7 @@ export default function PublicationsManager() {
     abstract: '',
   });
   const [editingPublication, setEditingPublication] = useState<Publication | null>(null);
-
+  const { token } = useAuthContext();
   useEffect(() => {
     fetchPublications();
   }, []);
@@ -46,9 +47,17 @@ export default function PublicationsManager() {
     setIsLoading(true);
     try {
       if (editingPublication) {
-        await axios.put(`http://localhost:3000/publications/${editingPublication.id}`, newPublication);
+        await axios.put(`http://localhost:3000/publications/${editingPublication.id}`, newPublication, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
       } else {
-        await axios.post('http://localhost:3000/publications', newPublication);
+        await axios.post('http://localhost:3000/publications', newPublication, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
       }
       await fetchPublications();
       setNewPublication({

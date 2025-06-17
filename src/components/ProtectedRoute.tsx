@@ -1,21 +1,12 @@
-import { ReactNode, useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
+import { useAuthContext } from '../contexts/AuthContext';
 
 interface ProtectedRouteProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
-export default function ProtectedRoute({ children }: ProtectedRouteProps) {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    const token = localStorage.getItem('adminToken');
-    setIsAuthenticated(!!token);
-  }, []);
-
-  if (isAuthenticated === null) {
-    return null; // or a loading spinner
-  }
+export function ProtectedRoute({ children }: ProtectedRouteProps) {
+  const { isAuthenticated } = useAuthContext();
 
   if (!isAuthenticated) {
     return <Navigate to="/admin/login" replace />;

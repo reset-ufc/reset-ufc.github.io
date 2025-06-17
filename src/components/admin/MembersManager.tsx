@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 interface Member {
   id: string;
@@ -21,7 +22,7 @@ export default function MembersManager() {
     bio: '',
   });
   const [editingMember, setEditingMember] = useState<Member | null>(null);
-
+  const { token } = useAuthContext();
   useEffect(() => {
     fetchMembers();
   }, []);
@@ -62,12 +63,14 @@ export default function MembersManager() {
         await axios.put(`http://localhost:3000/members/${editingMember.id}`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
+            'Authorization': `Bearer ${token}`,
           },
         });
       } else {
         await axios.post('http://localhost:3000/members', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
+            'Authorization': `Bearer ${token}`,
           },
         });
       }
