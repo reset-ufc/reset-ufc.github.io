@@ -1,20 +1,49 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Search, GraduationCap, Users } from "lucide-react";
 import { Link } from "react-router-dom";
-import { teacherTeamData } from "./teacher-data";
-import { teamData } from "./team-data";
 import { Helmet } from "react-helmet-async";
 import { TeamMember } from "./teamMember";
+import axios from "axios";
 
 export function TeamInterface() {
   const [searchTerm, setSearchTerm] = useState("");
   const [activeTab, setActiveTab] = useState("professors");
+  const [members, setMembers] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const filteredTeamData = useMemo(() => {
-    return teamData.filter((member) =>
+  useEffect(() => {
+    async function fetchMembers() {
+      setIsLoading(true);
+      try {
+        const response = await axios.get("http://localhost:3000/members?limit=1000");
+        setMembers(response.data.data || response.data || []);
+      } catch (error) {
+        setMembers([]);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchMembers();
+  }, []);
+
+  // Professores
+  const professors = useMemo(() =>
+    members.filter((m) => m.memberType === "PROFESSOR"),
+    [members]
+  );
+
+  // Colaboradores e alunos
+  const collaborators = useMemo(() =>
+    members.filter((m) => m.memberType !== "PROFESSOR"),
+    [members]
+  );
+
+  // Filtro de busca para colaboradores/alunos
+  const filteredCollaborators = useMemo(() => {
+    return collaborators.filter((member) =>
       member.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
-  }, [searchTerm]);
+  }, [searchTerm, collaborators]);
 
   return (
     <div className="min-h-screen pt-10 pb-20 bg-slate-50">
@@ -52,43 +81,45 @@ export function TeamInterface() {
 
         {activeTab === "professors" && (
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {teacherTeamData.length > 0 ? (
-                teacherTeamData.map((professor, index) => (
-                  <Link
-                    to={`/members/${professor.name}`}
-                    key={index}
-                    className="block group"
-                  >
-                    <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:scale-105">
-                      <img
-                        src={professor.img || ""}
-                        alt={professor.name}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                      />
-                      <div className="absolute bottom-6 left-6 text-white">
-                        <p className="text-2xl font-medium">{professor.name}</p>
-                        <p className="text-3xl font-bold">
-                          {professor.lastName}
-                        </p>
-                        {professor.isCoordinator && (
-                          <span className="mt-2 inline-block bg-[#ec642a] text-white px-3 py-1 rounded-full text-sm font-semibold">
-                            Coordenador
-                          </span>
-                        )}
-                        {professor.isViceCoordinator && (
-                          <span className="mt-2 inline-block bg-[#3d1ba6] text-white px-3 py-1 rounded-full text-sm font-semibold">
-                            Vice-Coordenadora
-                          </span>
-                        )}
+            {isLoading ? (
+              <div className="text-center text-[#270B79]">Carregando...</div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {professors.length > 0 ? (
+                  professors.map((professor, index) => (
+                    <Link
+                      to={`/members/${professor.name}`}
+                      key={professor.id || index}
+                      className="block group"
+                    >
+                      <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:scale-105">
+                        <img
+                          src={professor.img || ""}
+                          alt={professor.name}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                        <div className="absolute bottom-6 left-6 text-white">
+                          <p className="text-2xl font-medium">{professor.name}</p>
+                          <p className="text-3xl font-bold">{professor.lastName}</p>
+                          {professor.coordinatorType === "COORDINATOR" && (
+                            <span className="mt-2 inline-block bg-[#ec642a] text-white px-3 py-1 rounded-full text-sm font-semibold">
+                              Coordenador
+                            </span>
+                          )}
+                          {professor.coordinatorType === "VICE_COORDINATOR" && (
+                            <span className="mt-2 inline-block bg-[#3d1ba6] text-white px-3 py-1 rounded-full text-sm font-semibold">
+                              Vice-Coordenador
+                            </span>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  </Link>
-                ))
-              ) : (
-                <p>No teacher data available.</p>
-              )}
-            </div>
+                    </Link>
+                  ))
+                ) : (
+                  <p>Nenhum professor encontrado.</p>
+                )}
+              </div>
+            )}
           </div>
         )}
 
@@ -111,9 +142,11 @@ export function TeamInterface() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredTeamData.length > 0 ? (
-                filteredTeamData.map((member, index) => (
-                  <TeamMember key={index} {...member} />
+              {isLoading ? (
+                <p className="text-center text-[#270B79] col-span-full">Carregando...</p>
+              ) : filteredCollaborators.length > 0 ? (
+                filteredCollaborators.map((member, index) => (
+                  <TeamMember key={member.id || index} {...member} />
                 ))
               ) : (
                 <p className="text-center text-[#270B79] col-span-full">
