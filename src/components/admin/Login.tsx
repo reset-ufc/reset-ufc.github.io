@@ -19,7 +19,7 @@ export function Login() {
         email,
         password,
       });
-      const token = response.data.access_token;
+      const token = response.data.accessToken;
       console.log(token);
       setToken(token);
       navigate('/admin/dashboard');
