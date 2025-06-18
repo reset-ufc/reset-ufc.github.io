@@ -1,15 +1,39 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuthContext } from '../../contexts/AuthContext';
+import FormInput from '../ui/formInput';
+import FormTextArea from '../ui/formTextArea';
+import TagList from '../ui/tagList';
+import FormSelect from '../ui/formSelect';
+import { ContactSection } from '../ContactSection';
 
 interface Member {
   id: string;
   name: string;
   role: string;
+  github: string;
   email: string;
-  image: string;
-  bio: string;
+  img: string;
+  imgurDeleteHash?: string;
+  description: string;
+  contact: {
+    email: string;
+    github: string;
+    latter: string;
+  };
+  researchKeywords: string[];
+  publishedPapers: string[];
+  projectIds: string[];
 }
+
+const ROLE_OPTIONS = [
+  { value: 'graduando', label: 'Graduando' },
+  { value: 'graduado', label: 'Graduado' },
+  { value: 'mestrando', label: 'Mestrando' },
+  { value: 'mestre', label: 'Mestre' },
+  { value: 'doutorando', label: 'Doutorando' },
+  { value: 'doutor', label: 'Doutor' },
+];
 
 export default function MembersManager() {
   const [members, setMembers] = useState<Member[]>([]);
@@ -17,12 +41,22 @@ export default function MembersManager() {
   const [newMember, setNewMember] = useState({
     name: '',
     role: '',
+    github: '',
     email: '',
     image: null as File | null,
-    bio: '',
+    description: '',
+    contact: {
+      email: '',
+      github: '',
+      latter: '',
+    },
+    researchKeywords: [] as string[],
+    publishedPapers: [] as string[],
+    projectIds: [] as string[],
   });
   const [editingMember, setEditingMember] = useState<Member | null>(null);
   const { token } = useAuthContext();
+
   useEffect(() => {
     fetchMembers();
   }, []);
@@ -53,8 +87,13 @@ export default function MembersManager() {
       const formData = new FormData();
       formData.append('name', newMember.name);
       formData.append('role', newMember.role);
+      formData.append('github', newMember.github);
       formData.append('email', newMember.email);
-      formData.append('bio', newMember.bio);
+      formData.append('description', newMember.description);
+      formData.append('contact', JSON.stringify(newMember.contact));
+      formData.append('researchKeywords', JSON.stringify(newMember.researchKeywords));
+      formData.append('publishedPapers', JSON.stringify(newMember.publishedPapers));
+      formData.append('projectIds', JSON.stringify(newMember.projectIds));
       if (newMember.image) {
         formData.append('image', newMember.image);
       }
@@ -78,9 +117,18 @@ export default function MembersManager() {
       setNewMember({
         name: '',
         role: '',
+        github: '',
         email: '',
         image: null,
-        bio: '',
+        description: '',
+        contact: {
+          email: '',
+          github: '',
+          latter: '',
+        },
+        researchKeywords: [],
+        publishedPapers: [],
+        projectIds: [],
       });
       setEditingMember(null);
     } catch (error) {
@@ -95,9 +143,18 @@ export default function MembersManager() {
     setNewMember({
       name: member.name,
       role: member.role,
+      github: member.github,
       email: member.email,
       image: null,
-      bio: member.bio,
+      description: member.description,
+      contact: {
+        email: member.contact.email,
+        github: member.contact.github,
+        latter: member.contact.latter || '',
+      },
+      researchKeywords: member.researchKeywords,
+      publishedPapers: member.publishedPapers,
+      projectIds: member.projectIds,
     });
   };
 
@@ -124,36 +181,32 @@ export default function MembersManager() {
           {editingMember ? 'Editar Membro' : 'Adicionar Novo Membro'}
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700">Nome</label>
-            <input
-              type="text"
-              value={newMember.name}
-              onChange={(e) => setNewMember({ ...newMember, name: e.target.value })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">Cargo</label>
-            <input
-              type="text"
-              value={newMember.role}
-              onChange={(e) => setNewMember({ ...newMember, role: e.target.value })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">Email</label>
-            <input
-              type="email"
-              value={newMember.email}
-              onChange={(e) => setNewMember({ ...newMember, email: e.target.value })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-              required
-            />
-          </div>
+          <FormInput
+            label="Nome"
+            value={newMember.name}
+            onChange={(value) => setNewMember({ ...newMember, name: value })}
+            required
+          />
+          <FormSelect
+            label="Cargo"
+            value={newMember.role}
+            onChange={(value) => setNewMember({ ...newMember, role: value })}
+            options={ROLE_OPTIONS}
+            required
+          />
+          <FormInput
+            label="GitHub"
+            value={newMember.github}
+            onChange={(value) => setNewMember({ ...newMember, github: value })}
+            required
+          />
+          <FormInput
+            label="Email"
+            type="email"
+            value={newMember.email}
+            onChange={(value) => setNewMember({ ...newMember, email: value })}
+            required
+          />
           <div>
             <label className="block text-sm font-medium text-gray-700">Foto</label>
             <input
@@ -173,16 +226,46 @@ export default function MembersManager() {
               </p>
             )}
           </div>
-          <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-gray-700">Biografia</label>
-            <textarea
-              value={newMember.bio}
-              onChange={(e) => setNewMember({ ...newMember, bio: e.target.value })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-              rows={4}
-              required
-            />
-          </div>
+          
+          <FormTextArea
+            label="Descrição"
+            value={newMember.description}
+            onChange={(value) => setNewMember({ ...newMember, description: value })}
+            required
+          />
+          
+          <ContactSection
+            contact={newMember.contact}
+            onChange={(contact) => setNewMember({ ...newMember, contact })}
+          />
+
+          <TagList
+            title="Palavras-chave de Pesquisa"
+            items={newMember.researchKeywords}
+            onAdd={(keyword) => setNewMember({
+              ...newMember,
+              researchKeywords: [...newMember.researchKeywords, keyword]
+            })}
+            onRemove={(index) => setNewMember({
+              ...newMember,
+              researchKeywords: newMember.researchKeywords.filter((_, i) => i !== index)
+            })}
+            placeholder="Adicionar palavra-chave"
+          />
+
+          <TagList
+            title="Artigos Publicados"
+            items={newMember.publishedPapers}
+            onAdd={(paper) => setNewMember({
+              ...newMember,
+              publishedPapers: [...newMember.publishedPapers, paper]
+            })}
+            onRemove={(index) => setNewMember({
+              ...newMember,
+              publishedPapers: newMember.publishedPapers.filter((_, i) => i !== index)
+            })}
+            placeholder="Adicionar artigo"
+          />
         </div>
         <div className="mt-4">
           <button
@@ -196,7 +279,22 @@ export default function MembersManager() {
               type="button"
               onClick={() => {
                 setEditingMember(null);
-                setNewMember({ name: '', role: '', email: '', image: null, bio: '' });
+                setNewMember({
+                  name: '',
+                  role: '',
+                  github: '',
+                  email: '',
+                  image: null,
+                  description: '',
+                  contact: {
+                    email: '',
+                    github: '',
+                    latter: '',
+                  },
+                  researchKeywords: [],
+                  publishedPapers: [],
+                  projectIds: [],
+                });
               }}
               className="ml-3 inline-flex justify-center py-2 px-4 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
@@ -217,6 +315,9 @@ export default function MembersManager() {
                 Cargo
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                GitHub
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Email
               </th>
               <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -231,9 +332,13 @@ export default function MembersManager() {
                   <div className="flex items-center">
                     <div className="h-10 w-10 flex-shrink-0">
                       <img
-                        className="h-10 w-10 rounded-full"
-                        src={member.image}
+                        className="h-10 w-10 rounded-full object-cover"
+                        src={member.img || 'https://i.imgur.com/placeholder.jpg'}
                         alt={member.name}
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = 'https://i.imgur.com/placeholder.jpg';
+                        }}
                       />
                     </div>
                     <div className="ml-4">
@@ -243,6 +348,9 @@ export default function MembersManager() {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="text-sm text-gray-900">{member.role}</div>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <div className="text-sm text-gray-900">{member.github}</div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="text-sm text-gray-900">{member.email}</div>
