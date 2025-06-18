@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
 import { Loader2 } from "lucide-react";
 import ScrollToTop from "./utils/scroll-top";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import GTranslate from "./components/GTranslate";
 import { AuthProvider } from './contexts/AuthContext';
-import { Login } from './components/admin/Login';
-import { ProtectedRoute } from './components/ProtectedRoute';
-import Dashboard from './pages/admin/Dashboard';
+import { Router } from './routes/router';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -50,20 +47,11 @@ function App() {
 
   return (
     <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/admin/login" element={<Login />} />
-          <Route
-            path="/admin/dashboard"
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
-          {/* Adicione outras rotas protegidas aqui */}
-        </Routes>
-      </BrowserRouter>
+      <Header />
+        <Router />
+        <ScrollToTop />
+        <GTranslate />
+      <Footer />
     </AuthProvider>
   );
 }

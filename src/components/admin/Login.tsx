@@ -19,8 +19,8 @@ export function Login() {
         email,
         password,
       });
-
-      const { token } = response.data;
+      const token = response.data.access_token;
+      console.log(token);
       setToken(token);
       navigate('/admin/dashboard');
     } catch (err) {

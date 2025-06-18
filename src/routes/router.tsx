@@ -12,7 +12,7 @@ import NewsDetail from "../components/NewsDetail";
 import Login from "../pages/admin/Login";
 import Register from "../pages/admin/Register";
 import Dashboard from "../pages/admin/Dashboard";
-import ProtectedRoute from "../components/ProtectedRoute";
+import { ProtectedRoute } from "../components/ProtectedRoute";
 
 export function Router() {
   return (
