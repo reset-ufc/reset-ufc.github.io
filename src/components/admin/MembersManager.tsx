@@ -24,6 +24,7 @@ interface Member {
   researchKeywords: string[];
   publishedPapers: string[];
   projectIds: string[];
+  memberType?: 'professor' | 'student' | 'collaborator';
 }
 
 const ROLE_OPTIONS = [
@@ -33,11 +34,23 @@ const ROLE_OPTIONS = [
   { value: 'mestre', label: 'Mestre' },
   { value: 'doutorando', label: 'Doutorando' },
   { value: 'doutor', label: 'Doutor' },
+  { value: 'alumni', label: 'Alumni' },
+];
+
+const MEMBER_TYPE_OPTIONS = [
+  { value: 'PROFESSOR', label: 'Professor' },
+  { value: 'STUDENT', label: 'Aluno' },
+  { value: 'COLLABORATOR', label: 'Colaborador' },
 ];
 
 export default function MembersManager() {
   const [members, setMembers] = useState<Member[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [memberTypeFilter, setMemberTypeFilter] = useState('all');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [limit] = useState(10);
   const [newMember, setNewMember] = useState({
     name: '',
     role: '',
@@ -53,25 +66,57 @@ export default function MembersManager() {
     researchKeywords: [] as string[],
     publishedPapers: [] as string[],
     projectIds: [] as string[],
+    memberType: 'student' as 'professor' | 'student' | 'collaborator',
   });
   const [editingMember, setEditingMember] = useState<Member | null>(null);
   const { token } = useAuthContext();
 
-  useEffect(() => {
-    fetchMembers();
-  }, []);
-
-  const fetchMembers = async () => {
+  // Buscar membros da API com paginação e filtros
+  const fetchMembers = async (page = 1) => {
     setIsLoading(true);
     try {
-      const response = await axios.get('http://localhost:3000/members');
-      setMembers(Array.isArray(response.data) ? response.data : []);
+      const params = new URLSearchParams({
+        page: page.toString(),
+        limit: limit.toString(),
+      });
+
+      if (searchTerm) params.append('search', searchTerm);
+      if (memberTypeFilter !== 'all') params.append('memberType', memberTypeFilter);
+
+      const response = await axios.get(`http://localhost:3000/members?${params}`);
+      if (response.data.data) {
+        setMembers(response.data.data);
+        setTotalPages(response.data.totalPages);
+      } else {
+        setMembers(Array.isArray(response.data) ? response.data : []);
+        setTotalPages(1);
+      }
     } catch (error) {
       console.error('Erro ao carregar membros:', error);
       setMembers([]);
+      setTotalPages(1);
     } finally {
       setIsLoading(false);
     }
+  };
+
+  // Buscar membros quando filtros mudarem
+  useEffect(() => {
+    setCurrentPage(1);
+    fetchMembers(1);
+  }, [searchTerm, memberTypeFilter]);
+
+  // Buscar membros quando página mudar
+  useEffect(() => {
+    fetchMembers(currentPage);
+  }, [currentPage]);
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) setCurrentPage((prev) => prev + 1);
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) setCurrentPage((prev) => prev - 1);
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -94,6 +139,7 @@ export default function MembersManager() {
       formData.append('researchKeywords', JSON.stringify(newMember.researchKeywords));
       formData.append('publishedPapers', JSON.stringify(newMember.publishedPapers));
       formData.append('projectIds', JSON.stringify(newMember.projectIds));
+      formData.append('memberType', newMember.memberType);
       if (newMember.image) {
         formData.append('image', newMember.image);
       }
@@ -129,6 +175,7 @@ export default function MembersManager() {
         researchKeywords: [],
         publishedPapers: [],
         projectIds: [],
+        memberType: 'student',
       });
       setEditingMember(null);
     } catch (error) {
@@ -155,6 +202,7 @@ export default function MembersManager() {
       researchKeywords: member.researchKeywords,
       publishedPapers: member.publishedPapers,
       projectIds: member.projectIds,
+      memberType: member.memberType || 'student',
     });
   };
 
@@ -192,6 +240,13 @@ export default function MembersManager() {
             value={newMember.role}
             onChange={(value) => setNewMember({ ...newMember, role: value })}
             options={ROLE_OPTIONS}
+            required
+          />
+          <FormSelect
+            label="Tipo de Membro"
+            value={newMember.memberType}
+            onChange={(value) => setNewMember({ ...newMember, memberType: value as 'professor' | 'student' | 'collaborator' })}
+            options={MEMBER_TYPE_OPTIONS}
             required
           />
           <FormInput
@@ -294,6 +349,7 @@ export default function MembersManager() {
                   researchKeywords: [],
                   publishedPapers: [],
                   projectIds: [],
+                  memberType: 'student',
                 });
               }}
               className="ml-3 inline-flex justify-center py-2 px-4 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -304,6 +360,28 @@ export default function MembersManager() {
         </div>
       </form>
 
+      {/* Filtros e Pesquisa */}
+      <div className="mb-6 bg-white p-4 rounded-lg shadow">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <FormInput
+            label="Pesquisar membros"
+            value={searchTerm}
+            onChange={setSearchTerm}
+            placeholder="Digite nome, email ou cargo..."
+          />
+          <FormSelect
+            label="Filtrar por tipo"
+            value={memberTypeFilter}
+            onChange={setMemberTypeFilter}
+            options={[
+              { value: 'all', label: 'Todos os tipos' },
+              ...MEMBER_TYPE_OPTIONS
+            ]}
+          />
+        </div>
+      </div>
+
+      {/* Tabela de Membros */}
       <div className={`bg-white shadow rounded-lg transition-all duration-300 ${isLoading ? 'opacity-50 blur-sm' : ''}`}>
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
@@ -313,6 +391,9 @@ export default function MembersManager() {
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Cargo
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Tipo
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 GitHub
@@ -350,6 +431,18 @@ export default function MembersManager() {
                   <div className="text-sm text-gray-900">{member.role}</div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
+                  <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                    member.memberType === 'professor' 
+                      ? 'bg-blue-100 text-blue-800'
+                      : member.memberType === 'student'
+                      ? 'bg-green-100 text-green-800'
+                      : 'bg-purple-100 text-purple-800'
+                  }`}>
+                    {member.memberType?.toLowerCase() === 'professor' ? 'Professor' : 
+                     member.memberType?.toLowerCase() === 'student' ? 'Aluno' : 'Colaborador'}
+                  </span>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
                   <div className="text-sm text-gray-900">{member.github}</div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
@@ -373,6 +466,37 @@ export default function MembersManager() {
             ))}
           </tbody>
         </table>
+        
+        {/* Paginação */}
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center py-4 space-x-4 border-t border-gray-200">
+            <button
+              onClick={handlePreviousPage}
+              disabled={currentPage === 1}
+              className={`px-4 py-2 text-white rounded-md ${
+                currentPage === 1
+                  ? "bg-gray-300 opacity-50 cursor-not-allowed"
+                  : "bg-indigo-600 hover:bg-indigo-700"
+              }`}
+            >
+              Anterior
+            </button>
+            <span className="text-gray-700">
+              Página {currentPage} de {totalPages}
+            </span>
+            <button
+              onClick={handleNextPage}
+              disabled={currentPage === totalPages}
+              className={`px-4 py-2 text-white rounded-md ${
+                currentPage === totalPages
+                  ? "bg-gray-300 opacity-50 cursor-not-allowed"
+                  : "bg-indigo-600 hover:bg-indigo-700"
+              }`}
+            >
+              Próxima
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

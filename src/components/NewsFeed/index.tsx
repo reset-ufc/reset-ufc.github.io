@@ -24,7 +24,6 @@ export default function NewsList() {
     setIsLoading(true);
     try {
       const response = await axios.get(`http://localhost:3000/news?page=${page}&limit=${itemsPerPage}`);
-      console.log(response.data);
       setNews(response.data.data);
       setTotalPages(response.data.totalPages);
     } catch (error) {

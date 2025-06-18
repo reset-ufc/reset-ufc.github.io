@@ -25,8 +25,12 @@ const links = [
     path: "publications",
   },
   {
-    label: "identidade visual",
+    label: "Identidade visual",
     path: "Visual-Identity",
+  },
+  {
+    label: "Página Admin",
+    path: "admin/login",
   },
 ];
 
