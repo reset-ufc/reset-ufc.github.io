@@ -9,8 +9,16 @@ interface News {
   title: string;
   content: string;
   img: string;
-  date: string;
-  author: string;
+  imgurDeleteHash?: string;
+  keywords: string[];
+  publishedDate?: string;
+  createdAt: string;
+  updatedAt: string;
+  userId: string;
+  user?: {
+    id: string;
+    email: string;
+  };
 }
 
 export default function NewsManager() {
@@ -20,7 +28,8 @@ export default function NewsManager() {
     title: '',
     content: '',
     image: null as File | null,
-    author: '',
+    keywords: [] as string[],
+    publishedDate: '',
   });
   const [editingNews, setEditingNews] = useState<News | null>(null);
   const { token } = useAuthContext();
@@ -48,6 +57,22 @@ export default function NewsManager() {
     }
   };
 
+  const handleKeywordAdd = (keyword: string) => {
+    if (keyword.trim() && !newNews.keywords.includes(keyword.trim())) {
+      setNewNews(prev => ({
+        ...prev,
+        keywords: [...prev.keywords, keyword.trim()]
+      }));
+    }
+  };
+
+  const handleKeywordRemove = (index: number) => {
+    setNewNews(prev => ({
+      ...prev,
+      keywords: prev.keywords.filter((_, i) => i !== index)
+    }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -55,8 +80,8 @@ export default function NewsManager() {
       const formData = new FormData();
       formData.append('title', newNews.title);
       formData.append('content', newNews.content);
-      formData.append('author', newNews.author);
-      formData.append('date', new Date().toISOString());
+      formData.append('keywords', JSON.stringify(newNews.keywords));
+      formData.append('publishedDate', newNews.publishedDate || new Date().toISOString());
       if (newNews.image) {
         formData.append('image', newNews.image);
       }
@@ -77,7 +102,7 @@ export default function NewsManager() {
         });
       }
       await fetchNews();
-      setNewNews({ title: '', content: '', image: null, author: '' });
+      setNewNews({ title: '', content: '', image: null, keywords: [], publishedDate: '' });
       setEditingNews(null);
     } catch (error) {
       console.error('Erro ao salvar notícia:', error);
@@ -92,7 +117,8 @@ export default function NewsManager() {
       title: newsItem.title,
       content: newsItem.content,
       image: null,
-      author: newsItem.author,
+      keywords: newsItem.keywords || [],
+      publishedDate: newsItem.publishedDate ? new Date(newsItem.publishedDate).toISOString().split('T')[0] : '',
     });
   };
 
@@ -137,6 +163,67 @@ export default function NewsManager() {
               rows={6}
             />
           </div>
+          <div className="md:col-span-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">Palavras-chave</label>
+            <div className="space-y-3">
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  placeholder="Adicionar palavra-chave..."
+                  className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  onKeyPress={(e) => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault();
+                      const input = e.target as HTMLInputElement;
+                      handleKeywordAdd(input.value);
+                      input.value = '';
+                    }
+                  }}
+                />
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    const input = e.currentTarget.previousElementSibling as HTMLInputElement;
+                    handleKeywordAdd(input.value);
+                    input.value = '';
+                  }}
+                  className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors"
+                >
+                  Adicionar
+                </button>
+              </div>
+              {newNews.keywords.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {newNews.keywords.map((keyword, index) => (
+                    <span
+                      key={index}
+                      className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-indigo-100 text-indigo-800"
+                    >
+                      {keyword}
+                      <button
+                        type="button"
+                        onClick={() => handleKeywordRemove(index)}
+                        className="ml-2 text-indigo-600 hover:text-indigo-800"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Data da Notícia</label>
+            <input
+              type="date"
+              value={newNews.publishedDate}
+              onChange={(e) => setNewNews({ ...newNews, publishedDate: e.target.value })}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+            />
+          </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">Imagem</label>
             <input
@@ -156,15 +243,6 @@ export default function NewsManager() {
               </p>
             )}
           </div>
-          <div>
-            <FormInput
-              label="Autor"
-              value={newNews.author}
-              onChange={(value) => setNewNews({ ...newNews, author: value })}
-              required
-              placeholder="Digite o autor da notícia"
-            />
-          </div>
         </div>
         <div className="mt-4">
           <button
@@ -178,7 +256,7 @@ export default function NewsManager() {
               type="button"
               onClick={() => {
                 setEditingNews(null);
-                setNewNews({ title: '', content: '', image: null, author: '' });
+                setNewNews({ title: '', content: '', image: null, keywords: [], publishedDate: '' });
               }}
               className="ml-3 inline-flex justify-center py-2 px-4 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
@@ -225,11 +303,14 @@ export default function NewsManager() {
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">{newsItem.author || 'Desconhecido'}</div>
+                  <div className="text-sm text-gray-900">{newsItem.user?.email || 'Desconhecido'}</div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="text-sm text-gray-900">
-                    {new Date(newsItem.date).toLocaleDateString()}
+                    {newsItem.publishedDate 
+                      ? new Date(newsItem.publishedDate).toLocaleDateString('pt-BR')
+                      : new Date(newsItem.createdAt).toLocaleDateString('pt-BR')
+                    }
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
