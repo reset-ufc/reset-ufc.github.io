@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { ArrowRight, Briefcase, Calendar, DollarSign, Tag } from "lucide-react";
+import { ArrowRight, Briefcase, Calendar } from "lucide-react";
 import axios from "axios";
 
 interface Project {

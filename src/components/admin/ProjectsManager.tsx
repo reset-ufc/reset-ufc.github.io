@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useAuth } from '../../hooks/useAuth';
 import FormInput from '../ui/formInput';
 import FormTextArea from '../ui/formTextArea';
-import FormSelect from '../ui/formSelect';
 
 interface Project {
   id: string;
