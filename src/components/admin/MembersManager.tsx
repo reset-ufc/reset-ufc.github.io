@@ -10,6 +10,7 @@ import { ContactSection } from '../ContactSection';
 interface Member {
   id: string;
   name: string;
+  lastName?: string;
   role: string;
   github: string;
   email: string;
@@ -17,14 +18,17 @@ interface Member {
   imgurDeleteHash?: string;
   description: string;
   contact: {
-    email: string;
-    github: string;
-    latter: string;
+    email?: string;
+    github?: string;
+    latter?: string;
   };
   researchKeywords: string[];
   publishedPapers: string[];
   projectIds: string[];
-  memberType?: 'professor' | 'student' | 'collaborator';
+  memberType?: 'PROFESSOR' | 'STUDENT' | 'COLLABORATOR';
+  isCoordinator?: boolean;
+  isViceCoordinator?: boolean;
+  coordinatorType?: 'NONE' | 'COORDINATOR' | 'VICE_COORDINATOR';
 }
 
 const ROLE_OPTIONS = [
@@ -35,6 +39,7 @@ const ROLE_OPTIONS = [
   { value: 'doutorando', label: 'Doutorando' },
   { value: 'doutor', label: 'Doutor' },
   { value: 'alumni', label: 'Alumni' },
+  { value: 'professor', label: 'Professor' },
 ];
 
 const MEMBER_TYPE_OPTIONS = [
@@ -53,20 +58,20 @@ export default function MembersManager() {
   const [limit] = useState(10);
   const [newMember, setNewMember] = useState({
     name: '',
+    lastName: '',
     role: '',
     github: '',
     email: '',
     image: null as File | null,
     description: '',
     contact: {
-      email: '',
-      github: '',
       latter: '',
     },
     researchKeywords: [] as string[],
     publishedPapers: [] as string[],
     projectIds: [] as string[],
-    memberType: 'student' as 'professor' | 'student' | 'collaborator',
+    memberType: 'STUDENT' as 'PROFESSOR' | 'STUDENT' | 'COLLABORATOR',
+    coordinatorType: 'none' as 'none' | 'coordinator' | 'vice-coordinator',
   });
   const [editingMember, setEditingMember] = useState<Member | null>(null);
   const { token } = useAuthContext();
@@ -131,15 +136,21 @@ export default function MembersManager() {
     try {
       const formData = new FormData();
       formData.append('name', newMember.name);
+      if (newMember.lastName) formData.append('lastName', newMember.lastName);
       formData.append('role', newMember.role);
       formData.append('github', newMember.github);
       formData.append('email', newMember.email);
       formData.append('description', newMember.description);
-      formData.append('contact', JSON.stringify(newMember.contact));
+      formData.append('contact', JSON.stringify({
+        email: newMember.email,
+        github: newMember.github,
+        latter: newMember.contact.latter || '',
+      }));
       formData.append('researchKeywords', JSON.stringify(newMember.researchKeywords));
       formData.append('publishedPapers', JSON.stringify(newMember.publishedPapers));
       formData.append('projectIds', JSON.stringify(newMember.projectIds));
       formData.append('memberType', newMember.memberType);
+      formData.append('coordinatorType', newMember.coordinatorType.toUpperCase());
       if (newMember.image) {
         formData.append('image', newMember.image);
       }
@@ -162,20 +173,20 @@ export default function MembersManager() {
       await fetchMembers();
       setNewMember({
         name: '',
+        lastName: '',
         role: '',
         github: '',
         email: '',
         image: null,
         description: '',
         contact: {
-          email: '',
-          github: '',
           latter: '',
         },
         researchKeywords: [],
         publishedPapers: [],
         projectIds: [],
-        memberType: 'student',
+        memberType: 'STUDENT',
+        coordinatorType: 'none',
       });
       setEditingMember(null);
     } catch (error) {
@@ -189,21 +200,46 @@ export default function MembersManager() {
     setEditingMember(member);
     setNewMember({
       name: member.name,
+      lastName: member.lastName || '',
       role: member.role,
-      github: member.github,
-      email: member.email,
+      github: member.contact.github || member.github,
+      email: member.contact.email || member.email,
       image: null,
       description: member.description,
       contact: {
-        email: member.contact.email,
-        github: member.contact.github,
         latter: member.contact.latter || '',
       },
       researchKeywords: member.researchKeywords,
       publishedPapers: member.publishedPapers,
       projectIds: member.projectIds,
-      memberType: member.memberType || 'student',
+      memberType: member.memberType || 'STUDENT',
+      coordinatorType: convertBackendCoordinatorType(member),
     });
+  };
+
+  // Função auxiliar para converter o coordinatorType do backend
+  const convertBackendCoordinatorType = (member: Member): 'none' | 'coordinator' | 'vice-coordinator' => {
+    // Se o backend já tem o novo campo coordinatorType
+    if ('coordinatorType' in member && member.coordinatorType) {
+      switch (member.coordinatorType) {
+        case 'COORDINATOR':
+          return 'coordinator';
+        case 'VICE_COORDINATOR':
+          return 'vice-coordinator';
+        default:
+          return 'none';
+      }
+    }
+    
+    // Fallback para campos antigos
+    if (member.isCoordinator) {
+      return 'coordinator';
+    }
+    if (member.isViceCoordinator) {
+      return 'vice-coordinator';
+    }
+    
+    return 'none';
   };
 
   const handleDelete = async (id: string) => {
@@ -235,6 +271,11 @@ export default function MembersManager() {
             onChange={(value) => setNewMember({ ...newMember, name: value })}
             required
           />
+          <FormInput
+            label="Sobrenome"
+            value={newMember.lastName}
+            onChange={(value) => setNewMember({ ...newMember, lastName: value })}
+          />
           <FormSelect
             label="Cargo"
             value={newMember.role}
@@ -245,10 +286,69 @@ export default function MembersManager() {
           <FormSelect
             label="Tipo de Membro"
             value={newMember.memberType}
-            onChange={(value) => setNewMember({ ...newMember, memberType: value as 'professor' | 'student' | 'collaborator' })}
+            onChange={(value) => setNewMember({ ...newMember, memberType: value as 'PROFESSOR' | 'STUDENT' | 'COLLABORATOR' })}
             options={MEMBER_TYPE_OPTIONS}
             required
           />
+          
+          {/* Seção de Liderança */}
+          <div className="md:col-span-2">
+            <div className="bg-gray-50 p-4 rounded-lg">
+              <h4 className="text-md font-semibold text-gray-800 mb-3">
+                Posições de Liderança
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="flex items-center p-3 bg-white rounded-md border border-gray-200">
+                  <input
+                    type="radio"
+                    id="none"
+                    name="coordinator"
+                    value="none"
+                    checked={newMember.coordinatorType === 'none'}
+                    onChange={(e) => setNewMember({ ...newMember, coordinatorType: e.target.value as 'none' | 'coordinator' | 'vice-coordinator' })}
+                    className="h-4 w-4 checked:bg-indigo-600 border-gray-300 rounded"
+                  />
+                  <label htmlFor="none" className="ml-3 block text-sm font-medium text-gray-700">
+                    <span className="block">Nenhum</span>
+                    <span className="text-xs text-gray-500">Sem posição de liderança</span>
+                  </label>
+                </div>
+                
+                <div className="flex items-center p-3 bg-white rounded-md border border-gray-200">
+                  <input
+                    type="radio"
+                    id="coordinator"
+                    name="coordinator"
+                    value="coordinator"
+                    checked={newMember.coordinatorType === 'coordinator'}
+                    onChange={(e) => setNewMember({ ...newMember, coordinatorType: e.target.value as 'none' | 'coordinator' | 'vice-coordinator' })}
+                    className="h-4 w-4 checked:bg-indigo-600 border-gray-300 rounded"
+                  />
+                  <label htmlFor="coordinator" className="ml-3 block text-sm font-medium text-gray-700">
+                    <span className="block">Coordenador</span>
+                    <span className="text-xs text-gray-500">Coordenador do laboratório</span>
+                  </label>
+                </div>
+                
+                <div className="flex items-center p-3 bg-white rounded-md border border-gray-200">
+                  <input
+                    type="radio"
+                    id="vice-coordinator"
+                    name="coordinator"
+                    value="vice-coordinator"
+                    checked={newMember.coordinatorType === 'vice-coordinator'}
+                    onChange={(e) => setNewMember({ ...newMember, coordinatorType: e.target.value as 'none' | 'coordinator' | 'vice-coordinator' })}
+                    className="h-4 w-4 checked:bg-indigo-600 border-gray-300 rounded"
+                  />
+                  <label htmlFor="vice-coordinator" className="ml-3 block text-sm font-medium text-gray-700">
+                    <span className="block">Vice-Coordenador</span>
+                    <span className="text-xs text-gray-500">Vice-coordenador do laboratório</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <FormInput
             label="GitHub"
             value={newMember.github}
@@ -262,6 +362,7 @@ export default function MembersManager() {
             onChange={(value) => setNewMember({ ...newMember, email: value })}
             required
           />
+          
           <div>
             <label className="block text-sm font-medium text-gray-700">Foto</label>
             <input
@@ -289,9 +390,14 @@ export default function MembersManager() {
             required
           />
           
-          <ContactSection
-            contact={newMember.contact}
-            onChange={(contact) => setNewMember({ ...newMember, contact })}
+          <FormInput
+            label="Lattes"
+            value={newMember.contact.latter}
+            onChange={(value) => setNewMember({ 
+              ...newMember, 
+              contact: { ...newMember.contact, latter: value }
+            })}
+            placeholder="URL do Lattes"
           />
 
           <TagList
@@ -336,20 +442,20 @@ export default function MembersManager() {
                 setEditingMember(null);
                 setNewMember({
                   name: '',
+                  lastName: '',
                   role: '',
                   github: '',
                   email: '',
                   image: null,
                   description: '',
                   contact: {
-                    email: '',
-                    github: '',
                     latter: '',
                   },
                   researchKeywords: [],
                   publishedPapers: [],
                   projectIds: [],
-                  memberType: 'student',
+                  memberType: 'STUDENT',
+                  coordinatorType: 'none',
                 });
               }}
               className="ml-3 inline-flex justify-center py-2 px-4 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -432,9 +538,9 @@ export default function MembersManager() {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                    member.memberType === 'professor' 
+                    member.memberType === 'PROFESSOR' 
                       ? 'bg-blue-100 text-blue-800'
-                      : member.memberType === 'student'
+                      : member.memberType === 'STUDENT'
                       ? 'bg-green-100 text-green-800'
                       : 'bg-purple-100 text-purple-800'
                   }`}>
