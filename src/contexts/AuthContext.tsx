@@ -1,4 +1,4 @@
-import { createContext, useContext, ReactNode } from 'react';
+import { createContext, ReactNode, useCallback, useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 
 interface AuthContextData {
@@ -25,11 +25,24 @@ export function AuthProvider({ children }: AuthProviderProps) {
 }
 
 export function useAuthContext() {
-  const context = useContext(AuthContext);
+  const [token, setTokenState] = useState<string | null>(() => {
+    return localStorage.getItem('auth_token');
+  });
 
-  if (!context) {
-    throw new Error('useAuthContext must be used within an AuthProvider');
-  }
+  const setToken = useCallback((newToken: string) => {
+    localStorage.setItem('auth_token', newToken);
+    setTokenState(newToken);
+  }, []);
 
-  return context;
+  const removeToken = useCallback(() => {
+    localStorage.removeItem('auth_token');
+    setTokenState(null);
+  }, []);
+
+  return {
+    token,
+    isAuthenticated: !!token,
+    setToken,
+    removeToken,
+  };
 } 
