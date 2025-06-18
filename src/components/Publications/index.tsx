@@ -1,18 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import axios from 'axios';
-
-interface Publication {
-  id: string;
-  title: string;
-  description: string;
-  category: string;
-  journalName: string;
-  year: number;
-  authors: string[];
-  keywords: string[];
-  url: string;
-}
+import { publicationsData } from "./data";
 
 interface PublicationsProps {
   searchTerm?: string;
@@ -27,49 +15,31 @@ export function Publications({
   yearFilter = "all",
   keywordFilter = "all",
 }: PublicationsProps) {
-  const [publications, setPublications] = useState<Publication[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
   const itemsPerPage = 6;
 
-  // Buscar publicações da API
-  const fetchPublications = async (page = 1) => {
-    setIsLoading(true);
-    try {
-      const params = new URLSearchParams({
-        page: page.toString(),
-        limit: itemsPerPage.toString(),
-      });
+  const filteredArticles = publicationsData.filter((article) => {
+    const search = searchTerm.toLowerCase();
+    const matchesSearch =
+      article.title.toLowerCase().includes(search) ||
+      article.description.toLowerCase().includes(search) ||
+      article.authors.join(" ").toLowerCase().includes(search);
+    const matchesCategory =
+      categoryFilter === "all" || article.category === categoryFilter;
+    const matchesYear =
+      yearFilter === "all" || article.year === Number(yearFilter);
+    const matchesKeywords =
+      keywordFilter === "all" || article.keywords?.includes(keywordFilter);
+    return matchesSearch && matchesCategory && matchesYear && matchesKeywords;
+  });
 
-      // Adicionar filtros se aplicáveis
-      if (searchTerm) params.append('search', searchTerm);
-      if (categoryFilter !== 'all') params.append('category', categoryFilter);
-      if (yearFilter !== 'all') params.append('year', yearFilter);
-      if (keywordFilter !== 'all') params.append('keyword', keywordFilter);
+  const totalPages = Math.ceil(filteredArticles.length / itemsPerPage);
 
-      const response = await axios.get(`http://localhost:3000/publications?${params}`);
-      setPublications(response.data.data);
-      setTotalPages(response.data.totalPages);
-    } catch (error) {
-      console.error('Erro ao carregar publicações:', error);
-      setPublications([]);
-      setTotalPages(1);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  // Buscar publicações quando filtros mudarem
-  useEffect(() => {
-    setCurrentPage(1); // Reset para primeira página quando filtros mudarem
-    fetchPublications(1);
-  }, [searchTerm, categoryFilter, yearFilter, keywordFilter]);
-
-  // Buscar publicações quando página mudar
-  useEffect(() => {
-    fetchPublications(currentPage);
-  }, [currentPage]);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentArticles = filteredArticles.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
 
   const handleNextPage = () => {
     if (currentPage < totalPages) setCurrentPage((prev) => prev + 1);
@@ -79,27 +49,18 @@ export function Publications({
     if (currentPage > 1) setCurrentPage((prev) => prev - 1);
   };
 
-  if (isLoading) {
-    return (
-      <div className="max-w-7xl mx-auto text-center py-8">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600 mx-auto"></div>
-        <p className="mt-2 text-gray-500">Carregando publicações...</p>
-      </div>
-    );
-  }
-
   return (
     <div className="max-w-7xl mx-auto">
-      {publications.length === 0 ? (
+      {currentArticles.length === 0 ? (
         <p className="text-center text-gray-500 mt-8">
           Nenhuma publicação encontrada.
         </p>
       ) : (
         <div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {publications.map((item) => (
+            {currentArticles.map((item, index) => (
               <div
-                key={item.id}
+                key={index}
                 className="bg-white rounded-lg shadow-lg overflow-hidden"
               >
                 <div className="p-6">

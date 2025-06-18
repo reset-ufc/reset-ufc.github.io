@@ -5,7 +5,6 @@ import FormInput from '../ui/formInput';
 import FormTextArea from '../ui/formTextArea';
 import TagList from '../ui/tagList';
 import FormSelect from '../ui/formSelect';
-import { ContactSection } from '../ContactSection';
 
 interface Member {
   id: string;
