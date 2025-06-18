@@ -1,7 +1,47 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { ArrowRight, Briefcase, Calendar, DollarSign, Tag } from "lucide-react";
-import { ProjectsData } from "./data";
+import axios from "axios";
+
+interface Project {
+  id: string;
+  title: string | null;
+  description: string | null;
+  link: string | null;
+  img: string | null;
+  imgurDeleteHash: string | null;
+  slug: string;
+  memberIds: string[];
+  members: Array<{
+    id: string;
+    name: string;
+    role: string;
+    github: string;
+    email: string;
+    img: string;
+    description: string;
+    contact: {
+      email: string;
+      github: string;
+      latter: string;
+    };
+    researchKeywords: string[];
+    publishedPapers: string[];
+    projectIds: string[];
+    createdAt: string;
+    updatedAt: string;
+  }>;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface ApiResponse {
+  data: Project[];
+  total: number;
+  page: number;
+  limit: number;
+  totalPages: number;
+}
 
 interface PortfolioProps {
   searchTerm?: string;
@@ -9,6 +49,18 @@ interface PortfolioProps {
   periodFilter?: string;
   fundingFilter?: string;
   keywordFilter?: string;
+}
+
+function ProjectDetail({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
+  return (
+    <div className="flex items-center gap-2">
+      <div className="text-gray-500">{icon}</div>
+      <div>
+        <span className="text-sm text-gray-500">{label}:</span>
+        <span className="text-sm font-medium text-gray-700 ml-1">{value}</span>
+      </div>
+    </div>
+  );
 }
 
 export function Projects({
@@ -19,21 +71,35 @@ export function Projects({
   keywordFilter = "all",
 }: PortfolioProps) {
   const [currentPage, setCurrentPage] = useState(1);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const itemsPerPage = 6;
 
-  const filteredProjects = ProjectsData.filter((project) => {
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await axios.get<ApiResponse>('http://localhost:3000/projects');
+        setProjects(response.data.data);
+      } catch (error) {
+        console.error('Erro ao carregar projetos:', error);
+        setProjects([]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
+  const filteredProjects = projects.filter((project) => {
     const search = searchTerm.toLowerCase();
     const matchesSearch =
-      project.name.toLowerCase().includes(search) ||
-      project.description.toLowerCase().includes(search);
-    const matchesStatus =
-      statusFilter === "all" || project.status === statusFilter;
-    const matchesPeriod =
-      periodFilter === "all" || project.period === periodFilter;
-    const matchesFunding =
-      fundingFilter === "all" || project.funding === fundingFilter;
-    const matchesKeywords =
-      keywordFilter === "all" || project.keywords.includes(keywordFilter);
+      (project.title?.toLowerCase().includes(search) || false) ||
+      (project.description?.toLowerCase().includes(search) || false);
+    const matchesStatus = statusFilter === "all";
+    const matchesPeriod = periodFilter === "all";
+    const matchesFunding = fundingFilter === "all";
+    const matchesKeywords = keywordFilter === "all";
     return (
       matchesSearch &&
       matchesStatus &&
@@ -59,6 +125,14 @@ export function Projects({
     if (currentPage > 1) setCurrentPage((prev) => prev - 1);
   };
 
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center min-h-[400px]">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
+      </div>
+    );
+  }
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {currentProjects.length === 0 ? (
@@ -68,54 +142,53 @@ export function Projects({
       ) : (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {currentProjects.map((project, index) => (
+            {currentProjects.map((project) => (
               <div
-                key={index}
+                key={project.id}
                 className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col"
               >
+                {project.img && (
+                  <div className="w-full h-48 overflow-hidden">
+                    <img
+                      src={project.img}
+                      alt={project.title || 'Imagem do projeto'}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
                 <div className="p-6 flex flex-col flex-grow">
                   <h3 className="text-gray-800 text-xl font-bold mb-4 line-clamp-2">
-                    {project.name}
+                    {project.title || 'Sem título'}
                   </h3>
                   <p className="text-gray-600 mb-6 line-clamp-3">
-                    {project.description}
+                    {project.description || 'Sem descrição'}
                   </p>
                   <div className="mb-6 space-y-3">
                     <ProjectDetail
                       icon={<Briefcase className="w-5 h-5" />}
-                      label="Natureza"
-                      value={project.nature}
+                      label="Membros"
+                      value={`${project.members.length} membro${project.members.length !== 1 ? 's' : ''}`}
                     />
                     <ProjectDetail
                       icon={<Calendar className="w-5 h-5" />}
-                      label="Período"
-                      value={project.period}
-                    />
-                    <ProjectDetail
-                      icon={<Tag className="w-5 h-5" />}
-                      label="Status"
-                      value={project.status}
-                    />
-                    <ProjectDetail
-                      icon={<DollarSign className="w-5 h-5" />}
-                      label="Financiadora"
-                      value={project.funding}
+                      label="Criado em"
+                      value={new Date(project.createdAt).toLocaleDateString('pt-BR')}
                     />
                   </div>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.keywords.map((keyword, idx) => (
+                  <div className="flex flex-wrap gap-2">
+                    {project.members.map((member) => (
                       <span
-                        key={idx}
+                        key={member.id}
                         className="bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded-full"
                       >
-                        {keyword}
+                        {member.name}
                       </span>
                     ))}
                   </div>
                 </div>
                 <div className="mt-auto p-6">
                   <NavLink
-                    to={project.link}
+                    to={project.link || '#'}
                     className="inline-flex items-center justify-center w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-xl transition-colors duration-300 group"
                   >
                     Ver Detalhes
@@ -127,7 +200,7 @@ export function Projects({
           </div>
 
           {/* Controles de Paginação */}
-          <div className="flex justify-center items-center mt-6 space-x-4">
+          <div className="flex items-center justify-center gap-4 mt-8">
             <button
               onClick={handlePreviousPage}
               disabled={currentPage === 1}
@@ -156,22 +229,6 @@ export function Projects({
           </div>
         </>
       )}
-    </div>
-  );
-}
-
-interface ProjectDetailProps {
-  icon: React.ReactNode;
-  label: string;
-  value: string;
-}
-
-function ProjectDetail({ icon, label, value }: ProjectDetailProps) {
-  return (
-    <div className="flex items-center text-gray-700">
-      {icon}
-      <span className="ml-2 font-semibold">{label}:</span>
-      <span className="ml-1">{value}</span>
     </div>
   );
 }
