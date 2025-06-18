@@ -13,11 +13,11 @@ import Login from "../pages/admin/Login";
 import Register from "../pages/admin/Register";
 import Dashboard from "../pages/admin/Dashboard";
 import { ProtectedRoute } from "../components/ProtectedRoute";
+import NotFound from "../pages/NotFound";
 
 export function Router() {
   return (
     <Routes>
-      <Route path="*" element={<Navigate to="/" />} />
       <Route path="/" element={<Home />} />
       <Route path="/projects" element={<ProjectPage />} />
       <Route path="/publications" element={<PublicationPage />} />
@@ -40,6 +40,10 @@ export function Router() {
           </ProtectedRoute>
         }
       />
+      
+      {/* 404 Routes */}
+      <Route path="/404" element={<NotFound />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
