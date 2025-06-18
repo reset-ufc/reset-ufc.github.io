@@ -34,7 +34,7 @@ export default function PublicationsManager() {
   const [editingPublication, setEditingPublication] = useState<Publication | null>(null);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [limit] = useState(3); // Pode ser ajustável se quiser
+  const [limit] = useState(3); 
   const { token } = useAuthContext();
 
   useEffect(() => {
