@@ -26,7 +26,7 @@ export default function PublicationsManager() {
     description: '',
     category: '',
     journalName: '',
-    year: '',
+    year: 0,
     authors: [] as string[],
     keywords: [] as string[],
     url: '',
@@ -79,7 +79,7 @@ export default function PublicationsManager() {
         description: '',
         category: '',
         journalName: '',
-        year: '',
+        year: 0,
         authors: [],
         keywords: [],
         url: '',
@@ -99,7 +99,7 @@ export default function PublicationsManager() {
       description: publication.description,
       category: publication.category,
       journalName: publication.journalName,
-      year: publication.year.toString(),
+      year: publication.year,
       authors: publication.authors,
       keywords: publication.keywords,
       url: publication.url,
@@ -166,15 +166,14 @@ export default function PublicationsManager() {
             value={newPublication.category}
             onChange={(value) => setNewPublication({ ...newPublication, category: value })}
             options={[
-              { value: 'Artigo', label: 'Artigo' },
               { value: 'Livro', label: 'Livro' },
-              { value: 'Capítulo', label: 'Capítulo' },
-              { value: 'Outro', label: 'Outro' },
+              { value: 'Artigo de Revista', label: 'Artigo de Revista' },
+              { value: 'Artigo de Congresso', label: 'Artigo de Congresso' },
             ]}
             required
           />
           <FormInput
-            label="Nome da Revista"
+            label="Nome do Veículo de Publicação"
             value={newPublication.journalName}
             onChange={(value) => setNewPublication({ ...newPublication, journalName: value })}
             required
@@ -183,7 +182,7 @@ export default function PublicationsManager() {
             label="Ano"
             type="number"
             value={newPublication.year.toString()}
-            onChange={(value) => setNewPublication({ ...newPublication, year: value })}
+            onChange={(value) => setNewPublication({ ...newPublication, year: Number(value) })}
             required
           />
           <FormInput
@@ -224,7 +223,7 @@ export default function PublicationsManager() {
                   description: '',
                   category: '',
                   journalName: '',
-                  year: '',
+                  year: 0,
                   authors: [],
                   keywords: [],
                   url: '',
