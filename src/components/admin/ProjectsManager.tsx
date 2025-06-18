@@ -45,10 +45,6 @@ export default function ProjectsManager() {
     fetchMembers();
   }, []);
 
-  useEffect(() => {
-    console.log('Projects atualizados:', projects);
-  }, [projects]);
-
   const fetchProjects = async () => {
     setIsLoading(true);
     try {

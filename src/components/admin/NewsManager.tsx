@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuthContext } from '../../contexts/AuthContext';
+import FormInput from '../ui/formInput';
+import FormTextArea from '../ui/formTextArea';
 
 interface News {
   id: string;
   title: string;
   content: string;
-  image: string;
+  img: string;
   date: string;
   author: string;
 }
@@ -31,7 +33,7 @@ export default function NewsManager() {
     setIsLoading(true);
     try {
       const response = await axios.get('http://localhost:3000/news');
-      setNews(Array.isArray(response.data) ? response.data : []);
+      setNews(response.data.data);
     } catch (error) {
       console.error('Erro ao carregar notícias:', error);
       setNews([]);
@@ -118,23 +120,21 @@ export default function NewsManager() {
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-gray-700">Título</label>
-            <input
-              type="text"
+            <FormInput
+              label="Título"
               value={newNews.title}
-              onChange={(e) => setNewNews({ ...newNews, title: e.target.value })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              onChange={(value) => setNewNews({ ...newNews, title: value })}
               required
+              placeholder="Digite o título da notícia"
             />
           </div>
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-gray-700">Conteúdo</label>
-            <textarea
+            <FormTextArea
+              label="Conteúdo"
               value={newNews.content}
-              onChange={(e) => setNewNews({ ...newNews, content: e.target.value })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-              rows={6}
+              onChange={(value) => setNewNews({ ...newNews, content: value })}
               required
+              rows={6}
             />
           </div>
           <div>
@@ -157,13 +157,12 @@ export default function NewsManager() {
             )}
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Autor</label>
-            <input
-              type="text"
+            <FormInput
+              label="Autor"
               value={newNews.author}
-              onChange={(e) => setNewNews({ ...newNews, author: e.target.value })}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              onChange={(value) => setNewNews({ ...newNews, author: value })}
               required
+              placeholder="Digite o autor da notícia"
             />
           </div>
         </div>
@@ -215,7 +214,7 @@ export default function NewsManager() {
                     <div className="h-10 w-10 flex-shrink-0">
                       <img
                         className="h-10 w-10 rounded-full object-cover"
-                        src={newsItem.image}
+                        src={newsItem.img}
                         alt={newsItem.title}
                       />
                     </div>
@@ -226,7 +225,7 @@ export default function NewsManager() {
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">{newsItem.author}</div>
+                  <div className="text-sm text-gray-900">{newsItem.author || 'Desconhecido'}</div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="text-sm text-gray-900">
