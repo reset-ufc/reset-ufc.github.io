@@ -25,7 +25,7 @@ export function Router() {
 			<Route path="/visual-Identity" element={<VisualIdentityPage />} />
 			<Route path="/projects/:slug" element={<ProjectDetailsPage />} />
 			<Route path="/members" element={<TeamInterface />} />
-			<Route path="/members/:name" element={<ProfilePage />} />
+			<Route path="/members/:id" element={<ProfilePage />} />
 			<Route path="/news" element={<NewsCardList />} />
 			<Route path="/tools" element={<ToolsSection />} />
 			<Route path="/news/:title" element={<NewsDetail />} />

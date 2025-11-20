@@ -1,6 +1,8 @@
 /** biome-ignore-all lint/correctness/useExhaustiveDependencies: <explanation> */
 /** biome-ignore-all lint/suspicious/noArrayIndexKey: <explanation> */
 /** biome-ignore-all lint/a11y/useButtonType: <explanation> */
+
+import { Star } from "lucide-react";
 import { useEffect, useState } from "react";
 import { api } from "../../lib/axios";
 import FormInput from "../ui/formInput";
@@ -18,6 +20,7 @@ interface Publication {
 	authors: string[];
 	keywords: string[];
 	url: string;
+	isFeatured?: boolean;
 }
 
 export default function PublicationsManager() {
@@ -145,6 +148,18 @@ export default function PublicationsManager() {
 			...prev,
 			keywords: prev.keywords.filter((_, i) => i !== index),
 		}));
+	};
+
+	const handleToggleFeatured = async (id: string, currentFeatured: boolean) => {
+		setIsLoading(true);
+		try {
+			await api.patch(`/publications/${id}`, { isFeatured: !currentFeatured });
+			await fetchPublications(page, limit);
+		} catch (error) {
+			console.error("Erro ao atualizar destaque da publicação:", error);
+		} finally {
+			setIsLoading(false);
+		}
 	};
 
 	return (
@@ -276,9 +291,16 @@ export default function PublicationsManager() {
 						>
 							<div className="flex justify-between items-start mb-4">
 								<div className="flex-1">
-									<h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
-										{publication.title}
-									</h3>
+									<div className="flex items-center gap-2 mb-2">
+										<h3 className="text-lg font-semibold text-gray-900 line-clamp-2">
+											{publication.title}
+										</h3>
+										{publication.isFeatured && (
+											<span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+												Destaque
+											</span>
+										)}
+									</div>
 									<div className="flex flex-wrap gap-2 mb-3">
 										<span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
 											{publication.category}
@@ -291,14 +313,41 @@ export default function PublicationsManager() {
 										</span>
 									</div>
 								</div>
-								<div className="flex gap-2 ml-4">
+								<div className="flex gap-2 ml-4 items-center">
 									<button
+										type="button"
+										onClick={() =>
+											handleToggleFeatured(
+												publication.id,
+												publication.isFeatured || false,
+											)
+										}
+										className={`inline-flex items-center justify-center p-2 rounded-full transition-colors ${
+											publication.isFeatured
+												? "text-yellow-500 hover:text-yellow-600 bg-yellow-50"
+												: "text-gray-400 hover:text-yellow-500 hover:bg-yellow-50"
+										}`}
+										title={
+											publication.isFeatured
+												? "Remover do destaque"
+												: "Marcar como destaque"
+										}
+									>
+										<Star
+											className={`w-5 h-5 ${
+												publication.isFeatured ? "fill-current" : ""
+											}`}
+										/>
+									</button>
+									<button
+										type="button"
 										onClick={() => handleEdit(publication)}
 										className="text-indigo-600 hover:text-indigo-900 text-sm font-medium"
 									>
 										Editar
 									</button>
 									<button
+										type="button"
 										onClick={() => handleDelete(publication.id)}
 										className="text-red-600 hover:text-red-900 text-sm font-medium"
 									>

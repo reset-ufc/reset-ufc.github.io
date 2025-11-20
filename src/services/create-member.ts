@@ -1,19 +1,28 @@
 import { api } from "../lib/axios";
 
-type createMembersRequest = {
+// Tipos que permitem tanto objetos/arrays quanto strings JSON
+type ContactObject = {
+	email: string;
+	github: string;
+	lattes?: string;
+	phone?: string;
+	[key: string]: string | undefined;
+};
+
+export type createMembersRequest = {
 	name: string;
 	lastName?: string;
 	role: string;
 	github: string;
 	email: string;
-	img: string;
+	img?: string;
 	description: string;
-	contact: string;
-	researchKeywords: string;
-	publishedPapers: string;
-	projectIds: string;
-	memberType: "PROFESSOR" | "STUDENT" | "COLLABORATOR";
-	coordinatorType: "NONE" | "COORDINATOR" | "VICE_COORDINATOR";
+	contact: ContactObject | string; // Pode ser objeto ou string JSON
+	researchKeywords: string[] | string; // Pode ser array ou string JSON
+	publishedPapers: string[] | string; // Pode ser array ou string JSON
+	projectIds?: string[] | string; // Pode ser array ou string JSON (opcional)
+	memberType?: "PROFESSOR" | "STUDENT" | "COLLABORATOR"; // Opcional, padrão: STUDENT
+	coordinatorType?: "NONE" | "COORDINATOR" | "VICE_COORDINATOR"; // Opcional, padrão: NONE
 };
 
 export async function createMember(payload: createMembersRequest) {

@@ -5,7 +5,7 @@
 /** biome-ignore-all lint/a11y/noStaticElementInteractions: <explanation> */
 /** biome-ignore-all lint/a11y/noSvgWithoutTitle: <explanation> */
 
-import axios from "axios";
+import { Star } from "lucide-react";
 import { useEffect, useState } from "react";
 import { api } from "../../lib/axios";
 import FormInput from "../ui/formInput";
@@ -25,6 +25,7 @@ interface Project {
 	periodStart: string | null;
 	periodEnd: string | null;
 	memberIds: string[];
+	isFeatured?: boolean;
 	createdAt: string;
 	updatedAt: string;
 }
@@ -203,6 +204,18 @@ export default function ProjectsManager() {
 			} finally {
 				setIsLoading(false);
 			}
+		}
+	};
+
+	const handleToggleFeatured = async (id: string, currentFeatured: boolean) => {
+		setIsLoading(true);
+		try {
+			await api.patch(`/projects/${id}`, { isFeatured: !currentFeatured });
+			await fetchProjects();
+		} catch (error) {
+			console.error("Erro ao atualizar destaque do projeto:", error);
+		} finally {
+			setIsLoading(false);
 		}
 	};
 
@@ -733,7 +746,9 @@ export default function ProjectsManager() {
 							<th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
 								Período
 							</th>
-
+							<th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+								Destaque
+							</th>
 							<th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
 								Ações
 							</th>
@@ -757,9 +772,16 @@ export default function ProjectsManager() {
 												}}
 											/>
 										</div>
-										<div className="ml-4">
-											<div className="text-sm font-medium text-gray-900">
-												{project.title || "Sem título"}
+										<div className="ml-4 flex-1">
+											<div className="flex items-center gap-2">
+												<div className="text-sm font-medium text-gray-900">
+													{project.title || "Sem título"}
+												</div>
+												{project.isFeatured && (
+													<span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+														Destaque
+													</span>
+												)}
 											</div>
 											<div className="text-sm text-gray-500">
 												{project.slug}
@@ -838,14 +860,43 @@ export default function ProjectsManager() {
 										)}
 									</div>
 								</td>
+								<td className="px-6 py-4 whitespace-nowrap text-center">
+									<button
+										type="button"
+										onClick={() =>
+											handleToggleFeatured(
+												project.id,
+												project.isFeatured || false,
+											)
+										}
+										className={`inline-flex items-center justify-center p-2 rounded-full transition-colors ${
+											project.isFeatured
+												? "text-yellow-500 hover:text-yellow-600 bg-yellow-50"
+												: "text-gray-400 hover:text-yellow-500 hover:bg-yellow-50"
+										}`}
+										title={
+											project.isFeatured
+												? "Remover do destaque"
+												: "Marcar como destaque"
+										}
+									>
+										<Star
+											className={`w-5 h-5 ${
+												project.isFeatured ? "fill-current" : ""
+											}`}
+										/>
+									</button>
+								</td>
 								<td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
 									<button
+										type="button"
 										onClick={() => handleEdit(project)}
 										className="text-indigo-600 hover:text-indigo-900 mr-4"
 									>
 										Editar
 									</button>
 									<button
+										type="button"
 										onClick={() => handleDelete(project.id)}
 										className="text-red-600 hover:text-red-900"
 									>

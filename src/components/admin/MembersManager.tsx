@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { createMember } from "../../services/create-member";
@@ -46,7 +46,7 @@ const memberSchema = z.object({
 		}),
 	description: z.string().min(1, "Descrição é obrigatória"),
 	contact: z.object({
-		latter: z
+		lattes: z
 			.string()
 			.refine((val) => val === "" || z.string().url().safeParse(val).success, {
 				message: "URL do Lattes inválida",
@@ -77,9 +77,37 @@ export default function MembersManager() {
 
 	// Buscar membros com useQuery
 	const { data: membersData, isLoading } = useQuery({
-		queryKey: ["members", currentPage, searchTerm, memberTypeFilter, limit],
-		queryFn: () => getMembers(currentPage, limit, searchTerm, memberTypeFilter),
+		queryKey: ["members", currentPage, limit],
+		queryFn: () => getMembers(currentPage, limit),
 	});
+
+	// Aplicar filtros localmente nos dados retornados
+	const filteredMembers = useMemo(() => {
+		if (!membersData?.data) return [];
+		
+		let filtered = membersData.data;
+
+		// Filtrar por tipo de membro
+		if (memberTypeFilter !== "all") {
+			filtered = filtered.filter(
+				(member) => member.memberType === memberTypeFilter
+			);
+		}
+
+		// Filtrar por termo de busca
+		if (searchTerm) {
+			const searchLower = searchTerm.toLowerCase();
+			filtered = filtered.filter(
+				(member) =>
+					member.name.toLowerCase().includes(searchLower) ||
+					member.lastName?.toLowerCase().includes(searchLower) ||
+					member.email.toLowerCase().includes(searchLower) ||
+					member.role.toLowerCase().includes(searchLower)
+			);
+		}
+
+		return filtered;
+	}, [membersData?.data, memberTypeFilter, searchTerm]);
 
 	console.log(membersData);
 
@@ -103,7 +131,7 @@ export default function MembersManager() {
 			img: "",
 			description: "",
 			contact: {
-				latter: "",
+				lattes: "",
 			},
 			researchKeywords: [],
 			publishedPapers: [],
@@ -170,7 +198,7 @@ export default function MembersManager() {
 			img: "",
 			description: "",
 			contact: {
-				latter: "",
+				lattes: "",
 			},
 			researchKeywords: [],
 			publishedPapers: [],
@@ -211,7 +239,7 @@ export default function MembersManager() {
 			contact: JSON.stringify({
 				email: data.email,
 				github: data.github,
-				latter: data.contact.latter || "",
+				lattes: data.contact.lattes || "",
 			}),
 			researchKeywords: JSON.stringify(data.researchKeywords),
 			publishedPapers: JSON.stringify(data.publishedPapers),
@@ -239,7 +267,7 @@ export default function MembersManager() {
 			img: member.img || "",
 			description: member.description,
 			contact: {
-				latter: member.contact.latter || "",
+				lattes: member.contact?.lattes || "",
 			},
 			researchKeywords: member.researchKeywords,
 			publishedPapers: member.publishedPapers,
@@ -508,13 +536,13 @@ export default function MembersManager() {
 					<div>
 						<FormInput
 							label="Lattes"
-							value={watch("contact.latter") || ""}
-							onChange={(value) => setValue("contact.latter", value)}
+							value={watch("contact.lattes") || ""}
+							onChange={(value) => setValue("contact.lattes", value)}
 							placeholder="URL do Lattes"
 						/>
-						{errors.contact?.latter && (
+						{errors.contact?.lattes && (
 							<p className="mt-1 text-sm text-red-600">
-								{errors.contact.latter.message}
+								{errors.contact.lattes.message}
 							</p>
 						)}
 					</div>
@@ -622,8 +650,8 @@ export default function MembersManager() {
 						</tr>
 					</thead>
 					<tbody className="bg-white divide-y divide-gray-200">
-						{membersData?.data && membersData.data.length > 0 ? (
-							membersData.data.map((member) => (
+						{filteredMembers && filteredMembers.length > 0 ? (
+							filteredMembers.map((member) => (
 								<tr key={member.id}>
 									<td className="px-6 py-4 whitespace-nowrap">
 										<div className="flex items-center">

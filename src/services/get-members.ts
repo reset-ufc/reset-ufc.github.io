@@ -13,47 +13,37 @@ export interface Member {
 	contact: {
 		email?: string;
 		github?: string;
-		latter?: string;
+		phone?: string;
+		lattes?: string;
+		[key: string]: string | undefined; // Permite campos personalizados
 	};
 	researchKeywords: string[];
 	publishedPapers: string[];
 	projectIds: string[];
 	memberType?: "PROFESSOR" | "STUDENT" | "COLLABORATOR";
-	isCoordinator?: boolean;
-	isViceCoordinator?: boolean;
+	isCoordinator?: boolean; // Mantido para compatibilidade com dados antigos
+	isViceCoordinator?: boolean; // Mantido para compatibilidade com dados antigos
 	coordinatorType?: "NONE" | "COORDINATOR" | "VICE_COORDINATOR";
+	createdAt?: string;
+	updatedAt?: string;
 }
 
 export interface MembersResponse {
 	data: Member[];
+	total: number;
+	page: number;
+	limit: number;
 	totalPages: number;
 }
 
-export async function getMembers(
-	page: number,
-	limit: number,
-	search: string,
-	memberType: string,
-) {
-	const response = await api.get<Member[] | MembersResponse>("/members", {
+export async function getMembers(page: number = 1, limit: number = 10) {
+	const response = await api.get<MembersResponse>("/members", {
 		params: {
 			page,
 			limit,
-			search,
-			memberType,
 		},
 	});
 
-	console.log("resposta.data", response.data);
-
-	// Se a resposta for um array diretamente, normalizar para o formato esperado
-	if (Array.isArray(response.data)) {
-		return {
-			data: response.data,
-			totalPages: 1, // Se não houver paginação na resposta, assumir 1 página
-		};
-	}
-
-	// Caso contrário, retornar a resposta como está
-	return response.data as MembersResponse;
+	// Retornar a resposta como está (a API já retorna no formato correto)
+	return response.data;
 }

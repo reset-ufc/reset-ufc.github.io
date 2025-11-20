@@ -2,6 +2,8 @@
 /** biome-ignore-all lint/suspicious/noArrayIndexKey: <explanation> */
 /** biome-ignore-all lint/a11y/useButtonType: <explanation> */
 /** biome-ignore-all lint/a11y/noSvgWithoutTitle: <explanation> */
+
+import { Star } from "lucide-react";
 import { useEffect, useState } from "react";
 import { api } from "../../lib/axios";
 import FormInput from "../ui/formInput";
@@ -15,6 +17,7 @@ interface News {
 	imgurDeleteHash?: string;
 	keywords: string[];
 	publishedDate?: string;
+	isFeatured?: boolean;
 	createdAt: string;
 	updatedAt: string;
 	userId: string;
@@ -127,6 +130,18 @@ export default function NewsManager() {
 			} finally {
 				setIsLoading(false);
 			}
+		}
+	};
+
+	const handleToggleFeatured = async (id: string, currentFeatured: boolean) => {
+		setIsLoading(true);
+		try {
+			await api.patch(`/news/${id}`, { isFeatured: !currentFeatured });
+			await fetchNews();
+		} catch (error) {
+			console.error("Erro ao atualizar destaque da notícia:", error);
+		} finally {
+			setIsLoading(false);
 		}
 	};
 
@@ -288,6 +303,9 @@ export default function NewsManager() {
 							<th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
 								Data
 							</th>
+							<th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+								Destaque
+							</th>
 							<th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
 								Ações
 							</th>
@@ -305,9 +323,16 @@ export default function NewsManager() {
 												alt={newsItem.title}
 											/>
 										</div>
-										<div className="ml-4">
-											<div className="text-sm font-medium text-gray-900">
-												{newsItem.title}
+										<div className="ml-4 flex-1">
+											<div className="flex items-center gap-2">
+												<div className="text-sm font-medium text-gray-900">
+													{newsItem.title}
+												</div>
+												{newsItem.isFeatured && (
+													<span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+														Destaque
+													</span>
+												)}
 											</div>
 											<div className="text-sm text-gray-500 line-clamp-2">
 												{newsItem.content}
@@ -331,14 +356,43 @@ export default function NewsManager() {
 												)}
 									</div>
 								</td>
+								<td className="px-6 py-4 whitespace-nowrap text-center">
+									<button
+										type="button"
+										onClick={() =>
+											handleToggleFeatured(
+												newsItem.id,
+												newsItem.isFeatured || false,
+											)
+										}
+										className={`inline-flex items-center justify-center p-2 rounded-full transition-colors ${
+											newsItem.isFeatured
+												? "text-yellow-500 hover:text-yellow-600 bg-yellow-50"
+												: "text-gray-400 hover:text-yellow-500 hover:bg-yellow-50"
+										}`}
+										title={
+											newsItem.isFeatured
+												? "Remover do destaque"
+												: "Marcar como destaque"
+										}
+									>
+										<Star
+											className={`w-5 h-5 ${
+												newsItem.isFeatured ? "fill-current" : ""
+											}`}
+										/>
+									</button>
+								</td>
 								<td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
 									<button
+										type="button"
 										onClick={() => handleEdit(newsItem)}
 										className="text-indigo-600 hover:text-indigo-900 mr-4"
 									>
 										Editar
 									</button>
 									<button
+										type="button"
 										onClick={() => handleDelete(newsItem.id)}
 										className="text-red-600 hover:text-red-900"
 									>
