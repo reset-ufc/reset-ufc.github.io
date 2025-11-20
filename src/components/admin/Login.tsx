@@ -1,28 +1,18 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { useAuthContext } from '../../contexts/AuthContext';
 
 export function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate();
-  const { setToken } = useAuthContext();
+  const { login } = useAuthContext();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:3000/auth/login', {
-        email,
-        password,
-      });
-      const token = response.data.accessToken;
-      console.log(token);
-      setToken(token);
-      navigate('/admin/dashboard');
+      await login(email, password);
     } catch (err) {
       setError('Email ou senha inválidos');
     }

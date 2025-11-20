@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { api } from '../../lib/axios';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 export default function Register() {
   const [email, setEmail] = useState('');
@@ -8,6 +9,13 @@ export default function Register() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuthContext();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/admin/dashboard', { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,7 +26,7 @@ export default function Register() {
     }
 
     try {
-      await axios.post('http://localhost:3000/auth/register', {
+      await api.post('/auth/register', {
         email,
         password,
       });
@@ -28,6 +36,10 @@ export default function Register() {
       setError('Erro ao criar conta');
     }
   };
+
+  if (isAuthenticated) {
+    return null;
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">

@@ -10,7 +10,7 @@ type Tab = 'members' | 'projects' | 'news' | 'publications';
 
 export default function Dashboard() {
   const navigate = useNavigate();
-  const { isAuthenticated, removeToken } = useAuthContext();
+  const { isAuthenticated, logout } = useAuthContext();
   const [activeTab, setActiveTab] = useState<Tab>('members');
 
   useEffect(() => {
@@ -20,8 +20,7 @@ export default function Dashboard() {
   }, [isAuthenticated, navigate]);
 
   const handleLogout = () => {
-    removeToken();
-    navigate('/admin/login');
+    logout();
   };
 
   if (!isAuthenticated) {
