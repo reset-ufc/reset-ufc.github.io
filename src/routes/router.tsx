@@ -28,7 +28,7 @@ export function Router() {
 			<Route path="/members/:id" element={<ProfilePage />} />
 			<Route path="/news" element={<NewsCardList />} />
 			<Route path="/tools" element={<ToolsSection />} />
-			<Route path="/news/:title" element={<NewsDetail />} />
+			<Route path="/news/:id" element={<NewsDetail />} />
 
 			{/* Admin Routes */}
 			<Route

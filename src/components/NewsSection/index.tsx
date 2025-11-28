@@ -79,9 +79,10 @@ const NewsList = () => {
               <div key={newsItem.id} className="p-6 md:p-4">
                 <NewsCard
                   news={{
+                    id: newsItem.id,
                     image: newsItem.img || "https://via.placeholder.com/400x300",
                     title: newsItem.title,
-                    date: new Date(newsItem.publishedDate).toLocaleDateString("pt-BR", {
+                    date: new Date(newsItem.publishedDate || newsItem.createdAt).toLocaleDateString("pt-BR", {
                       day: "numeric",
                       month: "short",
                     }),
@@ -97,9 +98,10 @@ const NewsList = () => {
             <div key={newsItem.id}>
               <NewsCard
                 news={{
+                  id: newsItem.id,
                   image: newsItem.img || "https://via.placeholder.com/400x300",
                   title: newsItem.title,
-                  date: new Date(newsItem.publishedDate).toLocaleDateString("pt-BR", {
+                  date: new Date(newsItem.publishedDate || newsItem.createdAt).toLocaleDateString("pt-BR", {
                     day: "numeric",
                     month: "short",
                   }),

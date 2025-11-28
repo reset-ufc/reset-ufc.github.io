@@ -64,6 +64,25 @@ export default function ProjectsManager() {
 		fetchMembers();
 	}, []);
 
+	// Fechar dropdowns ao clicar fora
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			const target = event.target as HTMLElement;
+			if (
+				!target.closest('[data-dropdown="members"]') &&
+				!target.closest('[data-dropdown="coordinator"]')
+			) {
+				setIsDropdownOpen(false);
+				setIsCoordinatorDropdownOpen(false);
+			}
+		};
+
+		document.addEventListener("mousedown", handleClickOutside);
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
+	}, []);
+
 	const fetchProjects = async () => {
 		setIsLoading(true);
 		try {
@@ -79,8 +98,15 @@ export default function ProjectsManager() {
 
 	const fetchMembers = async () => {
 		try {
-			const response = await api.get("/members");
-			setMembers(Array.isArray(response.data) ? response.data : []);
+			// Buscar todos os membros com um limite alto
+			const response = await api.get("/members", {
+				params: {
+					page: 1,
+					limit: 1000, // Limite alto para buscar todos os membros
+				},
+			});
+			// A API retorna { data: Member[], total, page, limit, totalPages }
+			setMembers(Array.isArray(response.data?.data) ? response.data.data : []);
 		} catch (error) {
 			console.error("Erro ao carregar membros:", error);
 			setMembers([]);
@@ -268,7 +294,7 @@ export default function ProjectsManager() {
 						<label className="block text-sm font-medium text-gray-700 mb-2">
 							Coordenador do Projeto
 						</label>
-						<div className="relative">
+						<div className="relative" data-dropdown="coordinator">
 							<div
 								className="flex items-center p-4 border border-gray-300 rounded-lg bg-white hover:border-indigo-300 transition-colors cursor-pointer"
 								onClick={() =>
@@ -415,7 +441,7 @@ export default function ProjectsManager() {
 						<label className="block text-sm font-medium text-gray-700 mb-2">
 							Membros do Projeto
 						</label>
-						<div className="relative">
+						<div className="relative" data-dropdown="members">
 							<div
 								className="flex flex-wrap gap-3 p-4 min-h-[120px] border border-gray-300 rounded-lg bg-white hover:border-indigo-300 transition-colors cursor-pointer"
 								onClick={() => setIsDropdownOpen(true)}

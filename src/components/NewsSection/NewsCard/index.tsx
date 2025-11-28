@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 interface NewsCardProps {
   news: {
+    id?: string;
     image: string;
     title: string;
     // category: string;
@@ -13,7 +14,12 @@ export default function NewsCard({ news }: NewsCardProps) {
   const navigate = useNavigate();
 
   const handleReadMore = () => {
-    navigate(`/news/${encodeURIComponent(news.title)}`); // Codifica o título para URL
+    if (news.id) {
+      navigate(`/news/${news.id}`);
+    } else {
+      // Fallback para compatibilidade com dados antigos
+      navigate(`/news/${encodeURIComponent(news.title)}`);
+    }
   };
 
   return (

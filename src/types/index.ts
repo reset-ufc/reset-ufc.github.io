@@ -36,6 +36,7 @@ export interface ToolProps {
 
 export interface NewsCardProps {
   news: {
+    id?: string;
     image: string;
     title: string;
     category: string;

@@ -81,16 +81,18 @@ export default function MembersManager() {
 		queryFn: () => getMembers(currentPage, limit),
 	});
 
+	console.log(membersData);
+
 	// Aplicar filtros localmente nos dados retornados
 	const filteredMembers = useMemo(() => {
 		if (!membersData?.data) return [];
-		
+
 		let filtered = membersData.data;
 
 		// Filtrar por tipo de membro
 		if (memberTypeFilter !== "all") {
 			filtered = filtered.filter(
-				(member) => member.memberType === memberTypeFilter
+				(member) => member.memberType === memberTypeFilter,
 			);
 		}
 
@@ -102,7 +104,7 @@ export default function MembersManager() {
 					member.name.toLowerCase().includes(searchLower) ||
 					member.lastName?.toLowerCase().includes(searchLower) ||
 					member.email.toLowerCase().includes(searchLower) ||
-					member.role.toLowerCase().includes(searchLower)
+					member.role.toLowerCase().includes(searchLower),
 			);
 		}
 

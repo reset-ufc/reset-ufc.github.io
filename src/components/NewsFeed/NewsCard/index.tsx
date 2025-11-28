@@ -5,7 +5,12 @@ const NewsCard = ({ news }: NewsCardProps) => {
   const navigate = useNavigate();
 
   const handleReadMore = () => {
-    navigate(`/news/${encodeURIComponent(news.title)}`); 
+    if (news.id) {
+      navigate(`/news/${news.id}`);
+    } else {
+      // Fallback para compatibilidade com dados antigos
+      navigate(`/news/${encodeURIComponent(news.title)}`);
+    }
   };
 
   return (
